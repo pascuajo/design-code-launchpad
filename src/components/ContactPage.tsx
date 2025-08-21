@@ -23,9 +23,9 @@ export function ContactPage() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const services = [
     'Product Strategy',
-    'Product Development',
+    'New Product Development',
     'Digital Transformation',
-    'Leadership Coaching',
+    'Leadership and Coaching',
   ]
   const handleChange = (
     e: React.ChangeEvent<
@@ -114,7 +114,7 @@ export function ContactPage() {
                     <span className="bg-yellow-300 px-2">Get in Touch</span>
                   </h2>
                   <p className="text-gray-600 text-lg">
-                    Thanks for your interest in Clearmont Consulting. Fill out
+                    Thanks for your interest in Clearmont. Fill out
                     the form and I'll get back to you as soon as possible.
                   </p>
                 </div>
