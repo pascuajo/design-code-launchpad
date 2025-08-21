@@ -39,7 +39,7 @@ export function AboutSection() {
           </div>
 
           {/* Right side - Profile and Career Summary */}
-          <div className="lg:w-1/2 flex flex-col items-center lg:items-start">
+          <div className="lg:w-1/2 flex flex-col items-center lg:items-start bg-white rounded-xl p-8 shadow-lg">
             <AnimateOnScroll direction="right" className="mb-8">
               <div className="w-64 h-64 rounded-lg overflow-hidden shadow-lg">
                 <img 
