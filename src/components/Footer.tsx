@@ -15,9 +15,6 @@ export function Footer() {
                   className="h-24 mb-4" 
                 />
               </Link>
-              <span className="font-bold text-xl">
-                Clearmont Consulting LLC
-              </span>
             </div>
             <p className="text-gray-400">
               Strategic consulting for purpose-driven organizations and leaders.
