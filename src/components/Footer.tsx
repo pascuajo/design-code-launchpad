@@ -20,7 +20,7 @@ export function Footer() {
           {/* Column 2: Strapline */}
           <div className="md:-ml-4">
             <p className="text-gray-400">
-              Strategic consulting for purpose-driven organizations and leaders.
+              Strategic product consulting for purpose-driven organizations and leaders.
             </p>
           </div>
 
@@ -34,7 +34,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
-                  Product Development
+                  New Product Development
                 </a>
               </li>
               <li>
@@ -44,7 +44,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
-                  Leadership Coaching
+                  Leadership and Coaching
                 </a>
               </li>
             </ul>
