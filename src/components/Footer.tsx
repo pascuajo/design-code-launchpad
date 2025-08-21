@@ -5,22 +5,26 @@ export function Footer() {
   return (
     <footer className="w-full bg-black text-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Column 1: Logo & Strapline */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {/* Column 1: Logo */}
           <div>
             <Link to="/">
               <img 
                 src="/Clearmont_white_on_black.png" 
                 alt="Clearmont logo" 
-                className="h-24 mb-4" 
+                className="h-24" 
               />
             </Link>
+          </div>
+
+          {/* Column 2: Strapline */}
+          <div className="md:-ml-4">
             <p className="text-gray-400">
               Strategic consulting for purpose-driven organizations and leaders.
             </p>
           </div>
 
-          {/* Column 2: Services */}
+          {/* Column 3: Services */}
           <div>
             <ul className="space-y-2 text-gray-400">
               <li>
@@ -46,7 +50,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Contact */}
+          {/* Column 4: Contact */}
           <div>
             <Link 
               to="/contact" 
