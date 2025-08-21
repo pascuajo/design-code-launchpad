@@ -15,36 +15,36 @@ const imageData: ImageData[] = [{
   id: 'fractional-leadership',
   url: "/fractional_leadership.webp",
   title: 'Fractional Leadership',
-  description: 'Expert C-level guidance without the full-time commitment',
-  tags: ['Roadmaps', 'Strategy', 'Outcomes'],
+  description: 'Exceptional CPO to VP level support when you need it, without the full-time commitment',
+  tags: ['Startups', 'Strategy', 'Transitions'],
   category: 'Leadership'
 }, {
   id: 'app-design',
   url: "/app_design.jpg",
-  title: 'App Design & Development',
-  description: 'End-to-end product design and development consultation',
-  tags: ['Agile', 'Rapid Prototyping', 'PRDs'],
+  title: 'Product Design & Rapid Prototyping',
+  description: 'Explore new Product ideas and fresh perspectives (without derailing your current Product roadmap)',
+  tags: ['R & D', 'Rapid Prototyping', 'Customer UX'],
   category: 'Design'
 }, {
   id: 'growth-mentoring',
   url: "/istockphoto-1692037306-612x612.jpg",
-  title: 'Growth & Mentoring',
-  description: 'Personal coaching and professional development programs',
-  tags: ['Career', 'Mobility', 'Skills'],
-  category: 'Coaching'
+  title: 'Product Advisory & Coaching',
+  description: 'Your trusted partner helping you design and scale world class Product teams and operations',
+  tags: ['Mentoring', 'Operational Excellence', 'Professional Development'],
+  category: 'Productivity'
 }, {
   id: 'digital-transformation',
   url: "/digtal_transformation.jpg",
   title: 'Digital Transformation',
-  description: 'Streamline operations through intelligent automation solutions',
-  tags: ['Agentic AI', 'Productivity', 'Workflows'],
+  description: 'Scale and transform your cross-functional platform and business apps that power your business',
+  tags: ['Agentic AI', 'Cost Reduction', 'Platform Innovation'],
   category: 'Automation'
 }, {
   id: 'business-strategy',
   url: "/success-strategy-plan-ahead-win-600nw-2115564866.webp",
   title: 'Business Strategy',
   description: 'Data-driven strategic planning and market positioning',
-  tags: ['Mission', 'Customers', 'Market'],
+  tags: ['Competitive Advantage', 'New Business Models', 'Strategic Planning'],
   category: 'Strategy'
 }];
 export function ImageLibrary({
