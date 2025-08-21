@@ -1,0 +1,67 @@
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  return <header className={`w-full fixed top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-white py-5'}`}>
+      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
+        <div className="flex items-center">
+          <Link to="/">
+            <img src="/Clearmont_Logo_%28Black_on_White%29.png" alt="Clearmont logo" className="h-20 mr-2" />
+          </Link>
+        </div>
+        <nav className="hidden md:block">
+          <ul className="flex space-x-8">
+            <li>
+              <a href="#services" className="hover:text-yellow-500 transition-colors">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="#about" className="hover:text-yellow-500 transition-colors">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#portfolio" className="hover:text-yellow-500 transition-colors">
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a href="#testimonials" className="hover:text-yellow-500 transition-colors">
+                Testimonials
+              </a>
+            </li>
+            <li>
+              <Link to="/blog" className={`hover:text-yellow-500 transition-colors ${location.pathname.includes('/blog') ? 'text-yellow-500' : ''}`}>
+                Blog
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <Link to="/contact">
+            <button className="hidden md:block bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-2 px-5 rounded-full transition duration-300">
+              Contact
+            </button>
+          </Link>
+          <button className="md:hidden text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>;
+}
