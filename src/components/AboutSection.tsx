@@ -59,31 +59,31 @@ export function AboutSection() {
               <div className="space-y-3 mb-8">
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Master Strategic & Innovation Management</span>
+                  <span className="text-gray-700">Founder and CEO of Homepaired (SaaS C2C)</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Certified Design Sprint Facilitator</span>
+                  <span className="text-gray-700">Head of Product, UX and PMO at Amherst (PropTech, SaaS B2C)</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Certified Mastering Business Model Innovation</span>
+                  <span className="text-gray-700">Executive Director, Digital Transformation at UBS (FinTech, Platform)</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Certified Mastering Value Propositions</span>
+                  <span className="text-gray-700">Execitive Director, FinTech Innovation Labs at UBS (FinTech, Platform)</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Design Thinking for Innovation Expert</span>
+                  <span className="text-gray-700">Executive Consultant, AI Product Strategy at Gatekeeper (ProcureTech, SaaS B2B)</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Agile Leadership Expert</span>
+                  <span className="text-gray-700">CFO, AMER Equities at UBS</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Certified ScrumMaster® (CSM®)</span>
+                  <span className="text-gray-700">Chartered Accountant (ACCA)</span>
                 </div>
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
