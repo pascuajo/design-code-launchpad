@@ -15,20 +15,23 @@ export function AboutSection() {
           <div className="lg:w-1/2">
             <AnimateOnScroll direction="left" delay={0.2}>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                Hi, I'm Joe Pascual, and I don't just consult - I help to get things done. With a blend of entrepreneurial experience and corporate innovation, I've founded and led two startups, build up a corporate incubator, and supported innovation initiatives for everyone from SMEs to Fortune 500 companies.
+                With over 15 years experience leading strategic product and digital transformation across various industries and platforms  - I’ve seen first-hand what it takes to transform operations, develop innovative products, and build high-performing teams.
               </p>
             </AnimateOnScroll>
 
             <AnimateOnScroll direction="left" delay={0.3}>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                I bring a startup mindset to every project, cutting through the bullshit and focusing 100% on execution. I'm not here to talk in circles; I'm here to make ideas happen, together. I often step in as an interim project leader, driving teams to deliver real, measurable outcomes.
-              </p>
+                My approach combines deep business acumen with a human-centered
+                design mindset, allowing me to create solutions that work for
+                both the business and the people involved.              </p>
             </AnimateOnScroll>
 
             <AnimateOnScroll direction="left" delay={0.4}>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                My mission? To build lasting capabilities within your team so you can innovate without depending on me. While I'm committed to long-term partnerships, my goal is to empower your teams to take charge of innovation independently.
-              </p>
+                I believe that the most successful organizations are those that
+                align their business goals with a meaningful purpose, creating
+                value for all stakeholders while making a positive impact on the
+                world.              </p>
             </AnimateOnScroll>
 
             <AnimateOnScroll direction="left" delay={0.5}>
