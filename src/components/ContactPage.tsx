@@ -6,8 +6,6 @@ type FormData = {
   email: string
   service: string
   message: string
-  consent: boolean
-  captcha: boolean
 }
 export function ContactPage() {
   const [formData, setFormData] = useState<FormData>({
@@ -16,12 +14,8 @@ export function ContactPage() {
     email: '',
     service: '',
     message: '',
-    consent: false,
-    captcha: false,
   })
   const [errors, setErrors] = useState<Partial<FormData>>({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
   const services = [
     'Product Strategy',
     'Product Development',
@@ -46,19 +40,6 @@ export function ContactPage() {
       }))
     }
   }
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: checked,
-    }))
-    if (errors[name as keyof typeof errors]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: undefined,
-      }))
-    }
-  }
   const validateForm = () => {
     const newErrors: Partial<FormData> = {}
     if (!formData.name.trim()) newErrors.name = 'Name is required'
@@ -70,60 +51,21 @@ export function ContactPage() {
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required'
     if (!formData.service) newErrors.service = 'Please select a service'
     if (!formData.message.trim()) newErrors.message = 'Message is required'
-    if (!formData.consent) newErrors.consent = 'You must agree to the terms'
-    if (!formData.captcha)
-      newErrors.captcha = "Please verify you're not a robot"
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (validateForm()) {
-      setIsSubmitting(true)
-      // In a real implementation, you would send the form data to a server here
-      // For this example, we'll just simulate a successful submission after a delay
-      setTimeout(() => {
-        setIsSubmitting(false)
-        setIsSubmitted(true)
-        // Reset form
-        setFormData({
-          name: '',
-          phone: '',
-          email: '',
-          service: '',
-          message: '',
-          consent: false,
-          captcha: false,
-        })
-      }, 1500)
+      const subject = `Contact Form: ${formData.service}`
+      const body = `Name: ${formData.name}%0D%0APhone: ${formData.phone}%0D%0AEmail: ${formData.email}%0D%0AService: ${formData.service}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`
+      
+      window.location.href = `mailto:joseph@clearmontconsulting.co.site?subject=${subject}&body=${body}`
     }
   }
   return (
     <section className="w-full bg-white py-28 px-4">
       <div className="max-w-6xl mx-auto">
-        {isSubmitted ? (
-          <div className="text-center py-16">
-            <AnimateOnScroll>
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                <span className="bg-yellow-300 px-2">Thank You!</span>
-              </h2>
-            </AnimateOnScroll>
-            <AnimateOnScroll delay={0.2}>
-              <p className="text-gray-600 text-xl mb-8">
-                Your message has been sent successfully. I'll get back to you as
-                soon as possible.
-              </p>
-            </AnimateOnScroll>
-            <AnimateOnScroll delay={0.4}>
-              <button
-                onClick={() => setIsSubmitted(false)}
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-3 px-8 rounded-full transition duration-300 text-lg"
-              >
-                Send Another Message
-              </button>
-            </AnimateOnScroll>
-          </div>
-        ) : (
           <div className="flex flex-col md:flex-row gap-12">
             <div className="md:w-1/3">
               <AnimateOnScroll direction="right">
@@ -142,15 +84,6 @@ export function ContactPage() {
                     alt="Contact us"
                     className="w-full h-auto"
                   />
-                </div>
-                <div className="mt-8">
-                  <h3 className="font-semibold text-xl mb-4">
-                    Contact Information
-                  </h3>
-                  <p className="text-gray-600 mb-2">
-                    Email: joseph@clearmontconsulting.co.site
-                  </p>
-                  <p className="text-gray-600">Phone: (917) 554-5222</p>
                 </div>
               </AnimateOnScroll>
             </div>
@@ -264,61 +197,18 @@ export function ContactPage() {
                       </p>
                     )}
                   </div>
-                  <div className="flex items-start">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="consent"
-                        name="consent"
-                        type="checkbox"
-                        checked={formData.consent}
-                        onChange={handleCheckboxChange}
-                        className="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
-                      />
-                    </div>
-                    <div className="ml-3">
-                      <label
-                        htmlFor="consent"
-                        className={`text-sm font-medium ${errors.consent ? 'text-red-500' : 'text-gray-700'}`}
-                      >
-                        I agree to the processing of my personal information for
-                        the purpose of contacting me
-                      </label>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="captcha"
-                        name="captcha"
-                        type="checkbox"
-                        checked={formData.captcha}
-                        onChange={handleCheckboxChange}
-                        className="w-4 h-4 text-yellow-500 border-gray-300 rounded focus:ring-yellow-500"
-                      />
-                    </div>
-                    <div className="ml-3">
-                      <label
-                        htmlFor="captcha"
-                        className={`text-sm font-medium ${errors.captcha ? 'text-red-500' : 'text-gray-700'}`}
-                      >
-                        I'm not a robot
-                      </label>
-                    </div>
-                  </div>
                   <div className="pt-4">
                     <button
                       type="submit"
-                      disabled={isSubmitting}
-                      className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-3 px-8 rounded-full transition duration-300 text-lg w-full md:w-auto disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-3 px-8 rounded-full transition duration-300 text-lg w-full md:w-auto"
                     >
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                      Send Message
                     </button>
                   </div>
                 </form>
               </AnimateOnScroll>
             </div>
           </div>
-        )}
       </div>
     </section>
   )
