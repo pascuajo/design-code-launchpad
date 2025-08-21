@@ -5,28 +5,23 @@ export function Footer() {
   return (
     <footer className="w-full bg-black text-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          {/* Column 1: Logo */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Column 1: Logo & Strapline */}
           <div>
             <Link to="/">
               <img 
                 src="/Clearmont_white_on_black.png" 
                 alt="Clearmont logo" 
-                className="h-24" 
+                className="h-24 mb-4" 
               />
             </Link>
-          </div>
-
-          {/* Column 2: Strapline */}
-          <div>
             <p className="text-gray-400">
               Strategic consulting for purpose-driven organizations and leaders.
             </p>
           </div>
 
-          {/* Column 3: Services */}
+          {/* Column 2: Services */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
                 <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
@@ -51,11 +46,11 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact */}
+          {/* Column 3: Contact */}
           <div>
             <Link 
               to="/contact" 
-              className="inline-block bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors mb-4"
+              className="inline-block bg-yellow-500 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 transition-colors mb-4"
             >
               Contact
             </Link>
