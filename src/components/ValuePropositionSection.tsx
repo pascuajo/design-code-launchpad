@@ -1,7 +1,9 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { AnimateOnScroll, AnimateChildren } from './AnimateOnScroll';
+
 export function ValuePropositionSection() {
-  return <section className="w-full bg-white py-32 px-4">
+  return (
+    <section className="w-full bg-white py-32 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimateOnScroll>
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-20">
@@ -9,6 +11,7 @@ export function ValuePropositionSection() {
             <span className="text-yellow-500">Profit</span>
           </h2>
         </AnimateOnScroll>
+
         <AnimateChildren staggerDelay={0.2} className="grid grid-cols-1 md:grid-cols-3 gap-16">
           <div className="text-center">
             <h3 className="text-xl font-semibold mb-6">
@@ -20,6 +23,7 @@ export function ValuePropositionSection() {
               challenges who need clarity and actionable solutions.
             </p>
           </div>
+
           <div className="text-center">
             <h3 className="text-xl font-semibold mb-6">
               Creating {' '}
@@ -30,6 +34,7 @@ export function ValuePropositionSection() {
               delivering meaningful impact and business results.
             </p>
           </div>
+
           <div className="text-center">
             <h3 className="text-xl font-semibold mb-6">
               <span className="bg-yellow-300 px-1"> Building Teams </span> That Deliver Exceptional Results
@@ -41,5 +46,6 @@ export function ValuePropositionSection() {
           </div>
         </AnimateChildren>
       </div>
-    </section>;
+    </section>
+  );
 }

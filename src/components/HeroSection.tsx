@@ -1,14 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AnimateOnScroll } from './AnimateOnScroll';
+
 export function HeroSection() {
-  return <section className="w-full bg-white py-28 px-4 md:px-8">
+  return (
+    <section className="w-full bg-white py-28 px-4 md:px-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
         <AnimateOnScroll direction="right" className="md:w-1/3 mb-12 md:mb-0">
           <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden mx-auto md:mx-0">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Consultant portrait" className="w-full h-full object-cover" />
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+              alt="Consultant portrait" 
+              className="w-full h-full object-cover" 
+            />
           </div>
         </AnimateOnScroll>
+
         <div className="md:w-2/3 md:pl-16">
           <AnimateOnScroll delay={0.2} direction="left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
@@ -17,6 +24,7 @@ export function HeroSection() {
               Faster.
             </h1>
           </AnimateOnScroll>
+
           <AnimateOnScroll delay={0.4} direction="left">
             <p className="text-gray-600 mb-10 text-xl max-w-2xl">
               Strategic product consulting for purpose-driven organizations and
@@ -24,6 +32,7 @@ export function HeroSection() {
               sustainable businesses.
             </p>
           </AnimateOnScroll>
+
           <AnimateOnScroll delay={0.6} direction="up">
             <Link to="/contact">
               <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-3 px-8 rounded-full transition duration-300 text-lg">
@@ -33,5 +42,6 @@ export function HeroSection() {
           </AnimateOnScroll>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }

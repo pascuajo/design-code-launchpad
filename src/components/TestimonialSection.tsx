@@ -1,19 +1,27 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { AnimateOnScroll, AnimateChildren } from './AnimateOnScroll';
+
 export function TestimonialSection() {
-  return <section className="w-full bg-white py-28 px-4">
+  return (
+    <section className="w-full bg-white py-28 px-4">
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
           <h2 className="text-3xl font-bold text-center mb-16">
             Read This By Way Of It
           </h2>
         </AnimateOnScroll>
+
         <div className="flex flex-col md:flex-row items-center">
           <AnimateOnScroll direction="right" className="md:w-1/4 mb-8 md:mb-0">
             <div className="w-32 h-32 rounded-full overflow-hidden mx-auto">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Testimonial author" className="w-full h-full object-cover" />
+              <img 
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                alt="Testimonial author" 
+                className="w-full h-full object-cover" 
+              />
             </div>
           </AnimateOnScroll>
+
           <div className="md:w-3/4">
             <AnimateOnScroll direction="left" delay={0.3}>
               <p className="italic text-gray-600 mb-6 text-xl">
@@ -25,12 +33,16 @@ export function TestimonialSection() {
           </div>
         </div>
       </div>
+
       <AnimateChildren staggerDelay={0.1} className="max-w-6xl mx-auto mt-20 flex justify-center gap-10">
-        {[1, 2, 3, 4, 5].map(logo => <div key={logo} className="h-10 w-20 opacity-70">
+        {[1, 2, 3, 4, 5].map(logo => (
+          <div key={logo} className="h-10 w-20 opacity-70">
             <div className="bg-gray-200 h-full w-full rounded flex items-center justify-center">
               <span className="text-xs text-gray-500">Logo {logo}</span>
             </div>
-          </div>)}
+          </div>
+        ))}
       </AnimateChildren>
-    </section>;
+    </section>
+  );
 }
