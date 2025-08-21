@@ -15,7 +15,7 @@ export const blogPosts: BlogPost[] = [{
   slug: 'stop-overthinking-ai',
   date: 'April 12, 2024',
   author: 'Joe Pascual',
-  imageUrl: 'https://images.unsplash.com/photo-1677442135968-6276536b361b?q=80&w=2832&auto=format&fit=crop',
+  imageUrl: '/ai-blog-hero.jpg',
   excerpt: "Everyone's talking about AI like it's going to save the world or end it. Meanwhile, you're just trying to figure out where to start without looking like an idiot.",
   content: <>
         <p className="mb-6 text-lg leading-relaxed">
