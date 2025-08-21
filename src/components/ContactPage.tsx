@@ -71,9 +71,9 @@ export function ContactPage() {
 
     try {
       // Replace these with your actual EmailJS credentials
-      const serviceId = service_8w30v57
-      const templateId = template_s80kikt
-      const publicKey = fTCi5jUONAznK7UTI
+      const serviceId = 'service_8w30v57'
+      const templateId = 'template_s80kikt'
+      const publicKey = 'fTCi5jUONAznK7UTI'
 
       await emailjs.send(
         serviceId,
