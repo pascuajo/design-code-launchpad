@@ -7,7 +7,7 @@ export function TestimonialSection() {
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
           <h2 className="text-3xl font-bold text-center mb-16">
-            Read This By Way Of It
+            Don't Take My Word For It...
           </h2>
         </AnimateOnScroll>
 
