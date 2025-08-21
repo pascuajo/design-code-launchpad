@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { AnimateOnScroll } from './AnimateOnScroll'
+
 type FormData = {
   name: string
   phone: string
@@ -7,6 +9,7 @@ type FormData = {
   service: string
   message: string
 }
+
 export function ContactPage() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -16,6 +19,8 @@ export function ContactPage() {
     message: '',
   })
   const [errors, setErrors] = useState<Partial<FormData>>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const services = [
     'Product Strategy',
     'Product Development',
@@ -54,13 +59,48 @@ export function ContactPage() {
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (validateForm()) {
-      const subject = `Contact Form: ${formData.service}`
-      const body = `Name: ${formData.name}%0D%0APhone: ${formData.phone}%0D%0AEmail: ${formData.email}%0D%0AService: ${formData.service}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`
-      
-      window.location.href = `mailto:joseph@clearmontconsulting.co.site?subject=${subject}&body=${body}`
+    
+    if (!validateForm()) {
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      // Replace these with your actual EmailJS credentials
+      const serviceId = 'YOUR_SERVICE_ID'
+      const templateId = 'YOUR_TEMPLATE_ID'
+      const publicKey = 'YOUR_PUBLIC_KEY'
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+        },
+        publicKey
+      )
+
+      setSubmitStatus('success')
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        service: '',
+        message: ''
+      })
+    } catch (error) {
+      console.error('EmailJS error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
     }
   }
   return (
@@ -197,12 +237,26 @@ export function ContactPage() {
                       </p>
                     )}
                   </div>
+                  
+                  {submitStatus === 'success' && (
+                    <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+                      Thank you! Your message has been sent successfully.
+                    </div>
+                  )}
+                  
+                  {submitStatus === 'error' && (
+                    <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                      Sorry, there was an error sending your message. Please try again.
+                    </div>
+                  )}
+
                   <div className="pt-4">
                     <button
                       type="submit"
-                      className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-3 px-8 rounded-full transition duration-300 text-lg w-full md:w-auto"
+                      disabled={isSubmitting}
+                      className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-3 px-8 rounded-full transition duration-300 text-lg w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Send Message
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
                   </div>
                 </form>
