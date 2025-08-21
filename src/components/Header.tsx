@@ -24,7 +24,7 @@ export function Header() {
         <div className="flex items-center">
           <Link to="/">
             <img 
-              src="/Clearmont_Logo_%28Black_on_White%29.png" 
+              src="/Clearmont logo black on white header.png" 
               alt="Clearmont logo" 
               className="h-20 mr-2" 
             />
