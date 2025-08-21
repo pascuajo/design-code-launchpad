@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AnimateOnScroll, AnimateChildren } from './AnimateOnScroll';
+import { AnimateOnScroll } from './AnimateOnScroll';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
@@ -119,15 +119,6 @@ export function TestimonialSection() {
         </div>
       </div>
 
-      <AnimateChildren staggerDelay={0.1} className="max-w-6xl mx-auto mt-20 flex justify-center gap-10">
-        {[1, 2, 3, 4, 5].map(logo => (
-          <div key={logo} className="h-10 w-20 opacity-70">
-            <div className="bg-gray-200 h-full w-full rounded flex items-center justify-center">
-              <span className="text-xs text-gray-500">Logo {logo}</span>
-            </div>
-          </div>
-        ))}
-      </AnimateChildren>
     </section>
   );
 }
