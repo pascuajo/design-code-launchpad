@@ -31,45 +31,41 @@ export function Header() {
           </Link>
         </div>
 
-        <nav className="hidden md:block">
-          <ul className="flex space-x-8">
-            <li>
-              <a href="#services" className="hover:text-yellow-500 transition-colors">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="hover:text-yellow-500 transition-colors">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#portfolio" className="hover:text-yellow-500 transition-colors">
-                Portfolio
-              </a>
-            </li>
-            <li>
-              <a href="#testimonials" className="hover:text-yellow-500 transition-colors">
-                Testimonials
-              </a>
-            </li>
-            <li>
-              <Link 
-                to="/blog" 
-                className={`hover:text-yellow-500 transition-colors ${location.pathname.includes('/blog') ? 'text-yellow-500' : ''}`}
-              >
-                Blog
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <div className="flex items-center space-x-8">
+          <nav className="hidden md:block">
+            <ul className="flex space-x-8">
+              <li>
+                <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
+                  How I Can Help
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-yellow-500 transition-colors">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="#about" className="hover:text-yellow-500 transition-colors">
+                  About Me
+                </a>
+              </li>
+              <li>
+                <Link 
+                  to="/blog" 
+                  className={`hover:text-yellow-500 transition-colors ${location.pathname.includes('/blog') ? 'text-yellow-500' : ''}`}
+                >
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </nav>
 
-        <div>
           <Link to="/contact">
             <button className="hidden md:block bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-2 px-5 rounded-full transition duration-300">
               Contact
             </button>
           </Link>
+          
           <button className="md:hidden text-gray-800">
             <svg 
               xmlns="http://www.w3.org/2000/svg" 

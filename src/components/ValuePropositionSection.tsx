@@ -3,7 +3,7 @@ import { AnimateOnScroll, AnimateChildren } from './AnimateOnScroll';
 
 export function ValuePropositionSection() {
   return (
-    <section className="w-full bg-white py-32 px-4">
+    <section className="w-full bg-white py-32 px-4" id="value-proposition">
       <div className="max-w-6xl mx-auto">
         <AnimateOnScroll>
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-20">
