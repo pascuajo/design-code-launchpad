@@ -11,14 +11,15 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "framer-motion": "^12.23.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1"
   },
   "devDependencies": {
+    "@types/node": "^20.5.8",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "@types/node": "^20.5.8",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.27",
