@@ -6,20 +6,38 @@ import { BlogPage } from './components/blog/BlogPage';
 import { BlogPostPage } from './components/blog/BlogPostPage';
 import { Layout } from './components/Layout';
 import { ContactPage } from './components/ContactPage';
+
 export function AppRouter() {
-  return <BrowserRouter>
+  return (
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/fun-quirky" element={<AppFunQuirky />} />
-        <Route path="/contact" element={<Layout>
+        <Route
+          path="/contact"
+          element={
+            <Layout>
               <ContactPage />
-            </Layout>} />
-        <Route path="/blog" element={<Layout>
+            </Layout>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <Layout>
               <BlogPage />
-            </Layout>} />
-        <Route path="/blog/:slug" element={<Layout>
+            </Layout>
+          }
+        />
+        <Route
+          path="/blog/:slug"
+          element={
+            <Layout>
               <BlogPostPage />
-            </Layout>} />
+            </Layout>
+          }
+        />
       </Routes>
-    </BrowserRouter>;
+    </BrowserRouter>
+  );
 }

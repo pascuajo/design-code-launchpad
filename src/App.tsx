@@ -9,8 +9,10 @@ import { TestimonialSection } from './components/TestimonialSection';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+
 export function App() {
-  return <div className="w-full min-h-screen">
+  return (
+    <div className="w-full min-h-screen">
       <Header />
       <div className="pt-20">
         <HeroSection />
@@ -23,5 +25,6 @@ export function App() {
         <ContactSection />
         <Footer />
       </div>
-    </div>;
+    </div>
+  );
 }
