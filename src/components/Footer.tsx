@@ -65,10 +65,7 @@ export function Footer() {
                 </svg>
               </a>
             </div>
-            <p className="text-gray-400">joseph@clearmontconsulting.co.site</p>
-            <p className="text-gray-400">(917) 554-5222</p>
           </div>
-        </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
           <p>
