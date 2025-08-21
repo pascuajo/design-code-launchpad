@@ -4,7 +4,18 @@ export default {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      typography: {
+        lg: {
+          css: {
+            fontSize: '1.125rem',
+            lineHeight: '1.75',
+          },
+        },
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }
