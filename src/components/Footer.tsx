@@ -6,50 +6,60 @@ export function Footer() {
     <footer className="w-full bg-black text-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          {/* Column 1: Logo */}
           <div>
-            <div className="flex flex-col mb-6">
-              <Link to="/">
-                <img 
-                  src="/Clearmont_white_on_black.png" 
-                  alt="Clearmont logo" 
-                  className="h-24 mb-4" 
-                />
-              </Link>
-            </div>
+            <Link to="/">
+              <img 
+                src="/Clearmont_white_on_black.png" 
+                alt="Clearmont logo" 
+                className="h-24" 
+              />
+            </Link>
+          </div>
+
+          {/* Column 2: Strapline */}
+          <div>
             <p className="text-gray-400">
               Strategic consulting for purpose-driven organizations and leaders.
             </p>
           </div>
 
+          {/* Column 3: Services */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <a href="#" className="hover:text-yellow-500 transition-colors">
+                <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
                   Product Strategy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-yellow-500 transition-colors">
+                <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
                   Product Development
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-yellow-500 transition-colors">
+                <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
                   Digital Transformation
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-yellow-500 transition-colors">
+                <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
                   Leadership Coaching
                 </a>
               </li>
             </ul>
           </div>
 
+          {/* Column 4: Contact */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Connect</h3>
-            <div className="flex space-x-4 mb-4">
+            <Link 
+              to="/contact" 
+              className="inline-block bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors mb-4"
+            >
+              Contact
+            </Link>
+            <div className="flex">
               <a 
                 href="https://www.linkedin.com/in/joe-pascual/" 
                 target="_blank" 
