@@ -32,7 +32,7 @@ export function AppRouter() {
             path="/blog"
             element={
               <Layout>
-                <BlogListPage />
+                <BlogPage />
               </Layout>
             }
           />
