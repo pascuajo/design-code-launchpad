@@ -57,6 +57,14 @@ export function Header() {
                   Blog
                 </Link>
               </li>
+              <li>
+                <Link 
+                  to="/auth" 
+                  className="hover:text-yellow-500 transition-colors"
+                >
+                  Admin
+                </Link>
+              </li>
             </ul>
           </nav>
 
