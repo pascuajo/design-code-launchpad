@@ -4,6 +4,7 @@ import { App } from './App';
 
 import { BlogPage } from './components/blog/BlogPage';
 import { BlogPostDetail } from './components/blog/BlogPostDetail';
+import { BookClubPage } from './components/book-club/BookClubPage';
 import { Layout } from './components/Layout';
 import { ContactPage } from './components/ContactPage';
 import { AuthPage } from './components/auth/AuthPage';
@@ -38,6 +39,14 @@ export function AppRouter() {
             element={
               <Layout>
                 <BlogPostDetail />
+              </Layout>
+            }
+          />
+          <Route
+            path="/book-club"
+            element={
+              <Layout>
+                <BookClubPage />
               </Layout>
             }
           />

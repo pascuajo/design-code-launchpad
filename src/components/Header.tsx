@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -49,14 +51,33 @@ export function Header() {
                   About Me
                 </a>
               </li>
-               <li>
-                <Link 
-                  to="/blog" 
-                  className={`hover:text-yellow-500 transition-colors ${location.pathname.includes('/blog') ? 'text-yellow-500' : ''}`}
+               <li className="relative">
+                <button 
+                  className={`flex items-center hover:text-yellow-500 transition-colors ${location.pathname.includes('/blog') || location.pathname.includes('/book-club') ? 'text-yellow-500' : ''}`}
+                  onClick={() => setIsResourcesOpen(!isResourcesOpen)}
                 >
-                  Blog
-                </Link>
-              </li>
+                  Resources
+                  <ChevronDown size={16} className="ml-1" />
+                </button>
+                {isResourcesOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                    <Link 
+                      to="/blog" 
+                      className="block px-4 py-2 hover:bg-gray-50 transition-colors"
+                      onClick={() => setIsResourcesOpen(false)}
+                    >
+                      Blog
+                    </Link>
+                    <Link 
+                      to="/book-club" 
+                      className="block px-4 py-2 hover:bg-gray-50 transition-colors"
+                      onClick={() => setIsResourcesOpen(false)}
+                    >
+                      Book Club
+                    </Link>
+                  </div>
+                )}
+               </li>
             </ul>
           </nav>
 
