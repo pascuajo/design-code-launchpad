@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { App } from './App';
-import { AppFunQuirky } from './AppFunQuirky';
+
 import { BlogPage } from './components/blog/BlogPage';
 import { BlogPostDetail } from './components/blog/BlogPostDetail';
 import { Layout } from './components/Layout';
@@ -17,7 +17,6 @@ export function AppRouter() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/fun-quirky" element={<AppFunQuirky />} />
           <Route
             path="/contact"
             element={
