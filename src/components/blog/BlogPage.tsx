@@ -11,15 +11,31 @@ interface BlogPost {
   date: string;
   author: string;
   slug: string;
+  tags?: string[];
 }
 
 export function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchPublishedPosts();
   }, []);
+
+  useEffect(() => {
+    if (!searchTerm.trim()) {
+      setFilteredPosts(posts);
+    } else {
+      const filtered = posts.filter(post => 
+        post.tags?.some(tag => 
+          tag.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+      setFilteredPosts(filtered);
+    }
+  }, [searchTerm, posts]);
 
   const fetchPublishedPosts = async () => {
     try {
@@ -42,10 +58,12 @@ export function BlogPage() {
           day: 'numeric',
         }),
         author: post.author,
-        slug: post.slug
+        slug: post.slug,
+        tags: post.tags
       })) || [];
       
       setPosts(formattedPosts);
+      setFilteredPosts(formattedPosts);
     } catch (error) {
       console.error('Error fetching posts:', error);
     } finally {
@@ -72,18 +90,30 @@ export function BlogPage() {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
               Our <span className="bg-yellow-300 px-1">Blog</span>
             </h1>
-            <p className="text-gray-600 text-xl max-w-3xl mx-auto text-center mb-16">
+            <p className="text-gray-600 text-xl max-w-3xl mx-auto text-center mb-8">
               Insights, strategies, and practical advice to help you build what
               truly matters.
             </p>
+            
+            <div className="max-w-md mx-auto mb-16">
+              <input
+                type="text"
+                placeholder="Search by tags..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+              />
+            </div>
           </AnimateOnScroll>
-          {posts.length === 0 ? (
+          {filteredPosts.length === 0 ? (
             <div className="text-center py-12">
-              <div className="text-gray-600">No published posts yet</div>
+              <div className="text-gray-600">
+                {searchTerm ? `No posts found with tag "${searchTerm}"` : 'No published posts yet'}
+              </div>
             </div>
           ) : (
             <AnimateChildren staggerDelay={0.1} distance={40} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map(post => <BlogCard key={post.id} post={post} />)}
+              {filteredPosts.map(post => <BlogCard key={post.id} post={post} />)}
             </AnimateChildren>
           )}
         </div>

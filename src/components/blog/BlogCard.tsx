@@ -27,8 +27,8 @@ export function BlogCard({
             <span className="text-sm text-gray-500">{post.date}</span>
             <span className="text-sm text-gray-500">By {post.author}</span>
           </div>
-          <h3 className="text-xl font-bold mb-3 text-gray-800 overflow-hidden">{post.title}</h3>
-          <p className="text-gray-600 mb-4 flex-grow overflow-hidden">{post.excerpt}</p>
+          <h3 className="text-xl font-bold mb-3 text-foreground overflow-hidden">{post.title}</h3>
+          <p className="text-muted-foreground mb-4 flex-grow overflow-hidden">{post.excerpt}</p>
           <div className="text-yellow-500 font-medium mt-auto">Read more →</div>
         </div>
       </Link>

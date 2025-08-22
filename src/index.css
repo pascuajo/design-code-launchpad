@@ -3,3 +3,40 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 /* DO NOT DELETE THESE TAILWIND IMPORTS, OTHERWISE THE STYLING WILL NOT RENDER AT ALL */
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --muted: 210 40% 98%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 84% 4.9%;
+}
+
+/* Override prose styles to ensure black text */
+.prose {
+  color: hsl(var(--foreground)) !important;
+}
+
+.prose p,
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6,
+.prose li,
+.prose blockquote,
+.prose strong,
+.prose em {
+  color: hsl(var(--foreground)) !important;
+}
