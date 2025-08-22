@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { App } from './App';
 import { AppFunQuirky } from './AppFunQuirky';
 import { BlogPage } from './components/blog/BlogPage';
-import { BlogPostPage } from './components/blog/BlogPostPage';
-import { BlogListPage } from './components/blog/BlogListPage';
 import { BlogPostDetail } from './components/blog/BlogPostDetail';
 import { Layout } from './components/Layout';
 import { ContactPage } from './components/ContactPage';
