@@ -13,54 +13,149 @@ interface Book {
 }
 
 const books: Book[] = [
+  // Strategy
   {
     id: '1',
-    title: 'Good to Great',
-    author: 'Jim Collins',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546097703i/76865.jpg',
-    description: 'A masterpiece on transforming good companies into great ones through disciplined people, thought, and action.',
-    amazonUrl: 'https://amazon.com/Good-Great-Some-Companies-Others/dp/0066620996',
+    title: 'Playing To Win',
+    author: 'A.G. Lafley & Roger L. Martin',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925471i/15803424.jpg',
+    description: 'A masterful guide on how strategy really works - making hard choices about where to play and how to win in business.',
+    amazonUrl: 'https://amazon.com/Playing-Win-Strategy-Really-Works/dp/142218739X',
     category: 'Strategy'
   },
   {
     id: '2',
-    title: 'The 7 Habits of Highly Effective People',
-    author: 'Stephen R. Covey',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1421842784i/36072.jpg',
-    description: 'Timeless principles for personal and professional effectiveness that have shaped countless leaders.',
-    amazonUrl: 'https://amazon.com/Habits-Highly-Effective-People-Powerful/dp/1982137274',
-    category: 'Leadership'
+    title: 'Business Model Generation',
+    author: 'Alexander Osterwalder & Yves Pigneur',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1349048756i/9364501.jpg',
+    description: 'The definitive handbook for visionaries and game changers who want to challenge outmoded business models and design tomorrow\'s enterprises.',
+    amazonUrl: 'https://amazon.com/Business-Model-Generation-Visionaries-Challengers/dp/0470876417',
+    category: 'Strategy'
   },
   {
     id: '3',
-    title: 'The Lean Startup',
-    author: 'Eric Ries',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1333576876i/10127019.jpg',
-    description: 'Revolutionary approach to building sustainable businesses through validated learning and experimentation.',
-    amazonUrl: 'https://amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0307887898',
+    title: 'Value Proposition Design',
+    author: 'Alexander Osterwalder, Yves Pigneur & Greg Bernarda',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432484976i/22505488.jpg',
+    description: 'Essential companion to Business Model Generation - shows you how to design, test, and build value propositions customers actually want.',
+    amazonUrl: 'https://amazon.com/Value-Proposition-Design-Customers-Strategyzer/dp/1118968050',
     category: 'Strategy'
   },
   {
     id: '4',
-    title: 'Dare to Lead',
-    author: 'Brené Brown',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1536251273i/40109367.jpg',
-    description: 'Courage-building practices that transform teams and organizations through vulnerable, value-based leadership.',
-    amazonUrl: 'https://amazon.com/Dare-Lead-Brave-Conversations-Hearts/dp/0399592520',
-    category: 'Leadership'
+    title: 'The Lean Startup',
+    author: 'Eric Ries',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1333576876i/10127019.jpg',
+    description: 'Revolutionary approach to building sustainable businesses through validated learning and rapid experimentation.',
+    amazonUrl: 'https://amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0307887898',
+    category: 'Strategy'
   },
   {
     id: '5',
-    title: 'Zero to One',
-    author: 'Peter Thiel',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1414347376i/18050143.jpg',
-    description: 'Contrarian insights on building companies that create new things and escape competition.',
-    amazonUrl: 'https://amazon.com/Zero-One-Notes-Startups-Future/dp/0804139296',
+    title: 'The Hard Thing About Hard Things',
+    author: 'Ben Horowitz',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386609333i/18176747.jpg',
+    description: 'Brutally honest insights on building and running a startup when there are no easy answers - essential reading for entrepreneurs.',
+    amazonUrl: 'https://amazon.com/Hard-Thing-About-Things-Building/dp/0062273205',
     category: 'Strategy'
+  },
+
+  // Leadership
+  {
+    id: '6',
+    title: 'Quiet',
+    author: 'Susan Cain',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1328562861i/8520610.jpg',
+    description: 'Groundbreaking exploration of introversion and how to harness the power of quiet people in a world that celebrates extroversion.',
+    amazonUrl: 'https://amazon.com/Quiet-Power-Introverts-World-Talking/dp/0307352153',
+    category: 'Leadership'
+  },
+  {
+    id: '7',
+    title: 'Thinking, Fast and Slow',
+    author: 'Daniel Kahneman',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1317793965i/11468377.jpg',
+    description: 'Nobel Prize winner reveals how our minds make decisions - understanding the two systems that drive the way we think.',
+    amazonUrl: 'https://amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555',
+    category: 'Leadership'
+  },
+  {
+    id: '8',
+    title: 'Blink',
+    author: 'Malcolm Gladwell',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1427207976i/40102.jpg',
+    description: 'Fascinating look at the power of thinking without thinking - how snap judgments and first impressions can be remarkably accurate.',
+    amazonUrl: 'https://amazon.com/Blink-Power-Thinking-Without/dp/0316010669',
+    category: 'Leadership'
+  },
+  {
+    id: '9',
+    title: 'Good to Great',
+    author: 'Jim Collins',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546097703i/76865.jpg',
+    description: 'Timeless study of what transforms good companies into great ones through disciplined people, thought, and action.',
+    amazonUrl: 'https://amazon.com/Good-Great-Some-Companies-Others/dp/0066620996',
+    category: 'Leadership'
+  },
+  {
+    id: '10',
+    title: 'Measure What Matters',
+    author: 'John Doerr',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1518706047i/39286958.jpg',
+    description: 'How Google, Bono, and the Gates Foundation rock the world with OKRs - the goal-setting system that drives extraordinary results.',
+    amazonUrl: 'https://amazon.com/Measure-What-Matters-Google-Foundation/dp/0525536221',
+    category: 'Leadership'
+  },
+
+  // Product Management
+  {
+    id: '11',
+    title: 'Inspired',
+    author: 'Marty Cagan',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1516996215i/35249663.jpg',
+    description: 'The bible of product management - how to create tech products customers love from Silicon Valley\'s most respected product leader.',
+    amazonUrl: 'https://amazon.com/INSPIRED-Create-Tech-Products-Customers/dp/1119387507',
+    category: 'Product Management'
+  },
+  {
+    id: '12',
+    title: 'Transformed',
+    author: 'Marty Cagan',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1676306818i/123395025.jpg',
+    description: 'The follow-up to Inspired - how to move your company to the product operating model and build truly innovative products.',
+    amazonUrl: 'https://amazon.com/Transformed-Moving-Product-Operating-Model/dp/1119697336',
+    category: 'Product Management'
+  },
+  {
+    id: '13',
+    title: 'Empowered',
+    author: 'Marty Cagan & Chris Jones',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1617781302i/53481975.jpg',
+    description: 'How ordinary people, extraordinary products are made - the essential guide to coaching and developing strong product teams.',
+    amazonUrl: 'https://amazon.com/EMPOWERED-Ordinary-People-Extraordinary-Products/dp/111969129X',
+    category: 'Product Management'
+  },
+  {
+    id: '14',
+    title: 'Algorithms to Live By',
+    author: 'Brian Christian & Tom Griffiths',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454296875i/25666050.jpg',
+    description: 'Brilliant fusion of computer science and human decision-making - practical lessons from algorithms for everyday life.',
+    amazonUrl: 'https://amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1250118360',
+    category: 'Product Management'
+  },
+  {
+    id: '15',
+    title: 'How Not to Be Wrong',
+    author: 'Jordan Ellenberg',
+    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1394033815i/18693884.jpg',
+    description: 'The power of mathematical thinking - how math illuminates hidden structures in everyday life and helps us make better decisions.',
+    amazonUrl: 'https://amazon.com/How-Not-Be-Wrong-Mathematical/dp/0143127535',
+    category: 'Product Management'
   }
 ];
 
-const categories = ['All', 'Strategy', 'Leadership'];
+const categories = ['All', 'Strategy', 'Leadership', 'Product Management'];
 
 export function BookClubPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
