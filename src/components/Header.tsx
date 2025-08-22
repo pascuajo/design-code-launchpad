@@ -49,20 +49,12 @@ export function Header() {
                   About Me
                 </a>
               </li>
-              <li>
+               <li>
                 <Link 
                   to="/blog" 
                   className={`hover:text-yellow-500 transition-colors ${location.pathname.includes('/blog') ? 'text-yellow-500' : ''}`}
                 >
                   Blog
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/auth" 
-                  className="hover:text-yellow-500 transition-colors"
-                >
-                  Admin
                 </Link>
               </li>
             </ul>
