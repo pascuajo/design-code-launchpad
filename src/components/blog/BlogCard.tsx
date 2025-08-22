@@ -1,6 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BlogPost } from './blogData';
+
+interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  imageUrl: string;
+  date: string;
+  author: string;
+  slug: string;
+}
+
 interface BlogCardProps {
   post: BlogPost;
 }
