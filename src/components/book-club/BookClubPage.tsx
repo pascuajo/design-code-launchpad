@@ -18,7 +18,7 @@ const books: Book[] = [
     id: '1',
     title: 'Playing To Win',
     author: 'A.G. Lafley & Roger L. Martin',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386925471i/15803424.jpg',
+    cover: '/strategy.jpg',
     description: 'A masterful guide on how strategy really works - making hard choices about where to play and how to win in business.',
     amazonUrl: 'https://amazon.com/Playing-Win-Strategy-Really-Works/dp/142218739X',
     category: 'Strategy'
@@ -27,7 +27,7 @@ const books: Book[] = [
     id: '2',
     title: 'Business Model Generation',
     author: 'Alexander Osterwalder & Yves Pigneur',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1349048756i/9364501.jpg',
+    cover: '/success-strategy-plan-ahead-win-600nw-2115564866.webp',
     description: 'The definitive handbook for visionaries and game changers who want to challenge outmoded business models and design tomorrow\'s enterprises.',
     amazonUrl: 'https://amazon.com/Business-Model-Generation-Visionaries-Challengers/dp/0470876417',
     category: 'Strategy'
@@ -36,7 +36,7 @@ const books: Book[] = [
     id: '3',
     title: 'Value Proposition Design',
     author: 'Alexander Osterwalder, Yves Pigneur & Greg Bernarda',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432484976i/22505488.jpg',
+    cover: '/strategy.jpg',
     description: 'Essential companion to Business Model Generation - shows you how to design, test, and build value propositions customers actually want.',
     amazonUrl: 'https://amazon.com/Value-Proposition-Design-Customers-Strategyzer/dp/1118968050',
     category: 'Strategy'
@@ -45,7 +45,7 @@ const books: Book[] = [
     id: '4',
     title: 'The Lean Startup',
     author: 'Eric Ries',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1333576876i/10127019.jpg',
+    cover: '/success-strategy-plan-ahead-win-600nw-2115564866.webp',
     description: 'Revolutionary approach to building sustainable businesses through validated learning and rapid experimentation.',
     amazonUrl: 'https://amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0307887898',
     category: 'Strategy'
@@ -54,7 +54,7 @@ const books: Book[] = [
     id: '5',
     title: 'The Hard Thing About Hard Things',
     author: 'Ben Horowitz',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386609333i/18176747.jpg',
+    cover: '/strategy.jpg',
     description: 'Brutally honest insights on building and running a startup when there are no easy answers - essential reading for entrepreneurs.',
     amazonUrl: 'https://amazon.com/Hard-Thing-About-Things-Building/dp/0062273205',
     category: 'Strategy'
@@ -65,7 +65,7 @@ const books: Book[] = [
     id: '6',
     title: 'Quiet',
     author: 'Susan Cain',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1328562861i/8520610.jpg',
+    cover: '/fractional_leadership.webp',
     description: 'Groundbreaking exploration of introversion and how to harness the power of quiet people in a world that celebrates extroversion.',
     amazonUrl: 'https://amazon.com/Quiet-Power-Introverts-World-Talking/dp/0307352153',
     category: 'Leadership'
@@ -74,7 +74,7 @@ const books: Book[] = [
     id: '7',
     title: 'Thinking, Fast and Slow',
     author: 'Daniel Kahneman',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1317793965i/11468377.jpg',
+    cover: '/fractional_leadership.webp',
     description: 'Nobel Prize winner reveals how our minds make decisions - understanding the two systems that drive the way we think.',
     amazonUrl: 'https://amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555',
     category: 'Leadership'
@@ -83,7 +83,7 @@ const books: Book[] = [
     id: '8',
     title: 'Blink',
     author: 'Malcolm Gladwell',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1427207976i/40102.jpg',
+    cover: '/fractional_leadership.webp',
     description: 'Fascinating look at the power of thinking without thinking - how snap judgments and first impressions can be remarkably accurate.',
     amazonUrl: 'https://amazon.com/Blink-Power-Thinking-Without/dp/0316010669',
     category: 'Leadership'
@@ -92,7 +92,7 @@ const books: Book[] = [
     id: '9',
     title: 'Good to Great',
     author: 'Jim Collins',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546097703i/76865.jpg',
+    cover: '/fractional_leadership.webp',
     description: 'Timeless study of what transforms good companies into great ones through disciplined people, thought, and action.',
     amazonUrl: 'https://amazon.com/Good-Great-Some-Companies-Others/dp/0066620996',
     category: 'Leadership'
@@ -101,7 +101,7 @@ const books: Book[] = [
     id: '10',
     title: 'Measure What Matters',
     author: 'John Doerr',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1518706047i/39286958.jpg',
+    cover: '/fractional_leadership.webp',
     description: 'How Google, Bono, and the Gates Foundation rock the world with OKRs - the goal-setting system that drives extraordinary results.',
     amazonUrl: 'https://amazon.com/Measure-What-Matters-Google-Foundation/dp/0525536221',
     category: 'Leadership'
@@ -112,7 +112,7 @@ const books: Book[] = [
     id: '11',
     title: 'Inspired',
     author: 'Marty Cagan',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1516996215i/35249663.jpg',
+    cover: '/app_design.jpg',
     description: 'The bible of product management - how to create tech products customers love from Silicon Valley\'s most respected product leader.',
     amazonUrl: 'https://amazon.com/INSPIRED-Create-Tech-Products-Customers/dp/1119387507',
     category: 'Product Management'
@@ -121,7 +121,7 @@ const books: Book[] = [
     id: '12',
     title: 'Transformed',
     author: 'Marty Cagan',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1676306818i/123395025.jpg',
+    cover: '/app_design.jpg',
     description: 'The follow-up to Inspired - how to move your company to the product operating model and build truly innovative products.',
     amazonUrl: 'https://amazon.com/Transformed-Moving-Product-Operating-Model/dp/1119697336',
     category: 'Product Management'
@@ -130,7 +130,7 @@ const books: Book[] = [
     id: '13',
     title: 'Empowered',
     author: 'Marty Cagan & Chris Jones',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1617781302i/53481975.jpg',
+    cover: '/app_design.jpg',
     description: 'How ordinary people, extraordinary products are made - the essential guide to coaching and developing strong product teams.',
     amazonUrl: 'https://amazon.com/EMPOWERED-Ordinary-People-Extraordinary-Products/dp/111969129X',
     category: 'Product Management'
@@ -139,7 +139,7 @@ const books: Book[] = [
     id: '14',
     title: 'Algorithms to Live By',
     author: 'Brian Christian & Tom Griffiths',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1454296875i/25666050.jpg',
+    cover: '/app_design.jpg',
     description: 'Brilliant fusion of computer science and human decision-making - practical lessons from algorithms for everyday life.',
     amazonUrl: 'https://amazon.com/Algorithms-Live-Computer-Science-Decisions/dp/1250118360',
     category: 'Product Management'
@@ -148,7 +148,7 @@ const books: Book[] = [
     id: '15',
     title: 'How Not to Be Wrong',
     author: 'Jordan Ellenberg',
-    cover: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1394033815i/18693884.jpg',
+    cover: '/app_design.jpg',
     description: 'The power of mathematical thinking - how math illuminates hidden structures in everyday life and helps us make better decisions.',
     amazonUrl: 'https://amazon.com/How-Not-Be-Wrong-Mathematical/dp/0143127535',
     category: 'Product Management'
@@ -220,7 +220,17 @@ export function BookClubPage() {
                         src={selectedBook.cover} 
                         alt={selectedBook.title}
                         className="w-48 h-72 object-cover rounded-lg shadow-lg mx-auto"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          e.currentTarget.nextElementSibling.style.display = 'flex';
+                        }}
                       />
+                      <div className="w-48 h-72 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg shadow-lg mx-auto hidden items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-6xl mb-3">📚</div>
+                          <div className="text-gray-600 text-sm font-medium">{selectedBook.title}</div>
+                        </div>
+                      </div>
                     </div>
                     <div className="flex-1">
                       <h2 className="text-3xl font-bold mb-2">{selectedBook.title}</h2>
