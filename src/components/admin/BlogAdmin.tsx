@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '@/hooks/useAuth';
-import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '../../hooks/useAuth';
+import { supabase } from '../../integrations/supabase/client';
 import { BlogPostForm } from './BlogPostForm';
 import { BlogPostList } from './BlogPostList';
 import { Plus, LogOut } from 'lucide-react';
@@ -10,11 +10,11 @@ export interface BlogPost {
   title: string;
   slug: string;
   content: string;
-  excerpt: string;
+  excerpt: string | null;
   author: string;
-  image_url?: string;
+  image_url?: string | null;
   status: 'draft' | 'published';
-  tags: string[];
+  tags: string[] | null;
   created_at: string;
   updated_at: string;
 }
@@ -38,7 +38,10 @@ export function BlogAdmin() {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setPosts(data || []);
+      setPosts((data || []).map(post => ({
+        ...post,
+        status: post.status as 'draft' | 'published'
+      })));
     } catch (error) {
       console.error('Error fetching posts:', error);
     } finally {

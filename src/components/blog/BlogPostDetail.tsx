@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { supabase } from '@/integrations/supabase/client';
+import { supabase } from '../../integrations/supabase/client';
 import { BlogPost } from '../admin/BlogAdmin';
 import { Calendar, User, ArrowLeft } from 'lucide-react';
 import MDEditor from '@uiw/react-md-editor';
@@ -33,7 +33,10 @@ export function BlogPostDetail() {
           throw error;
         }
       } else {
-        setPost(data);
+        setPost(data ? {
+          ...data,
+          status: data.status as 'draft' | 'published'
+        } : null);
       }
     } catch (error) {
       console.error('Error fetching post:', error);

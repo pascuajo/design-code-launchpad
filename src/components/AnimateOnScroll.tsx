@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef, Children, isValidElement } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+import { motion, useAnimation, Variants } from 'framer-motion';
 
 interface AnimateOnScrollProps {
   children: React.ReactNode;
@@ -24,58 +24,35 @@ export function AnimateOnScroll({
 }: AnimateOnScrollProps) {
   const controls = useAnimation();
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
 
-  // Set up the initial animation states based on direction
-  const getDirectionalVariants = () => {
-    const variants = {
-      hidden: {
-        opacity: 0
-      },
-      visible: {
-        opacity: 1,
-        transition: {
-          duration: duration,
-          delay: delay,
-          ease: 'easeOut'
-        }
+  const variants: Variants = {
+    hidden: { 
+      opacity: 0,
+      ...(direction === 'up' && { y: distance }),
+      ...(direction === 'down' && { y: -distance }),
+      ...(direction === 'left' && { x: distance }),
+      ...(direction === 'right' && { x: -distance })
+    },
+    visible: { 
+      opacity: 1,
+      y: 0,
+      x: 0,
+      transition: {
+        duration,
+        delay
       }
-    };
-
-    switch (direction) {
-      case 'up':
-        variants.hidden = { ...variants.hidden, y: distance };
-        variants.visible = { ...variants.visible, y: 0 };
-        break;
-      case 'down':
-        variants.hidden = { ...variants.hidden, y: -distance };
-        variants.visible = { ...variants.visible, y: 0 };
-        break;
-      case 'left':
-        variants.hidden = { ...variants.hidden, x: distance };
-        variants.visible = { ...variants.visible, x: 0 };
-        break;
-      case 'right':
-        variants.hidden = { ...variants.hidden, x: -distance };
-        variants.visible = { ...variants.visible, x: 0 };
-        break;
     }
-    return variants;
   };
-
-  const variants = getDirectionalVariants();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
           controls.start('visible');
           if (once) {
             observer.disconnect();
           }
         } else if (!once) {
-          setIsVisible(false);
           controls.start('hidden');
         }
       },
@@ -123,8 +100,7 @@ export function AnimateChildren({
             y: 0,
             transition: {
               delay: i * staggerDelay,
-              duration: props.duration || 0.6,
-              ease: 'easeOut'
+              duration: props.duration || 0.6
             }
           }));
         }
@@ -145,18 +121,16 @@ export function AnimateChildren({
 
   return (
     <div ref={ref} className={props.className}>
-      {Children.map(children, (child, i) => {
-        if (!isValidElement(child)) return child;
-        return (
-          <motion.div
-            custom={i}
-            initial={{ opacity: 0, y: props.distance || 30 }}
-            animate={controls}
-          >
-            {child}
-          </motion.div>
-        );
-      })}
+      {Array.isArray(children) ? children.map((child, i) => (
+        <motion.div
+          key={i}
+          custom={i}
+          initial={{ opacity: 0, y: props.distance || 30 }}
+          animate={controls}
+        >
+          {child}
+        </motion.div>
+      )) : children}
     </div>
   );
 }

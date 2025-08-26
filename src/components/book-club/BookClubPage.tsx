@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AnimateOnScroll } from '../AnimateOnScroll';
 import { BookCard } from './BookCard';
 
@@ -222,7 +222,10 @@ export function BookClubPage() {
                         className="w-48 h-72 object-cover rounded-lg shadow-lg mx-auto"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
-                          e.currentTarget.nextElementSibling.style.display = 'flex';
+                          const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                          if (fallback) {
+                            fallback.style.display = 'flex';
+                          }
                         }}
                       />
                       <div className="w-48 h-72 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg shadow-lg mx-auto hidden items-center justify-center">

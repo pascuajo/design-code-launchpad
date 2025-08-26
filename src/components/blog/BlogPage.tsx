@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnimateOnScroll, AnimateChildren } from '../AnimateOnScroll';
 import { BlogCard } from './BlogCard';
-import { supabase } from '@/integrations/supabase/client';
+import { supabase } from '../../integrations/supabase/client';
 
 interface BlogPost {
   id: string;
@@ -11,7 +11,7 @@ interface BlogPost {
   date: string;
   author: string;
   slug: string;
-  tags?: string[];
+  tags?: string[] | null;
 }
 
 export function BlogPage() {
@@ -59,7 +59,7 @@ export function BlogPage() {
         }),
         author: post.author,
         slug: post.slug,
-        tags: post.tags
+        tags: post.tags || []
       })) || [];
       
       setPosts(formattedPosts);

@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
-import { useAuth } from '@/hooks/useAuth';
-import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '../../hooks/useAuth';
+import { supabase } from '../../integrations/supabase/client';
 import { BlogPost } from './BlogAdmin';
 import MDEditor from '@uiw/react-md-editor';
 import { ArrowLeft, Upload, Save, Eye } from 'lucide-react';
@@ -33,7 +33,7 @@ export function BlogPostForm({ post, onClose }: BlogPostFormProps) {
       .replace(/[^a-z0-9 -]/g, '')
       .replace(/\s+/g, '-')
       .replace(/-+/g, '-')
-      .trim('-');
+      .replace(/^-|-$/g, '');
   };
 
   const handleTitleChange = (newTitle: string) => {
@@ -279,7 +279,6 @@ export function BlogPostForm({ post, onClose }: BlogPostFormProps) {
               value={content}
               onChange={(val) => setContent(val || '')}
               height={400}
-              data-color-mode="auto"
             />
           )}
         </div>
