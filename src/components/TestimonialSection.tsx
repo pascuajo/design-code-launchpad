@@ -13,7 +13,7 @@ const testimonials = [
   {
     id: 2,
     image: "/newphoto.jpg", // Placeholder image
-    quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+    quote: "Exceptional product strategist who transformed our AI vision into reality and pivotal in developing our agentic AI platform. His ability to translate complex AI concepts into market-winning products is unmatched",
     name: "Patrick O'Connor",
     title: "CEO, Gatekeeper"
   },
@@ -27,7 +27,7 @@ const testimonials = [
   {
     id: 4,
     image: "/newphoto.jpg", // Placeholder image
-    quote: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.",
+    quote: "Joe launched our startup 0 to 1 in 6 months and exceeded all projections...$1Mn in ARR in our first 12 months, 95% CSAT score, 25% conversion rate was all down to his vision and impeccable attention to the customer experience",
     name: "Anthea King",
     title: "CMO, Homepaired"
   }
