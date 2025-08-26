@@ -4,7 +4,7 @@ interface Book {
   id: string;
   title: string;
   author: string;
-  cover: string;
+  cover?: string;
   description: string;
   amazonUrl: string;
   category: string;
@@ -22,6 +22,8 @@ export function BookCard({ book, onClick }: BookCardProps) {
     setImageError(true);
   };
 
+  const coverSrc = `/books/${encodeURIComponent(book.title)}.jpg`;
+
   return (
     <div 
       onClick={onClick}
@@ -37,7 +39,7 @@ export function BookCard({ book, onClick }: BookCardProps) {
           </div>
         ) : (
           <img 
-            src={book.cover} 
+            src={coverSrc}
             alt={book.title}
             className="w-full h-64 object-cover rounded-lg shadow-md group-hover:shadow-lg transition-shadow duration-300"
             onError={handleImageError}
