@@ -11,13 +11,12 @@ export function TubeMapTransition() {
 
   return (
     <section 
-      className="relative h-screen overflow-hidden"
+      className="relative h-[60vh] overflow-hidden"
       style={{
         backgroundImage: 'url(/tubemap.png)',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
+        backgroundPosition: `center ${scrollY * 0.5}px`,
+        backgroundRepeat: 'no-repeat'
       }}
     >
       {/* Floating elements for extra visual interest */}
