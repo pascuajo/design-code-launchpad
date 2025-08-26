@@ -77,7 +77,7 @@ export function Header() {
           </nav>
 
           <Link to="/contact">
-            <button className="hidden md:block bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-2 px-5 rounded-full transition duration-300">
+            <button className="hidden md:block bg-yellow-300 hover:bg-yellow-600 text-black font-medium py-2 px-5 rounded-full transition duration-300">
               Contact
             </button>
           </Link>
