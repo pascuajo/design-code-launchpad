@@ -120,7 +120,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold">
+            <h2 className="text-2xl md:text-3xl font-bold text-black">
               <span className="bg-yellow-300 px-2">Get in Touch</span>
             </h2>
             <p className="text-gray-600 mt-2">
@@ -138,107 +138,126 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         {/* Form */}
         <div className="p-6">
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-gray-700 mb-2">
-                Full Name *
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                placeholder="Your full name"
-              />
-              {errors.name && (
-                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-              )}
+            {/* Name and Phone Row */}
+            <div className="flex gap-4">
+              <div className="flex-1">
+                <label htmlFor="name" className="block text-gray-700 mb-2">
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
+                  placeholder="Your full name"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                )}
+              </div>
+
+              <div className="flex-1">
+                <label htmlFor="phone" className="block text-gray-700 mb-2">
+                  Phone Number *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
+                  placeholder="Your phone number"
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.phone}
+                  </p>
+                )}
+              </div>
             </div>
 
-            <div>
-              <label htmlFor="phone" className="block text-gray-700 mb-2">
-                Phone Number *
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                placeholder="Your phone number (include country code)"
-              />
-              {errors.phone && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.phone}
-                </p>
-              )}
+            {/* Email and Service Row */}
+            <div className="flex gap-4">
+              <div className="flex-1">
+                <label htmlFor="email" className="block text-gray-700 mb-2">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
+                  placeholder="Your email address"
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.email}
+                  </p>
+                )}
+              </div>
+
+              <div className="flex-1">
+                <label htmlFor="service" className="block text-gray-700 mb-2">
+                  Service You're Interested In *
+                </label>
+                <select
+                  id="service"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.service ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white text-black`}
+                >
+                  <option value="">Select a service</option>
+                  {services.map((service) => (
+                    <option key={service} value={service}>
+                      {service}
+                    </option>
+                  ))}
+                </select>
+                {errors.service && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.service}
+                  </p>
+                )}
+              </div>
             </div>
 
-            <div>
-              <label htmlFor="email" className="block text-gray-700 mb-2">
-                Email Address *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                placeholder="Your email address"
-              />
-              {errors.email && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.email}
-                </p>
-              )}
-            </div>
+            {/* Message and Submit Row */}
+            <div className="flex gap-4 items-end">
+              <div className="flex-1" style={{ width: '75%' }}>
+                <label htmlFor="message" className="block text-gray-700 mb-2">
+                  Your Message *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
+                  placeholder="How can I help you?"
+                ></textarea>
+                {errors.message && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.message}
+                  </p>
+                )}
+              </div>
 
-            <div>
-              <label htmlFor="service" className="block text-gray-700 mb-2">
-                Service You're Interested In *
-              </label>
-              <select
-                id="service"
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-lg border ${errors.service ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white`}
-              >
-                <option value="">Select a service</option>
-                {services.map((service) => (
-                  <option key={service} value={service}>
-                    {service}
-                  </option>
-                ))}
-              </select>
-              {errors.service && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.service}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-gray-700 mb-2">
-                Your Message *
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={4}
-                className={`w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500`}
-                placeholder="How can I help you?"
-              ></textarea>
-              {errors.message && (
-                <p className="text-red-500 text-sm mt-1">
-                  {errors.message}
-                </p>
-              )}
+              <div style={{ width: '25%' }}>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-yellow-300 hover:bg-yellow-600 text-accent-foreground font-medium py-3 px-6 rounded-full transition duration-300 text-lg w-full disabled:opacity-50 disabled:cursor-not-allowed h-[108px] flex items-center justify-center"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </div>
             </div>
             
             {submitStatus === 'success' && (
@@ -252,16 +271,6 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 Sorry, there was an error sending your message. Please try again.
               </div>
             )}
-
-            <div className="pt-4">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-yellow-300 hover:bg-yellow-600 text-accent-foreground font-medium py-3 px-8 rounded-full transition duration-300 text-lg w-full disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-            </div>
           </form>
         </div>
       </div>
