@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
+import { ContactModal } from './ContactModal';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -76,11 +78,12 @@ export function Header() {
             </ul>
           </nav>
 
-          <Link to="/contact">
-            <button className="hidden md:block bg-yellow-300 hover:bg-yellow-600 text-black font-medium py-2 px-5 rounded-full transition duration-300">
-              Contact
-            </button>
-          </Link>
+          <button 
+            onClick={() => setIsContactModalOpen(true)}
+            className="hidden md:block bg-yellow-300 hover:bg-yellow-600 text-black font-medium py-2 px-5 rounded-full transition duration-300"
+          >
+            Contact
+          </button>
           
           <button className="md:hidden text-gray-800">
             <svg 
@@ -95,6 +98,8 @@ export function Header() {
           </button>
         </div>
       </div>
+
+      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </header>
   );
 }

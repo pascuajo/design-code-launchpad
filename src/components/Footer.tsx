@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ContactModal } from './ContactModal';
 
 export function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <footer className="w-full bg-black text-white py-16 px-4">
       <div className="max-w-6xl mx-auto">
@@ -51,12 +54,12 @@ export function Footer() {
 
           {/* Column 4: Contact */}
           <div>
-            <Link 
-              to="/contact" 
+            <button 
+              onClick={() => setIsModalOpen(true)}
               className="inline-block bg-yellow-300 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-600 transition-colors mb-4"
             >
               Contact
-            </Link>
+            </button>
             <div className="flex">
               <a 
                 href="https://www.linkedin.com/in/joe-pascual/" 
@@ -72,13 +75,9 @@ export function Footer() {
             </div>
           </div>
         </div>
-
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>
-            &copy; {new Date().getFullYear()} clearmont consulting llc. all rights reserved.
-          </p>
-        </div>
       </div>
+
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </footer>
   );
 }

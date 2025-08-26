@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
+import { ContactModal } from './ContactModal';
 
 export function ContactSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <section className="w-full bg-gray-900 text-white py-28 px-4" id="contact">
       <div className="max-w-4xl mx-auto text-center">
@@ -19,12 +21,15 @@ export function ContactSection() {
         </AnimateOnScroll>
 
         <AnimateOnScroll delay={0.6} direction="up">
-          <Link to="/contact">
-            <button className="bg-yellow-300 hover:bg-yellow-600 text-accent-foreground font-medium py-4 px-10 rounded-full transition duration-300 text-lg">
-              Contact Me
-            </button>
-          </Link>
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="bg-yellow-300 hover:bg-yellow-600 text-accent-foreground font-medium py-4 px-10 rounded-full transition duration-300 text-lg"
+          >
+            Contact Me
+          </button>
         </AnimateOnScroll>
+
+        <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
     </section>
   );

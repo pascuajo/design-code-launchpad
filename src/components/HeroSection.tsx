@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
+import { ContactModal } from './ContactModal';
 
 export function HeroSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <section className="w-full bg-white py-28 px-4 md:px-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
@@ -33,12 +35,15 @@ export function HeroSection() {
           </AnimateOnScroll>
 
           <AnimateOnScroll delay={0.6} direction="up">
-            <Link to="/contact">
-              <button className="bg-yellow-300 hover:bg-yellow-600 text-accent-foreground font-medium py-3 px-8 rounded-full transition duration-300 text-lg">
-                Let's Talk →
-              </button>
-            </Link>
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-yellow-300 hover:bg-yellow-600 text-accent-foreground font-medium py-3 px-8 rounded-full transition duration-300 text-lg"
+            >
+              Let's Talk →
+            </button>
           </AnimateOnScroll>
+
+          <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
       </div>
     </section>
