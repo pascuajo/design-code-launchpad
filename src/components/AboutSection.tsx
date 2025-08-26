@@ -141,7 +141,7 @@ export function AboutSection() {
           <AnimateOnScroll>
             <h3 className="text-2xl font-bold mb-8 text-center">Tech & Product Domains</h3>
             <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
-              {domains.map((domain, index) => {
+              {domains.map((domain) => {
                 const colors = getColorClasses(domain.color);
                 return (
                   <div 
