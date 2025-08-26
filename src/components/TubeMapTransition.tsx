@@ -10,16 +10,17 @@ export function TubeMapTransition() {
   }, []);
 
   return (
-    <section 
-      className="relative h-[60vh] overflow-hidden"
-      style={{
-        backgroundImage: 'url(/tubemap.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: `center calc(50% + ${scrollY * 0.3}px)`,
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'scroll'
-      }}
-    >
+    <section className="relative h-[60vh] overflow-hidden">
+      <div 
+        className="absolute inset-0 w-full h-full"
+        style={{
+          backgroundImage: 'url(/tubemap.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          transform: `translateY(${scrollY * -0.3}px)`
+        }}
+      />
       {/* Floating elements for extra visual interest */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
