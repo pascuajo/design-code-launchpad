@@ -20,6 +20,9 @@ export function BlogPostForm({ post, onClose }: BlogPostFormProps) {
   const [imageUrl, setImageUrl] = useState(post?.image_url || '');
   const [status, setStatus] = useState<'draft' | 'published'>(post?.status || 'draft');
   const [tags, setTags] = useState(post?.tags?.join(', ') || '');
+  const [createdAt, setCreatedAt] = useState(
+    post?.created_at ? new Date(post.created_at).toISOString().slice(0, 16) : new Date().toISOString().slice(0, 16)
+  );
   const [loading, setLoading] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -81,6 +84,7 @@ export function BlogPostForm({ post, onClose }: BlogPostFormProps) {
         status,
         tags: tags.split(',').map(tag => tag.trim()).filter(Boolean),
         user_id: user.id,
+        created_at: new Date(createdAt).toISOString(),
       };
 
       if (post) {
@@ -232,6 +236,18 @@ export function BlogPostForm({ post, onClose }: BlogPostFormProps) {
                 <option value="published">Published</option>
               </select>
             </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-foreground mb-2">
+              Publishing Date
+            </label>
+            <input
+              type="datetime-local"
+              value={createdAt}
+              onChange={(e) => setCreatedAt(e.target.value)}
+              className="w-full px-3 py-2 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+            />
           </div>
 
           <div>
