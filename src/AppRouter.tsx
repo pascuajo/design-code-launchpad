@@ -5,7 +5,7 @@ import { BlogPage } from './components/blog/BlogPage';
 import { BlogPostDetail } from './components/blog/BlogPostDetail';
 import { BookClubPage } from './components/book-club/BookClubPage';
 import { Layout } from './components/Layout';
-import { ContactPage } from './components/ContactPage';
+
 import { AuthPage } from './components/auth/AuthPage';
 import { BlogAdmin } from './components/admin/BlogAdmin';
 import { ProtectedRoute } from './components/admin/ProtectedRoute';
@@ -17,14 +17,6 @@ export function AppRouter() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route
-            path="/contact"
-            element={
-              <Layout>
-                <ContactPage />
-              </Layout>
-            }
-          />
           <Route
             path="/blog"
             element={
