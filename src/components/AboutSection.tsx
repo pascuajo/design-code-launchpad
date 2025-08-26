@@ -1,112 +1,244 @@
 import { AnimateOnScroll } from './AnimateOnScroll';
-import { Linkedin } from 'lucide-react';
+import { Linkedin, Building2, Home, Shield, ShoppingCart, Users, UserCheck, Globe, Brain, Database } from 'lucide-react';
+
+interface DomainInfo {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+}
 
 export function AboutSection() {
+  const domains: DomainInfo[] = [
+    {
+      title: "FinTech",
+      description: "Automated back office Finance and FinOps, and led FinTech Innovation at Global Investment Banks",
+      icon: <Building2 className="w-8 h-8 text-blue-600" />,
+      color: "blue"
+    },
+    {
+      title: "PropTech",
+      description: "Head of Product for a top 5 US CRE Investment Platform covering the full Real Estate vertical (acquisitions, construction, property management, leasing, and mortgage backed securities)",
+      icon: <Home className="w-8 h-8 text-green-600" />,
+      color: "green"
+    },
+    {
+      title: "RegTech",
+      description: "Built the Risk Management systems for UBS",
+      icon: <Shield className="w-8 h-8 text-purple-600" />,
+      color: "purple"
+    },
+    {
+      title: "LegalTech",
+      description: "Executive Product Strategy Consultant driving the AI Transformation of a top 5 Contract Lifecycle Management solution",
+      icon: <Shield className="w-8 h-8 text-indigo-600" />,
+      color: "indigo"
+    },
+    {
+      title: "Platform",
+      description: "Implemented CRMs and ERPs and firmwide transformation using Salesforce",
+      icon: <Building2 className="w-8 h-8 text-red-600" />,
+      color: "red"
+    },
+    {
+      title: "SaaS C2C",
+      description: "Launched the first marketplace for live-in childcare that generated $1M in ARR within the first 12 months",
+      icon: <Globe className="w-8 h-8 text-teal-600" />,
+      color: "teal"
+    },
+    {
+      title: "SaaS B2C",
+      description: "Launched a new home iBuyer business that generated $1B in new acquisitions",
+      icon: <UserCheck className="w-8 h-8 text-pink-600" />,
+      color: "pink"
+    },
+    {
+      title: "AI",
+      description: "Launched the first Agentic AI platform at Gatekeeper (LuminIQ)",
+      icon: <Brain className="w-8 h-8 text-yellow-600" />,
+      color: "yellow"
+    },
+    {
+      title: "Data",
+      description: "Designed and built the first strategic Reporting and Business Intelligence platform at UBS",
+      icon: <Database className="w-8 h-8 text-gray-600" />,
+      color: "gray"
+    }
+  ];
+
+  const getColorClasses = (color: string) => {
+    const colorMap: Record<string, { bg: string; hover: string; text: string }> = {
+      blue: { bg: "bg-blue-50", hover: "hover:bg-blue-100", text: "text-blue-800" },
+      green: { bg: "bg-green-50", hover: "hover:bg-green-100", text: "text-green-800" },
+      purple: { bg: "bg-purple-50", hover: "hover:bg-purple-100", text: "text-purple-800" },
+      indigo: { bg: "bg-indigo-50", hover: "hover:bg-indigo-100", text: "text-indigo-800" },
+      red: { bg: "bg-red-50", hover: "hover:bg-red-100", text: "text-red-800" },
+      teal: { bg: "bg-teal-50", hover: "hover:bg-teal-100", text: "text-teal-800" },
+      pink: { bg: "bg-pink-50", hover: "hover:bg-pink-100", text: "text-pink-800" },
+      yellow: { bg: "bg-yellow-50", hover: "hover:bg-yellow-100", text: "text-yellow-800" },
+      gray: { bg: "bg-gray-50", hover: "hover:bg-gray-100", text: "text-gray-800" }
+    };
+    return colorMap[color] || colorMap.gray;
+  };
+
   return (
     <section className="w-full bg-gray-100 py-28 px-4" id="about">
       <div className="max-w-6xl mx-auto">
-        <AnimateOnScroll>
-          <h2 className="text-3xl md:text-4xl font-bold mb-16">About Me</h2>
-        </AnimateOnScroll>
-
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* Left side - About Me content */}
-          <div className="lg:w-1/2">
-            <AnimateOnScroll direction="left" delay={0.2}>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                With over 15 years experience leading strategic product and digital transformation across various industries and platforms  - I’ve seen first-hand what it takes to transform operations, develop innovative products, and build high-performing teams.
-              </p>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll direction="left" delay={0.3}>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                My approach combines deep business acumen with a human-centered
-                design mindset, allowing me to create solutions that work for
-                both the business and the people involved.              </p>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll direction="left" delay={0.4}>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                I believe that the most successful organizations are those that
-                align their business goals with a meaningful purpose, creating
-                value for all stakeholders while making a positive impact on the
-                world.              </p>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll direction="left" delay={0.5}>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Right now, I'm focused on combining my business experience with advanced AI strategies to help businesses move fast, innovate efficiently, and stay ahead of the competition. Together, we'll turn your ideas into real-world, market-ready solutions that drive true business impact.
-              </p>
-            </AnimateOnScroll>
-          </div>
-
-          {/* Right side - Profile and Career Summary */}
-          <div className="lg:w-1/2 flex flex-col items-center lg:items-start bg-white rounded-xl p-8 shadow-lg">
-            <AnimateOnScroll direction="right" className="mb-8">
-              <div className="w-64 h-64 rounded-lg overflow-hidden shadow-lg">
+        <div className="flex flex-col lg:flex-row gap-12 mb-16">
+          {/* Left side - Large Profile Picture with About Me header overlay */}
+          <div className="lg:w-1/2 relative">
+            <AnimateOnScroll direction="left">
+              <div className="w-full h-[600px] rounded-2xl overflow-hidden shadow-2xl relative">
                 <img 
                   src="/Profile.png" 
                   alt="Joe Pascual - Strategic Innovation Consultant" 
-                  className="w-full h-full object-cover" 
+                  className="w-full h-full object-cover object-top scale-110" 
                 />
-              </div>
-            </AnimateOnScroll>
-
-            <AnimateOnScroll direction="right" delay={0.2}>
-              <h3 className="text-2xl font-semibold mb-6 text-center lg:text-left">Joe Pascual</h3>
-            </AnimateOnScroll>
-
-            {/* Career Summary */}
-            <AnimateOnScroll direction="right" delay={0.3} className="w-full">
-              <div className="space-y-3 mb-8">
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Founder and CEO of Homepaired (SaaS C2C)</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Head of Product, UX and PMO at Amherst (PropTech, SaaS B2C)</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Executive Director, Digital Transformation at UBS (FinTech, Platform)</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Execitive Director, FinTech Innovation Labs at UBS (FinTech, Platform)</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Executive Consultant, AI Product Strategy at Gatekeeper (ProcureTech, SaaS B2B)</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">CFO, AMER Equities at UBS</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">Chartered Accountant (ACCA)</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-700">15+ years Digital Transformation Leadership</span>
+                
+                {/* About Me header overlay on image */}
+                <div className="absolute top-6 left-6">
+                  <h2 className="text-3xl md:text-4xl font-bold">
+                    <span className="bg-yellow-300 px-1">About Me</span>
+                  </h2>
                 </div>
               </div>
-            </AnimateOnScroll>
-
-            {/* LinkedIn Link */}
-            <AnimateOnScroll direction="right" delay={0.4}>
-              <a 
-                href="https://www.linkedin.com/in/joe-pascual/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors duration-200"
-              >
-                <Linkedin size={24} />
-                <span className="font-medium">Connect on LinkedIn</span>
-              </a>
             </AnimateOnScroll>
           </div>
+
+          {/* Right side - Full About Me summary */}
+          <div className="lg:w-1/2">
+            <AnimateOnScroll direction="right">
+              <div className="bg-white rounded-2xl p-8 shadow-lg h-full">
+                <div className="space-y-6">
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    With over 15 years experience leading strategic product and digital transformation across various industries and platforms - I've seen first-hand what it takes to transform operations, develop innovative products, and build high-performing teams.
+                  </p>
+                  
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    My approach combines deep business acumen with a human-centered
+                    design mindset, allowing me to create solutions that work for
+                    both the business and the people involved.
+                  </p>
+                  
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    I believe that the most successful organizations are those that
+                    align their business goals with a meaningful purpose, creating
+                    value for all stakeholders while making a positive impact on the
+                    world.
+                  </p>
+                  
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    Right now, I'm focused on combining my business experience with advanced AI strategies to help businesses move fast, innovate efficiently, and stay ahead of the competition. Together, we'll turn your ideas into real-world, market-ready solutions that drive true business impact.
+                  </p>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          </div>
+        </div>
+
+        {/* Domain Section - Stretching across both columns */}
+        <div className="w-full mb-16">
+          <AnimateOnScroll>
+            <h3 className="text-2xl font-bold mb-8 text-center">Tech & Product Domains</h3>
+            <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
+              {domains.map((domain, index) => {
+                const colors = getColorClasses(domain.color);
+                return (
+                  <div 
+                    key={domain.title}
+                    className={`relative group flex flex-col items-center p-4 rounded-xl ${colors.bg} ${colors.hover} transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg`}
+                  >
+                    {domain.icon}
+                    <span className={`text-xs font-medium ${colors.text} text-center mt-2`}>
+                      {domain.title}
+                    </span>
+                    
+                    {/* Hover Tooltip */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                      <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 max-w-xs">
+                        <div className="flex items-center gap-2 mb-3">
+                          {domain.icon}
+                          <h4 className="font-bold text-gray-800">{domain.title}</h4>
+                        </div>
+                        <ul className="text-sm text-gray-700 space-y-1">
+                          {domain.description.split('. ').map((point, i) => (
+                            point.trim() && (
+                              <li key={i} className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>{point.trim()}</span>
+                              </li>
+                            )
+                          ))}
+                        </ul>
+                        {/* Arrow pointing down */}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </AnimateOnScroll>
+        </div>
+
+        {/* Career Summary below domain icons */}
+        <div className="w-full">
+          <AnimateOnScroll>
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-bold mb-6 text-gray-800 text-center">Career Highlights</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-3">
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm">Founder and CEO of Homepaired (SaaS C2C)</span>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm">Head of Product, UX and PMO at Amherst (PropTech, SaaS B2C)</span>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm">Executive Director, Digital Transformation at UBS (FinTech, Platform)</span>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm">Executive Director, FinTech Innovation Labs at UBS (FinTech, Platform)</span>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm">Executive Consultant, AI Product Strategy at Gatekeeper (ProcureTech, SaaS B2B)</span>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm">CFO, AMER Equities at UBS</span>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm">Chartered Accountant (ACCA)</span>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                    <span className="text-gray-700 text-sm">15+ years Digital Transformation Leadership</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* LinkedIn Link */}
+              <div className="text-center mt-6">
+                <a 
+                  href="https://www.linkedin.com/in/joe-pascual/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors duration-200"
+                >
+                  <Linkedin size={20} />
+                  <span className="font-medium text-sm">Connect on LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>
