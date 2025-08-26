@@ -12,17 +12,10 @@ const testimonials = [
   },
   {
     id: 2,
-    image: "/newphoto.jpg", // Placeholder image
+    image: "/patrickoconnor.jpg",
     quote: "Exceptional product strategist who transformed our AI vision into reality and pivotal in developing our agentic AI platform. His ability to translate complex AI concepts into market-winning products is unmatched",
     name: "Patrick O'Connor",
     title: "CEO, Gatekeeper"
-  },
-  {
-    id: 3,
-    image: "/newphoto.jpg", // Placeholder image
-    quote: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
-    name: "Todd Lawrence",
-    title: "CTO, Amherst"
   },
   {
     id: 4,
