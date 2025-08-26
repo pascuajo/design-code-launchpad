@@ -10,17 +10,18 @@ export function TubeMapTransition() {
   }, []);
 
   return (
-    <section 
-      className="relative h-screen overflow-hidden"
-      style={{
-        backgroundImage: 'url(/tubemap.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      {/* Overlay for better text contrast */}
-      <div className="absolute inset-0 bg-white/60"></div>
+    <section className="relative h-screen overflow-hidden">
+      {/* Parallax Background */}
+      <div 
+        className="absolute inset-0 w-full h-full"
+        style={{
+          backgroundImage: 'url(/tubemap.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          transform: `translateY(${scrollY * 0.3}px)`,
+        }}
+      ></div>
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center h-full px-4">
@@ -31,13 +32,13 @@ export function TubeMapTransition() {
               transform: `translateY(${scrollY * -0.2}px)`,
             }}
           >
-            <h2 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight">
+            <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-lg">
               Navigating
             </h2>
-            <h3 className="text-3xl md:text-5xl font-light text-muted-foreground mb-8">
+            <h3 className="text-3xl md:text-5xl font-light text-white/90 mb-8 drop-shadow-md">
               Complex Journeys
             </h3>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
               Like London's underground network, every business transformation requires clear direction, 
               strategic connections, and expert navigation.
             </p>
