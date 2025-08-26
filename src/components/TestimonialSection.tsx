@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    image: "/Ben Proctor.jpeg",
+    image: "/BenProctor.jpeg",
     quote: "Joe is one of the few professionals I have worked with who is able to fundamentally rethink how we operate - a real asset to any team looking to digitize their function.",
     name: "Ben Procter",
     title: "CFO, Cavendish Plc"
