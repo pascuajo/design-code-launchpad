@@ -26,6 +26,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [errors, setErrors] = useState<Partial<FormData>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [showConfirmation, setShowConfirmation] = useState(false)
   
   const services = [
     'Product Strategy',
@@ -97,6 +98,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       )
 
       setSubmitStatus('success')
+      setShowConfirmation(true)
       setFormData({
         name: '',
         phone: '',
@@ -104,6 +106,12 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         service: '',
         message: ''
       })
+      
+      // Auto-close modal after 3 seconds
+      setTimeout(() => {
+        onClose()
+        setShowConfirmation(false)
+      }, 3000)
     } catch (error) {
       console.error('EmailJS error:', error)
       setSubmitStatus('error')
@@ -135,143 +143,147 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           </button>
         </div>
 
-        {/* Form */}
+        {/* Form or Confirmation */}
         <div className="p-6">
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Name and Phone Row */}
-            <div className="flex gap-4">
-              <div className="flex-1">
-                <label htmlFor="name" className="block text-gray-700 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
-                  placeholder="Your full name"
-                />
-                {errors.name && (
-                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-                )}
+          {showConfirmation ? (
+            <div className="text-center py-8">
+              <div className="mb-4 p-6 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                <h3 className="text-xl font-semibold mb-2">Thank you!</h3>
+                <p>Your message has been sent successfully. I'll get back to you as soon as possible.</p>
               </div>
-
-              <div className="flex-1">
-                <label htmlFor="phone" className="block text-gray-700 mb-2">
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
-                  placeholder="Your phone number"
-                />
-                {errors.phone && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.phone}
-                  </p>
-                )}
-              </div>
+              <p className="text-gray-600">This window will close automatically...</p>
             </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Name and Phone Row */}
+              <div className="flex gap-4">
+                <div className="flex-1">
+                  <label htmlFor="name" className="block text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
+                    placeholder="Your full name"
+                  />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                  )}
+                </div>
 
-            {/* Email and Service Row */}
-            <div className="flex gap-4">
-              <div className="flex-1">
-                <label htmlFor="email" className="block text-gray-700 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
-                  placeholder="Your email address"
-                />
-                {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.email}
-                  </p>
-                )}
-              </div>
-
-              <div className="flex-1">
-                <label htmlFor="service" className="block text-gray-700 mb-2">
-                  Service You're Interested In *
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-lg border ${errors.service ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white text-black`}
-                >
-                  <option value="">Select a service</option>
-                  {services.map((service) => (
-                    <option key={service} value={service}>
-                      {service}
-                    </option>
-                  ))}
-                </select>
-                {errors.service && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.service}
-                  </p>
-                )}
-              </div>
-            </div>
-
-            {/* Message and Submit Row */}
-            <div className="flex gap-4 items-end">
-              <div className="flex-1" style={{ width: '75%' }}>
-                <label htmlFor="message" className="block text-gray-700 mb-2">
-                  Your Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className={`w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
-                  placeholder="How can I help you?"
-                ></textarea>
-                {errors.message && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors.message}
-                  </p>
-                )}
+                <div className="flex-1">
+                  <label htmlFor="phone" className="block text-gray-700 mb-2">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
+                    placeholder="Your phone number"
+                  />
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.phone}
+                    </p>
+                  )}
+                </div>
               </div>
 
-              <div style={{ width: '25%' }}>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="bg-yellow-300 hover:bg-yellow-600 text-accent-foreground font-medium py-3 px-6 rounded-full transition duration-300 text-lg w-full disabled:opacity-50 disabled:cursor-not-allowed h-[108px] flex items-center justify-center"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
+              {/* Email and Service Row */}
+              <div className="flex gap-4">
+                <div className="flex-1">
+                  <label htmlFor="email" className="block text-gray-700 mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
+                    placeholder="Your email address"
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
+
+                <div className="flex-1">
+                  <label htmlFor="service" className="block text-gray-700 mb-2">
+                    Service You're Interested In *
+                  </label>
+                  <select
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors.service ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white text-black`}
+                  >
+                    <option value="">Select a service</option>
+                    {services.map((service) => (
+                      <option key={service} value={service}>
+                        {service}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.service && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.service}
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-            
-            {submitStatus === 'success' && (
-              <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
-                Thank you! Your message has been sent successfully.
+
+              {/* Message and Submit Row */}
+              <div className="flex gap-4 items-end">
+                <div className="flex-1" style={{ width: '75%' }}>
+                  <label htmlFor="message" className="block text-gray-700 mb-2">
+                    Your Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className={`w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
+                    placeholder="How can I help you?"
+                  ></textarea>
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.message}
+                    </p>
+                  )}
+                </div>
+
+                <div style={{ width: '25%' }}>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-yellow-300 hover:bg-yellow-600 text-accent-foreground font-medium py-4 px-10 rounded-full transition duration-300 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </button>
+                </div>
               </div>
-            )}
-            
-            {submitStatus === 'error' && (
-              <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
-                Sorry, there was an error sending your message. Please try again.
-              </div>
-            )}
-          </form>
+              
+              {submitStatus === 'error' && (
+                <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                  Sorry, there was an error sending your message. Please try again.
+                </div>
+              )}
+            </form>
+          )}
         </div>
       </div>
     </div>
