@@ -26,7 +26,7 @@ const testimonials = [
   },
   {
     id: 4,
-    image: "/newphoto.jpg", // Placeholder image
+    image: "/anthea_king.webp",
     quote: "Joe launched our startup 0 to 1 in 6 months and exceeded all projections...$1Mn in ARR in our first 12 months, 95% CSAT score, 25% conversion rate was all down to his vision and impeccable attention to the customer experience",
     name: "Anthea King",
     title: "CMO, Homepaired"
