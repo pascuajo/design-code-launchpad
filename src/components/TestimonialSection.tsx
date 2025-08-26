@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { AnimateOnScroll } from './AnimateOnScroll';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const testimonials = [
   {
@@ -31,7 +31,7 @@ export function TestimonialSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 6000);
+    }, 10000);
 
     return () => clearInterval(timer);
   }, []);
@@ -42,27 +42,34 @@ export function TestimonialSection() {
   return (
     <section className="w-full bg-white py-16 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center">
-          <AnimateOnScroll direction="right" className="md:w-1/4 mb-8 md:mb-0">
-            <div className="w-32 h-32 rounded-full overflow-hidden mx-auto">
-              <img 
-                src={currentTestimonial.image}
-                alt={`${currentTestimonial.name}, ${currentTestimonial.title}`}
-                className="w-full h-full object-cover" 
-              />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="flex flex-col md:flex-row items-center"
+          >
+            <div className="md:w-1/4 mb-8 md:mb-0">
+              <div className="w-32 h-32 rounded-full overflow-hidden mx-auto">
+                <img 
+                  src={currentTestimonial.image}
+                  alt={`${currentTestimonial.name}, ${currentTestimonial.title}`}
+                  className="w-full h-full object-cover" 
+                />
+              </div>
             </div>
-          </AnimateOnScroll>
 
-          <div className="md:w-3/4">
-            <AnimateOnScroll direction="left" delay={0.3}>
+            <div className="md:w-3/4">
               <p className="italic text-gray-600 mb-6 text-xl">
                 "{currentTestimonial.quote}"
               </p>
               <p className="font-semibold text-lg">{currentTestimonial.name}</p>
               <p className="text-gray-500">{currentTestimonial.title}</p>
-            </AnimateOnScroll>
-          </div>
-        </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
         {/* Dots indicator */}
         <div className="flex justify-center mt-8 space-x-2">
