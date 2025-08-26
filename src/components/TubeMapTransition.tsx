@@ -20,30 +20,6 @@ export function TubeMapTransition() {
         backgroundAttachment: 'fixed'
       }}
     >
-
-      {/* Content */}
-      <div className="relative z-10 flex items-center justify-center h-full px-4">
-        <div className="text-center max-w-4xl mx-auto">
-          <div 
-            className="opacity-90"
-            style={{
-              transform: `translateY(${scrollY * -0.2}px)`,
-            }}
-          >
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-lg">
-              Navigating
-            </h2>
-            <h3 className="text-3xl md:text-5xl font-light text-white/90 mb-8 drop-shadow-md">
-              Complex Journeys
-            </h3>
-            <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-              Like London's underground network, every business transformation requires clear direction, 
-              strategic connections, and expert navigation.
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Floating elements for extra visual interest */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
