@@ -45,6 +45,13 @@ const imageData: ImageData[] = [{
   description: 'Data-driven strategic planning and market positioning',
   tags: ['Competitive Advantage', 'New Business Models', 'Strategic Planning'],
   category: 'Strategy'
+}, {
+  id: 'professional-mentoring',
+  url: "/professional_mentoring.png",
+  title: 'Professional Mentoring',
+  description: 'Life, work, career - it can all be overwhelming! Supporting over 200 product professionals with confidential mentorship and guidance.',
+  tags: ['Career Ladder', 'Team Dynamics', 'Skills Development'],
+  category: 'Mentoring'
 }];
 export function ImageLibrary({
   'data-id': dataId
@@ -58,7 +65,7 @@ export function ImageLibrary({
               <div className="relative h-48 overflow-hidden">
                 <img src={image.url} alt={image.title} className="w-full h-full object-cover transition-transform hover:scale-110" />
                 <div className="absolute top-4 right-4">
-                  <div className={`px-3 py-1 rounded-full text-sm font-bold text-white ${image.category === 'Leadership' ? 'bg-purple-500' : image.category === 'Design' ? 'bg-orange-500' : image.category === 'Coaching' ? 'bg-lime-500' : image.category === 'Automation' ? 'bg-blue-500' : 'bg-gray-500'}`}>
+                  <div className={`px-3 py-1 rounded-full text-sm font-bold text-white ${image.category === 'Leadership' ? 'bg-purple-500' : image.category === 'Design' ? 'bg-orange-500' : image.category === 'Coaching' ? 'bg-lime-500' : image.category === 'Automation' ? 'bg-blue-500' : image.category === 'Mentoring' ? 'bg-green-500' : 'bg-gray-500'}`}>
                     {image.category}
                   </div>
                 </div>
