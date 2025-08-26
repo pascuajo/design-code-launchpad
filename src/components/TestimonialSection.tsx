@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
   {
@@ -37,64 +36,32 @@ export function TestimonialSection() {
     return () => clearInterval(timer);
   }, []);
 
-  const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
 
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="w-full bg-white py-28 px-4">
+    <section className="w-full bg-white py-16 px-4">
       <div className="max-w-4xl mx-auto">
-        <AnimateOnScroll>
-          <h2 className="text-3xl font-bold text-center mb-16">
-            Don't Take My Word For It...
-          </h2>
-        </AnimateOnScroll>
-
-        <div className="relative">
-          <div className="flex flex-col md:flex-row items-center">
-            <AnimateOnScroll direction="right" className="md:w-1/4 mb-8 md:mb-0">
-              <div className="w-32 h-32 rounded-full overflow-hidden mx-auto">
-                <img 
-                  src={currentTestimonial.image}
-                  alt={`${currentTestimonial.name}, ${currentTestimonial.title}`}
-                  className="w-full h-full object-cover" 
-                />
-              </div>
-            </AnimateOnScroll>
-
-            <div className="md:w-3/4">
-              <AnimateOnScroll direction="left" delay={0.3}>
-                <p className="italic text-gray-600 mb-6 text-xl">
-                  "{currentTestimonial.quote}"
-                </p>
-                <p className="font-semibold text-lg">{currentTestimonial.name}</p>
-                <p className="text-gray-500">{currentTestimonial.title}</p>
-              </AnimateOnScroll>
+        <div className="flex flex-col md:flex-row items-center">
+          <AnimateOnScroll direction="right" className="md:w-1/4 mb-8 md:mb-0">
+            <div className="w-32 h-32 rounded-full overflow-hidden mx-auto">
+              <img 
+                src={currentTestimonial.image}
+                alt={`${currentTestimonial.name}, ${currentTestimonial.title}`}
+                className="w-full h-full object-cover" 
+              />
             </div>
+          </AnimateOnScroll>
+
+          <div className="md:w-3/4">
+            <AnimateOnScroll direction="left" delay={0.3}>
+              <p className="italic text-gray-600 mb-6 text-xl">
+                "{currentTestimonial.quote}"
+              </p>
+              <p className="font-semibold text-lg">{currentTestimonial.name}</p>
+              <p className="text-gray-500">{currentTestimonial.title}</p>
+            </AnimateOnScroll>
           </div>
-
-          {/* Navigation buttons */}
-          <button
-            onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
-          </button>
-
-          <button
-            onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
-          </button>
         </div>
 
         {/* Dots indicator */}
