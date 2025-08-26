@@ -1,4 +1,3 @@
-import React from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
 import { Linkedin } from 'lucide-react';
 

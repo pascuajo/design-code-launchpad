@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { AnimateOnScroll, AnimateChildren } from '../AnimateOnScroll';
 import { BlogCard } from './BlogCard';
 import { supabase } from '../../integrations/supabase/client';
