@@ -1,5 +1,5 @@
 import { AnimateOnScroll } from './AnimateOnScroll';
-import { Linkedin, Building2, Home, Shield, ShoppingCart, Users, UserCheck, Globe, Brain, Database } from 'lucide-react';
+import { Linkedin, Building2, Home, Shield, UserCheck, Globe, Brain, Database } from 'lucide-react';
 
 interface DomainInfo {
   title: string;
