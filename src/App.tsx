@@ -4,6 +4,7 @@ import { LogoSection } from './components/LogoSection';
 import { ValuePropositionSection } from './components/ValuePropositionSection';
 import { ImageLibrary } from './components/Images/Servicesv2';
 import { TestimonialSection } from './components/TestimonialSection';
+import { TubeMapTransition } from './components/TubeMapTransition';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -18,6 +19,7 @@ export function App() {
         <ValuePropositionSection />
         <ImageLibrary />
         <TestimonialSection />
+        <TubeMapTransition />
         <AboutSection />
         <ContactSection />
         <Footer />
