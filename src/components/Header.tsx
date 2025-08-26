@@ -47,38 +47,31 @@ export function Header() {
                 </a>
               </li>
                <li className="relative">
-                 <button 
-                   className={`flex items-center hover:text-yellow-500 transition-colors ${location.pathname.includes('/blog') || location.pathname.includes('/book-club') || location.pathname.includes('/value-creation') ? 'text-yellow-500' : ''}`}
-                   onClick={() => setIsResourcesOpen(!isResourcesOpen)}
-                 >
+                <button 
+                  className={`flex items-center hover:text-yellow-500 transition-colors ${location.pathname.includes('/blog') || location.pathname.includes('/book-club') ? 'text-yellow-500' : ''}`}
+                  onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+                >
                   Resources
                   <ChevronDown size={16} className="ml-1" />
                 </button>
-                 {isResourcesOpen && (
-                   <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
-                     <Link 
-                       to="/blog" 
-                       className="block px-4 py-2 hover:bg-gray-50 transition-colors"
-                       onClick={() => setIsResourcesOpen(false)}
-                     >
-                       Blog
-                     </Link>
-                     <Link 
-                       to="/book-club" 
-                       className="block px-4 py-2 hover:bg-gray-50 transition-colors"
-                       onClick={() => setIsResourcesOpen(false)}
-                     >
-                       Book Club
-                     </Link>
-                     <Link 
-                       to="/value-creation" 
-                       className="block px-4 py-2 hover:bg-gray-50 transition-colors"
-                       onClick={() => setIsResourcesOpen(false)}
-                     >
-                       Value Creation
-                     </Link>
-                   </div>
-                 )}
+                {isResourcesOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                    <Link 
+                      to="/blog" 
+                      className="block px-4 py-2 hover:bg-gray-50 transition-colors"
+                      onClick={() => setIsResourcesOpen(false)}
+                    >
+                      Blog
+                    </Link>
+                    <Link 
+                      to="/book-club" 
+                      className="block px-4 py-2 hover:bg-gray-50 transition-colors"
+                      onClick={() => setIsResourcesOpen(false)}
+                    >
+                      Book Club
+                    </Link>
+                  </div>
+                )}
                </li>
             </ul>
           </nav>
