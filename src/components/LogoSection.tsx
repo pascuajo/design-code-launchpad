@@ -64,7 +64,6 @@ export function LogoSection() {
           </div>
         </AnimateOnScroll>
       </div>
-      <div className="max-w-6xl mx-auto mt-12 border-b border-gray-300"></div>
     </section>
   );
 }
