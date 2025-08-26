@@ -10,7 +10,7 @@ export function HeroSection() {
         <AnimateOnScroll direction="right" className="md:w-1/3 mb-12 md:mb-0">
           <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden mx-auto md:mx-0">
             <img 
-              src="/profileroto.png" 
+              src="/ProfileRoto.png" 
               alt="Consultant portrait" 
               className="w-full h-full object-cover" 
             />
