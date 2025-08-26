@@ -12,7 +12,7 @@ export function HeroSection() {
             <img 
               src="/ProfileRoto.png" 
               alt="Consultant portrait" 
-              className="w-full h-full object-cover" 
+              className="w-full h-full object-cover object-top" 
             />
           </div>
         </AnimateOnScroll>
