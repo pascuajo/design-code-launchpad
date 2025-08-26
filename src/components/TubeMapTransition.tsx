@@ -15,8 +15,9 @@ export function TubeMapTransition() {
       style={{
         backgroundImage: 'url(/tubemap.png)',
         backgroundSize: 'cover',
-        backgroundPosition: `center ${scrollY * 0.5}px`,
-        backgroundRepeat: 'no-repeat'
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        transform: `translateY(${scrollY * 0.3}px)`
       }}
     >
       {/* Floating elements for extra visual interest */}
