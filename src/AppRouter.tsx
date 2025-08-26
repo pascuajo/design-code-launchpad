@@ -4,6 +4,7 @@ import { App } from './App';
 import { BlogPage } from './components/blog/BlogPage';
 import { BlogPostDetail } from './components/blog/BlogPostDetail';
 import { BookClubPage } from './components/book-club/BookClubPage';
+import { ValueCreationPage } from './components/value-creation/ValueCreationPage';
 import { Layout } from './components/Layout';
 import { ContactPage } from './components/ContactPage';
 import { AuthPage } from './components/auth/AuthPage';
@@ -46,6 +47,14 @@ export function AppRouter() {
             element={
               <Layout>
                 <BookClubPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/value-creation"
+            element={
+              <Layout>
+                <ValueCreationPage />
               </Layout>
             }
           />
