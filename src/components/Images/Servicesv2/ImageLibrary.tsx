@@ -47,7 +47,7 @@ const imageData: ImageData[] = [{
   category: 'Strategy'
 }, {
   id: 'professional-mentoring',
-  url: "/professional_mentoring.png",
+  url: "/mentoring.jpg",
   title: 'Professional Mentoring',
   description: 'Life, work, career - it can all be overwhelming! Supporting over 200 product professionals with confidential mentorship and guidance.',
   tags: ['Career Ladder', 'Team Dynamics', 'Skills Development'],
