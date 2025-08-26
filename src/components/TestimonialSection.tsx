@@ -12,7 +12,7 @@ const testimonials = [
   {
     id: 2,
     image: "/patrickoconnor.jpg",
-    quote: "Exceptional product strategist who transformed our AI vision into reality and pivotal in developing our agentic AI platform. His ability to translate complex AI concepts into market-winning products is unmatched",
+    quote: "Exceptional product strategist who transformed our AI vision into reality. Pivotal in developing our agentic AI platform, his ability to translate complex AI concepts into market-winning products is unmatched",
     name: "Patrick O'Connor",
     title: "CEO, Gatekeeper"
   },
