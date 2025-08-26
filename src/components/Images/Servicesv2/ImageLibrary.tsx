@@ -15,21 +15,21 @@ const imageData: ImageData[] = [{
   url: "/fractional_leadership.webp",
   title: 'Fractional Leadership',
   description: 'Exceptional CPO to VP level support when you need it, without the full-time commitment',
-  tags: ['Startups', 'Strategy', 'Transitions'],
+  tags: ['Startups', 'New Product Launches', 'Interim Leadership'],
   category: 'Leadership'
 }, {
   id: 'app-design',
   url: "/app_design.jpg",
   title: 'Product Design & Rapid Prototyping',
   description: 'Explore new Product ideas and fresh perspectives (without derailing your current Product roadmap)',
-  tags: ['R & D', 'Rapid Prototyping', 'Customer UX'],
+  tags: ['ROI Definition', 'Business Case Development', 'Customer UX'],
   category: 'Design'
 }, {
   id: 'growth-mentoring',
   url: "/istockphoto-1692037306-612x612.jpg",
-  title: 'Product Advisory & Coaching',
+  title: 'Product Operations & Scaling',
   description: 'Your trusted partner helping you design and scale world class Product teams and operations',
-  tags: ['Mentoring', 'Operational Excellence', 'Professional Development'],
+  tags: ['Team Building', 'Operational Excellence', 'Performance & OKRs'],
   category: 'Productivity'
 }, {
   id: 'digital-transformation',
@@ -41,7 +41,7 @@ const imageData: ImageData[] = [{
 }, {
   id: 'business-strategy',
   url: "/success-strategy-plan-ahead-win-600nw-2115564866.webp",
-  title: 'Business Strategy',
+  title: 'Product Strategy',
   description: 'Data-driven strategic planning and market positioning',
   tags: ['Competitive Advantage', 'New Business Models', 'Strategic Planning'],
   category: 'Strategy'
