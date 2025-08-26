@@ -20,7 +20,7 @@ export function ContactSection() {
 
         <AnimateOnScroll delay={0.6} direction="up">
           <Link to="/contact">
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium py-4 px-10 rounded-full transition duration-300 text-lg">
+            <button className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium py-4 px-10 rounded-full transition duration-300 text-lg">
               Contact Me
             </button>
           </Link>
