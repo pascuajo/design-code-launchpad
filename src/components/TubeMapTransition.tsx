@@ -10,18 +10,16 @@ export function TubeMapTransition() {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden">
-      {/* Parallax Background */}
-      <div 
-        className="absolute inset-0 w-full h-full"
-        style={{
-          backgroundImage: 'url(/tubemap.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          transform: `translateY(${scrollY * 0.3}px)`,
-        }}
-      ></div>
+    <section 
+      className="relative h-screen overflow-hidden"
+      style={{
+        backgroundImage: 'url(/tubemap.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center h-full px-4">
