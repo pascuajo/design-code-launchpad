@@ -8,7 +8,7 @@ export function HeroSection() {
     <section className="w-full bg-white py-28 px-4 md:px-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
         <AnimateOnScroll direction="right" className="md:w-1/3 mb-12 md:mb-0">
-          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden mx-auto md:mx-0">
+          <div className="w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden mx-auto md:mx-0">
             <img 
               src="/ProfileRoto.png" 
               alt="Consultant portrait" 
