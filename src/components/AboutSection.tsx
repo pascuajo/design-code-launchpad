@@ -45,7 +45,7 @@ export function AboutSection() {
             <AnimateOnScroll direction="right" className="mb-8">
               <div className="w-64 h-64 rounded-lg overflow-hidden shadow-lg">
                 <img 
-                  src="/newphoto.jpg" 
+                  src="/profile.png" 
                   alt="Joe Pascual - Strategic Innovation Consultant" 
                   className="w-full h-full object-cover" 
                 />
