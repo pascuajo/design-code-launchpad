@@ -10,27 +10,17 @@ export function TubeMapTransition() {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden bg-gradient-to-b from-white via-gray-50 to-white">
-      {/* Parallax Background */}
-      <div 
-        className="absolute inset-0 w-full h-full"
-        style={{
-          transform: `translateY(${scrollY * 0.5}px)`,
-        }}
-      >
-        <div className="relative w-full h-full">
-          <img 
-            src="/tubemap.png" 
-            alt="London Underground Map"
-            className="absolute inset-0 w-full h-full object-cover opacity-20 scale-110"
-            style={{
-              transform: `scale(1.1) translateY(${scrollY * 0.3}px)`,
-            }}
-          />
-          {/* Overlay gradient for better text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-white/40"></div>
-        </div>
-      </div>
+    <section 
+      className="relative h-screen overflow-hidden"
+      style={{
+        backgroundImage: 'url(/tubemap.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Overlay for better text contrast */}
+      <div className="absolute inset-0 bg-white/60"></div>
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-center h-full px-4">
