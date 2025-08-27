@@ -121,7 +121,7 @@ export function AboutSection() {
                   </p>
                   
                   <p className="text-gray-700 text-lg leading-relaxed">
-                    Right now, I'm focused on combining my business experience with advanced AI strategies to help businesses move fast, innovate efficiently, and stay ahead of the competition. Together, we'll turn your ideas into real-world, market-ready solutions that drive true business impact.
+                    Right now, I'm focused on combining my business experience with advanced AI strategies to help businesses move fast, innovate efficiently, and stay ahead of the competition.
                   </p>
                 </div>
               </div>
