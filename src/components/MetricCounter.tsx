@@ -105,39 +105,40 @@ export function MetricCounter() {
   const [hasStarted, setHasStarted] = useState(false);
   const counterRef = useRef<HTMLDivElement>(null);
   
+  // DRAG FUNCTIONALITY - DISABLED BUT PRESERVED FOR FUTURE USE
   // Drag positions for each metric column
-  const [positions, setPositions] = useState([
-    { x: 0, y: 0 }, // Products Launched
-    { x: 0, y: 0 }, // Value Created
-    { x: 0, y: 0 }, // Staff Managed
-    { x: 0, y: 0 }, // Customers Served
+  const [positions] = useState([
+    { x: 0, y: 0 }, // Products Launched - LOCKED POSITION
+    { x: 0, y: 0 }, // Value Created - LOCKED POSITION  
+    { x: 0, y: 0 }, // Staff Managed - LOCKED POSITION
+    { x: 0, y: 0 }, // Customers Served - LOCKED POSITION
   ]);
   
-  const [dragIndex, setDragIndex] = useState<number | null>(null);
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  // const [dragIndex, setDragIndex] = useState<number | null>(null);
+  // const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
-  const handleMouseDown = (index: number, e: React.MouseEvent) => {
-    setDragIndex(index);
-    setDragStart({
-      x: e.clientX - positions[index].x,
-      y: e.clientY - positions[index].y,
-    });
-  };
+  // const handleMouseDown = (index: number, e: React.MouseEvent) => {
+  //   setDragIndex(index);
+  //   setDragStart({
+  //     x: e.clientX - positions[index].x,
+  //     y: e.clientY - positions[index].y,
+  //   });
+  // };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (dragIndex !== null) {
-      const newPositions = [...positions];
-      newPositions[dragIndex] = {
-        x: e.clientX - dragStart.x,
-        y: e.clientY - dragStart.y,
-      };
-      setPositions(newPositions);
-    }
-  };
+  // const handleMouseMove = (e: React.MouseEvent) => {
+  //   if (dragIndex !== null) {
+  //     const newPositions = [...positions];
+  //     newPositions[dragIndex] = {
+  //       x: e.clientX - dragStart.x,
+  //       y: e.clientY - dragStart.y,
+  //     };
+  //     setPositions(newPositions);
+  //   }
+  // };
 
-  const handleMouseUp = () => {
-    setDragIndex(null);
-  };
+  // const handleMouseUp = () => {
+  //   setDragIndex(null);
+  // };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -162,8 +163,9 @@ export function MetricCounter() {
     <section 
       ref={counterRef} 
       className="w-full bg-gray-800 py-20 px-4 relative overflow-hidden"
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
+      // DRAG EVENT HANDLERS - DISABLED
+      // onMouseMove={handleMouseMove}
+      // onMouseUp={handleMouseUp}
     >
       {/* Train station board grid background - aligned with cards */}
       <div 
@@ -187,13 +189,15 @@ export function MetricCounter() {
             
             {/* Products Launched - Column 1 */}
             <div 
-              className="flex flex-col items-end space-y-1 cursor-move" 
+              className="flex flex-col items-end space-y-1" 
               style={{ 
-                transform: `translate(${positions[0].x}px, ${positions[0].y}px)`,
-                border: '2px dashed rgba(255,255,255,0.3)',
-                padding: '4px'
+                transform: `translate(${positions[0].x}px, ${positions[0].y}px)`
+                // DRAG STYLING - DISABLED
+                // border: '2px dashed rgba(255,255,255,0.3)',
+                // padding: '4px'
               }}
-              onMouseDown={(e) => handleMouseDown(0, e)}
+              // DRAG HANDLER - DISABLED
+              // onMouseDown={(e) => handleMouseDown(0, e)}
             >
               {/* Metric: 50+ */}
               <div className="flex items-center space-x-0.5">
@@ -222,13 +226,15 @@ export function MetricCounter() {
 
             {/* Value Created - Column 2 */}
             <div 
-              className="flex flex-col items-end space-y-1 cursor-move"
+              className="flex flex-col items-end space-y-1"
               style={{ 
-                transform: `translate(${positions[1].x}px, ${positions[1].y}px)`,
-                border: '2px dashed rgba(255,255,255,0.3)',
-                padding: '4px'
+                transform: `translate(${positions[1].x}px, ${positions[1].y}px)`
+                // DRAG STYLING - DISABLED
+                // border: '2px dashed rgba(255,255,255,0.3)',
+                // padding: '4px'
               }}
-              onMouseDown={(e) => handleMouseDown(1, e)}
+              // DRAG HANDLER - DISABLED
+              // onMouseDown={(e) => handleMouseDown(1, e)}
             >
               {/* Metric: $3Bn+ */}
               <div className="flex items-center space-x-0.5">
@@ -259,13 +265,15 @@ export function MetricCounter() {
 
             {/* Staff Managed - Column 3 */}
             <div 
-              className="flex flex-col items-end space-y-1 cursor-move"
+              className="flex flex-col items-end space-y-1"
               style={{ 
-                transform: `translate(${positions[2].x}px, ${positions[2].y}px)`,
-                border: '2px dashed rgba(255,255,255,0.3)',
-                padding: '4px'
+                transform: `translate(${positions[2].x}px, ${positions[2].y}px)`
+                // DRAG STYLING - DISABLED
+                // border: '2px dashed rgba(255,255,255,0.3)',
+                // padding: '4px'
               }}
-              onMouseDown={(e) => handleMouseDown(2, e)}
+              // DRAG HANDLER - DISABLED
+              // onMouseDown={(e) => handleMouseDown(2, e)}
             >
               {/* Metric: 1000+ */}
               <div className="flex items-center space-x-0.5">
@@ -296,13 +304,15 @@ export function MetricCounter() {
 
             {/* Customers Served - Column 4 */}
             <div 
-              className="flex flex-col items-end space-y-1 cursor-move"
+              className="flex flex-col items-end space-y-1"
               style={{ 
-                transform: `translate(${positions[3].x}px, ${positions[3].y}px)`,
-                border: '2px dashed rgba(255,255,255,0.3)',
-                padding: '4px'
+                transform: `translate(${positions[3].x}px, ${positions[3].y}px)`
+                // DRAG STYLING - DISABLED
+                // border: '2px dashed rgba(255,255,255,0.3)',
+                // padding: '4px'
               }}
-              onMouseDown={(e) => handleMouseDown(3, e)}
+              // DRAG HANDLER - DISABLED
+              // onMouseDown={(e) => handleMouseDown(3, e)}
             >
               {/* Metric: 1Mn+ */}
               <div className="flex items-center space-x-0.5">
@@ -334,13 +344,14 @@ export function MetricCounter() {
         </AnimateOnScroll>
       </div>
       
-      {/* Position Display for debugging */}
+      {/* POSITION DISPLAY - DISABLED 
       <div className="absolute top-4 left-4 text-white text-xs bg-black/50 p-2 rounded">
         <div>Positions:</div>
         {positions.map((pos, i) => (
           <div key={i}>Column {i + 1}: x:{pos.x}, y:{pos.y}</div>
         ))}
       </div>
+      */}
     </section>
   );
 }
