@@ -108,10 +108,10 @@ export function MetricCounter() {
   // DRAG FUNCTIONALITY - DISABLED BUT PRESERVED FOR FUTURE USE
   // Drag positions for each metric column
   const [positions] = useState([
-    { x: 0, y: 0 }, // Products Launched - LOCKED POSITION
-    { x: 0, y: 0 }, // Value Created - LOCKED POSITION  
-    { x: 0, y: 0 }, // Staff Managed - LOCKED POSITION
-    { x: 0, y: 0 }, // Customers Served - LOCKED POSITION
+    { x: 5, y: 2 }, // Products Launched - LOCKED POSITION (nudged right 5px, down 2px)
+    { x: 5, y: 2 }, // Value Created - LOCKED POSITION (nudged right 5px, down 2px)
+    { x: 5, y: 2 }, // Staff Managed - LOCKED POSITION (nudged right 5px, down 2px)
+    { x: 5, y: 2 }, // Customers Served - LOCKED POSITION (nudged right 5px, down 2px)
   ]);
   
   // const [dragIndex, setDragIndex] = useState<number | null>(null);
