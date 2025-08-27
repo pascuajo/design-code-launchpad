@@ -1,6 +1,4 @@
 import { useEffect, useState, useRef } from 'react';
-import { AnimatedCounter } from './AnimatedCounter';
-import { AnimateOnScroll } from './AnimateOnScroll';
 
 export function TubeMapTransition() {
   const [scrollY, setScrollY] = useState(0);
@@ -93,10 +91,10 @@ export function TubeMapTransition() {
         ))}
       </div>
 
-      {/* Header and metrics overlay */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
+      {/* Header overlay */}
+      <div className="absolute inset-0 flex items-center justify-center">
         <div 
-          className="text-center z-10 mb-8"
+          className="text-center z-10"
           style={{
             transform: `translateY(${scrollY * 20}px)`,
             opacity: 0.9 + scrollY * 0.1,
@@ -106,37 +104,6 @@ export function TubeMapTransition() {
             From strategy to launch, <span className="handdrawn-highlight">every stop covered</span>.
           </h3>
         </div>
-        
-        {/* Metrics - 50% smaller */}
-        <AnimateOnScroll>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto scale-75">
-            <AnimatedCounter 
-              targetValue={50} 
-              suffix="+" 
-              label="Products Launched" 
-              bgColor="bg-purple-50"
-            />
-            <AnimatedCounter 
-              targetValue={3} 
-              prefix="$" 
-              suffix="Bn+" 
-              label="Value Created" 
-              bgColor="bg-green-50"
-            />
-            <AnimatedCounter 
-              targetValue={1000} 
-              suffix="+" 
-              label="Staff Managed" 
-              bgColor="bg-blue-50"
-            />
-            <AnimatedCounter 
-              targetValue={1} 
-              suffix="Mn+" 
-              label="Customers Served" 
-              bgColor="bg-orange-50"
-            />
-          </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );

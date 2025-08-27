@@ -6,6 +6,7 @@ import { ImageLibrary } from './components/Images/Servicesv2';
 import { TestimonialSection } from './components/TestimonialSection';
 import { TubeMapTransition } from './components/TubeMapTransition';
 import { AboutSection } from './components/AboutSection';
+import { MetricCounter } from './components/MetricCounter';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 
@@ -20,6 +21,7 @@ export function App() {
         <ImageLibrary />
         <TestimonialSection />
         <TubeMapTransition />
+        <MetricCounter />
         <AboutSection />
         <ContactSection />
         <Footer />
