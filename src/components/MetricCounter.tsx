@@ -126,7 +126,7 @@ export function MetricCounter() {
 
   return (
     <section ref={counterRef} className="w-full bg-gray-800 py-20 px-4 relative overflow-hidden">
-      {/* Train station board grid background - 20% smaller */}
+      {/* Train station board grid background - aligned with cards */}
       <div 
         className="absolute inset-0 opacity-20"
         style={{
@@ -135,6 +135,7 @@ export function MetricCounter() {
             linear-gradient(to bottom, #64748b 1px, transparent 1px)
           `,
           backgroundSize: '26px 42px', // Matches card + gap: 24px card width + 2px gap = 26px, 40px card height + 2px gap = 42px
+          backgroundPosition: '4px 1px', // Nudge right 4px, down 1px to align with cards
         }}
       />
       
