@@ -12,61 +12,61 @@ export function AboutSection() {
   const domains: DomainInfo[] = [
     {
       title: "FinTech",
-      description: "Financial Close Automation • Payment & Escrow Platforms • Treasury Management Platforms • Financial Statement Automation • Digital Banking Infrastructure",
+      description: "Core Banking Platforms • Payment Processing Systems • Treasury Management Systems • Financial Reporting Platforms",
       icon: <Building2 className="w-8 h-8 text-blue-600" />,
       color: "blue"
     },
     {
       title: "PropTech",
-      description: "AI-powered Property Valuation Engines • iBuyer Marketplace Platforms • Property Management Automation • Real Estate Acquisition Workflows • Tenant & Vendor Portals",
+      description: "Property Valuation Engines • Real Estate Marketplace Platforms • Asset Management Systems • Investment Analytics Platforms",
       icon: <Home className="w-8 h-8 text-green-600" />,
       color: "green"
     },
     {
       title: "RegTech",
-      description: "Regulatory Compliance Automation • Risk Management Platforms • AML/KYC Workflow Engines • Audit & Documentation Systems",
+      description: "Risk Management Platforms • Compliance Monitoring Systems • AML/KYC Workflow Engines • Regulatory Reporting Systems",
       icon: <Shield className="w-8 h-8 text-purple-600" />,
       color: "purple"
     },
     {
       title: "LegalTech",
-      description: "Contract Management Automation • Identity Verification Systems • Legal Document Intelligence",
+      description: "Contract Management Platforms • Document Intelligence Systems • Legal Workflow Engines • Compliance Management Systems",
       icon: <Shield className="w-8 h-8 text-indigo-600" />,
       color: "indigo"
     },
     {
       title: "ProcureTech",
-      description: "Strategic Sourcing Platforms • Procure-To-Pay Automation • Procurement Workflow Engines • Vendor Management Systems • Spend Analytics & Reporting",
+      description: "Strategic Sourcing Platforms • Procurement Management Systems • Vendor Relationship Systems • Spend Analytics Platforms",
       icon: <Building2 className="w-8 h-8 text-red-600" />,
       color: "red"
     },
     {
       title: "Data & Business Intelligence",
-      description: "Executive KPI Dashboards • Integration & Data Pipelines • Real-Time Business Intelligence • Predictive Analytics Models • Data Visualization Platforms",
+      description: "Business Intelligence Platforms • Data Integration Systems • Analytics Dashboard Systems • Real-time Reporting Platforms",
       icon: <Database className="w-8 h-8 text-gray-600" />,
       color: "gray"
     },
     {
       title: "AI & Automation",
-      description: "Agentic Workflow Orchestration • Large Language Model Integration • Predictive modeling engines • Intelligent Process Automation",
+      description: "Agentic AI Platforms • Machine Learning Systems • Process Automation Platforms • Intelligent Workflow Systems",
       icon: <Brain className="w-8 h-8 text-yellow-600" />,
       color: "yellow"
     },
     {
       title: "Enterprise SaaS",
-      description: "Multi-Tenant Platforms • Peer-To-Peer Marketplaces • Consumer Mobile Applications • Self-Service Onboarding Flows",
+      description: "B2B SaaS Platforms • Multi-Tenant Systems • Mobile Application Platforms • Digital Experience Systems",
       icon: <Building2 className="w-8 h-8 text-blue-600" />,
       color: "blue"
     },
     {
       title: "Enterprise Platform",
-      description: "Microservices Architecture • API Management Systems • Data integration Platforms • Workflow Automation Platforms • ERP Platforms • CRM Platforms",
+      description: "ERP Integration Systems • CRM Management Platforms • HRIS Workflow Systems • Business Process Platforms",
       icon: <Building2 className="w-8 h-8 text-red-600" />,
       color: "red"
     },
     {
       title: "Industries",
-      description: "Financial Services • Commercial Real Estate • Enterprise SaaS • Youth Sports • Marketplaces",
+      description: "Global Financial Services • Commercial Real Estate • Enterprise SaaS • Startups & Pre-Seed",
       icon: <Building2 className="w-8 h-8 text-gray-600" />,
       color: "gray"
     },
