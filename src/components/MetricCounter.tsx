@@ -93,7 +93,7 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false }: FlipCar
           transformStyle: 'preserve-3d'
         }}
       >
-        <div className="text-gray-900 font-din-condensed font-bold text-lg"> {/* Smaller text: was text-2xl, now text-lg */}
+        <div className={`font-din-condensed font-bold ${isLetter ? 'text-red-500 text-lg' : 'text-gray-900 text-3xl'}`}> {/* Doubled metric text, red for titles */}
           {currentChar}
         </div>
       </div>
