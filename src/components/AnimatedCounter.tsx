@@ -86,7 +86,7 @@ function FlipDigit({ targetChar, duration, delay = 0 }: FlipDigitProps) {
           transformStyle: 'preserve-3d'
         }}
       >
-        <div className="text-gray-900 font-mono font-bold text-lg">
+        <div className="text-gray-900 font-din-condensed font-bold text-2xl">
           {currentChar}
         </div>
       </div>
@@ -142,7 +142,7 @@ export function AnimatedCounter({ targetValue, suffix = '', prefix = '', duratio
             ) : (
               <div key={index} className="w-8 h-12 mx-0.5 flex items-center justify-center">
                 <div className="w-full h-full bg-white rounded-sm border-2 border-gray-800 flex items-center justify-center">
-                  <div className="text-gray-900 font-mono font-bold text-lg">0</div>
+                  <div className="text-gray-900 font-din-condensed font-bold text-2xl">0</div>
                 </div>
               </div>
             )

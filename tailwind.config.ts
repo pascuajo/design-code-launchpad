@@ -22,6 +22,9 @@ export default {
         },
         'dark-section': 'hsl(var(--dark-section))',
       },
+      fontFamily: {
+        'din-condensed': ['DIN Condensed', 'Arial Narrow', 'sans-serif'],
+      },
       perspective: {
         '1000': '1000px',
       },
