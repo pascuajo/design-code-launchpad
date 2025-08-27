@@ -6,9 +6,10 @@ interface FlipCardProps {
   duration: number;
   delay?: number;
   isLetter?: boolean;
+  isMetricLetter?: boolean;
 }
 
-function FlipCard({ targetChar, duration, delay = 0, isLetter = false }: FlipCardProps) {
+function FlipCard({ targetChar, duration, delay = 0, isLetter = false, isMetricLetter = false }: FlipCardProps) {
   const [currentChar, setCurrentChar] = useState(isLetter ? 'A' : '0');
   const [isFlipping, setIsFlipping] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout>();
@@ -81,7 +82,7 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false }: FlipCar
         clearInterval(intervalRef.current);
       }
     };
-  }, [targetChar, duration, delay, isLetter]);
+  }, [targetChar, duration, delay, isLetter, isMetricLetter]);
 
   return (
     <div className="relative w-6 h-10 perspective-1000"> {/* 20% smaller: was w-8 h-12, now w-6 h-10 */}
@@ -93,7 +94,7 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false }: FlipCar
           transformStyle: 'preserve-3d'
         }}
       >
-        <div className={`font-din-condensed font-bold ${isLetter && !['B', 'M', 'n'].includes(targetChar) ? 'text-red-500 text-lg' : 'text-gray-900 text-3xl'}`}> {/* Large black for numbers and metric letters (B,M,n), red small for title letters */}
+        <div className={`font-din-condensed font-bold ${isMetricLetter || !isLetter ? 'text-gray-900 text-3xl' : 'text-red-500 text-lg'}`}> {/* Large black for numbers and metric letters (B,M,n), red small for title letters */}
           {currentChar}
         </div>
       </div>
@@ -242,8 +243,8 @@ export function MetricCounter() {
                   <>
                     <FlipCard targetChar="$" duration={2500} delay={0} />
                     <FlipCard targetChar="3" duration={2500} delay={100} />
-                    <FlipCard targetChar="B" duration={2500} delay={200} isLetter />
-                    <FlipCard targetChar="n" duration={2500} delay={300} isLetter />
+                    <FlipCard targetChar="B" duration={2500} delay={200} isLetter isMetricLetter />
+                    <FlipCard targetChar="n" duration={2500} delay={300} isLetter isMetricLetter />
                     <FlipCard targetChar="+" duration={2500} delay={400} />
                   </>
                 )}
@@ -319,8 +320,8 @@ export function MetricCounter() {
                 {hasStarted && (
                   <>
                     <FlipCard targetChar="1" duration={2500} delay={0} />
-                    <FlipCard targetChar="M" duration={2500} delay={100} isLetter />
-                    <FlipCard targetChar="n" duration={2500} delay={200} isLetter />
+                    <FlipCard targetChar="M" duration={2500} delay={100} isLetter isMetricLetter />
+                    <FlipCard targetChar="n" duration={2500} delay={200} isLetter isMetricLetter />
                     <FlipCard targetChar="+" duration={2500} delay={300} />
                   </>
                 )}
