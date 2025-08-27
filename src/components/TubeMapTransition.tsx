@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
+import { AnimatedCounter } from './AnimatedCounter';
+import { AnimateOnScroll } from './AnimateOnScroll';
 
 export function TubeMapTransition() {
   const [scrollY, setScrollY] = useState(0);
@@ -91,22 +93,50 @@ export function TubeMapTransition() {
         ))}
       </div>
 
-      {/* Content overlay with improved visibility */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      {/* Header and metrics overlay */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
         <div 
-          className="text-center z-10 px-6 py-8 rounded-2xl backdrop-blur-sm bg-white/10 border border-white/20 shadow-2xl"
+          className="text-center z-10 mb-8"
           style={{
-            transform: `translateY(${scrollY * 30}px) scale(${1 + scrollY * 0.1})`,
+            transform: `translateY(${scrollY * 20}px)`,
             opacity: 0.9 + scrollY * 0.1,
           }}
         >
-          <h3 className="text-3xl md:text-4xl font-bold mb-3 text-gray-800 drop-shadow-[0_2px_4px_rgba(255,255,255,0.9)]">
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-800 drop-shadow-[0_2px_4px_rgba(255,255,255,0.9)]">
             From strategy to launch, <span className="handdrawn-highlight">every stop covered</span>.
           </h3>
-          <p className="text-lg md:text-xl text-gray-700 drop-shadow-[0_1px_3px_rgba(255,255,255,0.9)] max-w-md mx-auto leading-relaxed">
-            Your trusted guide to achieving product and leadership success.
-          </p>
         </div>
+        
+        {/* Metrics - 50% smaller */}
+        <AnimateOnScroll>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto scale-50">
+            <AnimatedCounter 
+              targetValue={50} 
+              suffix="+" 
+              label="Products Launched" 
+              bgColor="bg-purple-50"
+            />
+            <AnimatedCounter 
+              targetValue={3} 
+              prefix="$" 
+              suffix="Bn+" 
+              label="Value Created" 
+              bgColor="bg-green-50"
+            />
+            <AnimatedCounter 
+              targetValue={1000} 
+              suffix="+" 
+              label="Staff Managed" 
+              bgColor="bg-blue-50"
+            />
+            <AnimatedCounter 
+              targetValue={1} 
+              suffix="Mn+" 
+              label="Customers Served" 
+              bgColor="bg-orange-50"
+            />
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
