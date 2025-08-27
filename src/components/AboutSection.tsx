@@ -82,6 +82,12 @@ export function AboutSection() {
       icon: <Building2 className="w-8 h-8 text-gray-600" />,
       color: "gray"
     }
+    {
+      title: "Career",
+      description: "Founder & CEO @ Homepaired • Head of Product & Design @ Amherst • Executive Director, Product Management @ UBS • Executive Director, Digital Transformation @ UBS",
+      icon: <Globe className="w-8 h-8 text-red-600" />,
+      color: "red"
+    },
   ];
 
   const getColorClasses = (color: string) => {
@@ -193,50 +199,6 @@ export function AboutSection() {
             </div>
           </AnimateOnScroll>
         </div>
-
-        {/* Career Summary below domain icons */}
-        <div className="w-full">
-          <AnimateOnScroll>
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold mb-6 text-gray-800 text-center">Career Highlights</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-3">
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm">Founder and CEO of Homepaired (SaaS C2C)</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm">Head of Product, UX and PMO at Amherst (PropTech, SaaS B2C)</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm">Executive Director, Digital Transformation at UBS (FinTech, Platform)</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm">Executive Director, FinTech Innovation Labs at UBS (FinTech, Platform)</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm">Executive Consultant, AI Product Strategy at Gatekeeper (ProcureTech, SaaS B2B)</span>
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm">CFO, AMER Equities at UBS</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm">Chartered Accountant (ACCA)</span>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm">15+ years Digital Transformation Leadership</span>
-                  </div>
-                </div>
-              </div>
               
               {/* LinkedIn Link */}
               <div className="text-center mt-6">
