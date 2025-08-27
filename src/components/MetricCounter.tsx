@@ -26,26 +26,26 @@ export function MetricCounter() {
               targetValue={50} 
               suffix="+" 
               label="Products Launched" 
-              bgColor="bg-purple-50"
+              bgColor="bg-transparent"
             />
             <AnimatedCounter 
               targetValue={3} 
               prefix="$" 
               suffix="Bn+" 
               label="Value Created" 
-              bgColor="bg-green-50"
+              bgColor="bg-transparent"
             />
             <AnimatedCounter 
               targetValue={1000} 
               suffix="+" 
               label="Staff Managed" 
-              bgColor="bg-blue-50"
+              bgColor="bg-transparent"
             />
             <AnimatedCounter 
               targetValue={1} 
               suffix="Mn+" 
               label="Customers Served" 
-              bgColor="bg-orange-50"
+              bgColor="bg-transparent"
             />
           </div>
         </AnimateOnScroll>
