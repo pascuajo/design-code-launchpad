@@ -14,7 +14,7 @@ export function AboutSection() {
     {
       title: "FinTech",
       description: "Core Banking Platforms • Payment Processing Systems • Treasury Management Systems • Financial Reporting Platforms",
-      icon: <Building2 className="w-8 h-8 text-blue-600" />,
+      icon: <Dollar-sign className="w-8 h-8 text-blue-600" />,
       color: "blue"
     },
     {
@@ -32,13 +32,13 @@ export function AboutSection() {
     {
       title: "LegalTech",
       description: "Contract Management Platforms • Document Intelligence Systems • Legal Workflow Engines • Compliance Management Systems",
-      icon: <Shield className="w-8 h-8 text-indigo-600" />,
+      icon: <Scale className="w-8 h-8 text-indigo-600" />,
       color: "indigo"
     },
     {
       title: "ProcureTech",
       description: "Strategic Sourcing Platforms • Inventory Management Systems • Vendor & CRM Platforms • Spend Analytics Platforms",
-      icon: <Building2 className="w-8 h-8 text-red-600" />,
+      icon: <Handshake className="w-8 h-8 text-red-600" />,
       color: "red"
     },
     {
@@ -56,7 +56,7 @@ export function AboutSection() {
     {
       title: "Enterprise SaaS",
       description: "B2B SaaS Platforms • Multi-Tenant Systems • Mobile Application Platforms • Digital Experience Systems",
-      icon: <Building2 className="w-8 h-8 text-blue-600" />,
+      icon: <Monitor-smartphone className="w-8 h-8 text-blue-600" />,
       color: "blue"
     },
     {
