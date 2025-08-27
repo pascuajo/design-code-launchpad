@@ -1,3 +1,4 @@
+import React from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
 import { Building2, Home, Shield, Globe, Brain, Database, Check } from 'lucide-react';
 
@@ -72,20 +73,6 @@ export function AboutSection() {
     },
   ];
 
-  const getColorClasses = (color: string) => {
-    const colorMap: Record<string, { bg: string; hover: string; text: string }> = {
-      blue: { bg: "bg-blue-50", hover: "hover:bg-blue-100", text: "text-blue-800" },
-      green: { bg: "bg-green-50", hover: "hover:bg-green-100", text: "text-green-800" },
-      purple: { bg: "bg-purple-50", hover: "hover:bg-purple-100", text: "text-purple-800" },
-      indigo: { bg: "bg-indigo-50", hover: "hover:bg-indigo-100", text: "text-indigo-800" },
-      red: { bg: "bg-red-50", hover: "hover:bg-red-100", text: "text-red-800" },
-      teal: { bg: "bg-teal-50", hover: "hover:bg-teal-100", text: "text-teal-800" },
-      pink: { bg: "bg-pink-50", hover: "hover:bg-pink-100", text: "text-pink-800" },
-      yellow: { bg: "bg-yellow-50", hover: "hover:bg-yellow-100", text: "text-yellow-800" },
-      gray: { bg: "bg-gray-50", hover: "hover:bg-gray-100", text: "text-gray-800" }
-    };
-    return colorMap[color] || colorMap.gray;
-  };
 
   return (
     <section className="w-full bg-gray-100 py-28 px-4" id="about">
@@ -149,16 +136,17 @@ export function AboutSection() {
             <div className="flex gap-8">
               {/* Main Tech & Product Domains */}
               <div className="flex-1">
-                <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
+                <div className="grid grid-cols-4 gap-4">
                   {domains.filter(domain => !['Industries', 'Career'].includes(domain.title)).map((domain) => {
-                    const colors = getColorClasses(domain.color);
                     return (
                       <div 
                         key={domain.title}
-                        className={`relative group flex flex-col items-center p-4 rounded-xl ${colors.bg} ${colors.hover} transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg`}
+                        className="relative group flex flex-col items-center p-4 rounded-xl bg-green-50 hover:bg-green-100 transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg"
                       >
-                        {domain.icon}
-                        <span className={`text-xs font-medium ${colors.text} text-center mt-2`}>
+                        <div className="w-8 h-8 text-gray-600">
+                          {React.cloneElement(domain.icon as React.ReactElement, { className: "w-8 h-8 text-gray-600" })}
+                        </div>
+                        <span className="text-xs font-bold text-gray-600 text-center mt-2">
                           {domain.title}
                         </span>
                         
@@ -191,14 +179,15 @@ export function AboutSection() {
               <div className="w-48">
                 <div className="space-y-4">
                   {domains.filter(domain => ['Industries', 'Career'].includes(domain.title)).map((domain) => {
-                    const colors = getColorClasses(domain.color);
                     return (
                       <div 
                         key={domain.title}
-                        className={`relative group flex flex-col items-center p-4 rounded-xl ${colors.bg} ${colors.hover} transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg`}
+                        className="relative group flex flex-col items-center p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg"
                       >
-                        {domain.icon}
-                        <span className={`text-xs font-medium ${colors.text} text-center mt-2`}>
+                        <div className="w-8 h-8 text-gray-600">
+                          {React.cloneElement(domain.icon as React.ReactElement, { className: "w-8 h-8 text-gray-600" })}
+                        </div>
+                        <span className="text-xs font-bold text-gray-600 text-center mt-2">
                           {domain.title}
                         </span>
                         
