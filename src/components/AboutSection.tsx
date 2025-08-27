@@ -132,7 +132,8 @@ export function AboutSection() {
         {/* Domain Section */}
         <div className="w-full mb-16">
           <AnimateOnScroll>
-            <h3 className="text-2xl font-bold mb-8 text-center">15 Years Of Unrivalled Product Innovation</h3>
+            <h3 className="text-2xl font-bold mb-8 text-center">
+              <span className="handdrawn-highlight">15 Years Of Unrivalled Product Innovation</span></h3>
             <div className="flex gap-8">
               {/* Main Tech & Product Domains */}
               <div className="flex-1">
