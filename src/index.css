@@ -48,17 +48,19 @@
 .handdrawn-highlight {
   position: relative;
   display: inline-block;
+  z-index: 1;
 }
 
 .handdrawn-highlight::before {
   content: '';
   position: absolute;
-  top: 50%;
-  left: -2px;
-  right: -2px;
-  height: 0.5em;
+  top: 40%;
+  left: -4px;
+  right: -4px;
+  height: 0.6em;
   background: #fde047; /* yellow-300 */
-  transform: rotate(-1deg) translateY(-25%);
+  transform: rotate(-0.8deg);
   z-index: -1;
-  border-radius: 2px;
+  border-radius: 3px;
+  opacity: 0.8;
 }
