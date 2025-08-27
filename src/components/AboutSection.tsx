@@ -177,12 +177,12 @@ export function AboutSection() {
 
               {/* Industries & Career */}
               <div className="w-48">
-                <div className="space-y-4">
+                <div className="grid grid-cols-1 gap-4">
                   {domains.filter(domain => ['Industries', 'Career'].includes(domain.title)).map((domain) => {
                     return (
                       <div 
                         key={domain.title}
-                        className="relative group flex flex-col items-center p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg"
+                        className="relative group flex flex-col items-center p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg h-24"
                       >
                         <div className="w-8 h-8 text-gray-600">
                           {React.cloneElement(domain.icon as React.ReactElement, { className: "w-8 h-8 text-gray-600" })}
