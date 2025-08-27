@@ -9,7 +9,7 @@ export function ContactSection() {
       <div className="max-w-4xl mx-auto text-center">
         <AnimateOnScroll>
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Ready to turn your ideas into impact?
+            Ready to turn your <span className="handdrawn-highlight">ideas into impact</span>?
           </h2>
         </AnimateOnScroll>
 
