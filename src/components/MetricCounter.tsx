@@ -185,7 +185,7 @@ export function MetricCounter() {
       
       <div className="max-w-6xl mx-auto relative z-10">
         <AnimateOnScroll>
-          <div className="grid grid-cols-4 gap-4 max-w-5xl mx-auto" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          <div className="grid grid-cols-4 gap-4 max-w-5xl mx-auto" style={{ gridTemplateColumns: 'repeat(4, 1fr)', transform: 'translate(5px, 2px)' }}>
             
             {/* Products Launched - Column 1 */}
             <div 
