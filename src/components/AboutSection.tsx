@@ -199,19 +199,7 @@ export function AboutSection() {
             </div>
           </AnimateOnScroll>
         </div>
-              
-              {/* LinkedIn Link */}
-              <div className="text-center mt-6">
-                <a 
-                  href="https://www.linkedin.com/in/joe-pascual/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors duration-200"
-                >
-                  <Linkedin size={20} />
-                  <span className="font-medium text-sm">Connect on LinkedIn</span>
-                </a>
-              </div>
+
             </div>
           </AnimateOnScroll>
         </div>
