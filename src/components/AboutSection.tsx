@@ -36,7 +36,7 @@ export function AboutSection() {
     },
     {
       title: "ProcureTech",
-      description: "Strategic Sourcing Platforms • Procurement Management Systems • Vendor Relationship Systems • Spend Analytics Platforms",
+      description: "Strategic Sourcing Platforms • Inventory Management Systems • Vendor & CRM Platforms • Spend Analytics Platforms",
       icon: <Building2 className="w-8 h-8 text-red-600" />,
       color: "red"
     },
@@ -48,7 +48,7 @@ export function AboutSection() {
     },
     {
       title: "AI & Automation",
-      description: "Agentic AI Platforms • Machine Learning Systems • Process Automation Platforms • Intelligent Workflow Systems",
+      description: "Agentic AI Platforms • Machine Learning Solutions • Orchestration Platforms • Intelligent Workflow Automation",
       icon: <Brain className="w-8 h-8 text-yellow-600" />,
       color: "yellow"
     },
@@ -57,12 +57,6 @@ export function AboutSection() {
       description: "B2B SaaS Platforms • Multi-Tenant Systems • Mobile Application Platforms • Digital Experience Systems",
       icon: <Building2 className="w-8 h-8 text-blue-600" />,
       color: "blue"
-    },
-    {
-      title: "Enterprise Platform",
-      description: "ERP Integration Systems • CRM Management Platforms • HRIS Workflow Systems • Business Process Platforms",
-      icon: <Building2 className="w-8 h-8 text-red-600" />,
-      color: "red"
     },
     {
       title: "Industries",
