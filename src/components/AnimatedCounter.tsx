@@ -123,7 +123,7 @@ export function AnimatedCounter({ targetValue, suffix = '', prefix = '', duratio
   }, []);
 
   // Format the target value and break it into characters (remove decimals)
-  const displayValue = `${prefix}${Math.floor(targetValue).toLocaleString()}${suffix}`;
+  const displayValue = `${prefix}${Math.floor(targetValue).toLocaleString('en-US', { maximumFractionDigits: 0 })}${suffix}`;
   const characters = displayValue.split('');
 
   return (
