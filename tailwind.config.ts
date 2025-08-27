@@ -22,6 +22,9 @@ export default {
         },
         'dark-section': 'hsl(var(--dark-section))',
       },
+      perspective: {
+        '1000': '1000px',
+      },
       animation: {
         scroll: 'scroll 40s linear infinite',
       },

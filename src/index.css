@@ -65,6 +65,19 @@
   opacity: 0.8;
 }
 
+/* Flip digit animation */
+@keyframes flipDigit {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
 /* Logo scroll animation */
 @keyframes scroll {
   0% {

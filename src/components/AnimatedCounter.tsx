@@ -9,25 +9,28 @@ interface AnimatedCounterProps {
   bgColor?: string;
 }
 
-interface SpinningFlapProps {
+interface FlipDigitProps {
   char: string;
   isAnimating: boolean;
 }
 
-function SpinningFlap({ char, isAnimating }: SpinningFlapProps) {
+function FlipDigit({ char, isAnimating }: FlipDigitProps) {
   return (
-    <div className="relative w-8 h-12 mx-0.5">
+    <div className="relative w-8 h-12 mx-0.5 perspective-1000">
       <div 
-        className={`w-full h-full bg-gray-900 rounded-sm border border-gray-700 flex items-center justify-center transform transition-transform duration-200 ${
-          isAnimating ? 'animate-spin' : ''
+        className={`w-full h-full bg-gray-900 rounded-sm border border-gray-700 flex items-center justify-center transform-gpu transition-transform duration-300 ${
+          isAnimating ? 'animate-[flipDigit_0.6s_ease-in-out]' : ''
         }`}
         style={{
-          animation: isAnimating ? 'spin 0.3s ease-in-out' : 'none'
+          transformStyle: 'preserve-3d'
         }}
       >
         <div className="text-white font-mono font-bold text-lg">
           {char}
         </div>
+        {/* Top and bottom edges to enhance the flip effect */}
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-gray-600"></div>
+        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gray-600"></div>
       </div>
     </div>
   );
@@ -97,7 +100,7 @@ export function AnimatedCounter({ targetValue, suffix = '', prefix = '', duratio
 
   return (
     <div ref={counterRef} className={`${bgColor} rounded-2xl p-8 h-full flex flex-col justify-center items-center shadow-sm border border-gray-100`}>
-      {/* Spinning flap display */}
+      {/* Flip digit display */}
       <div className="bg-gray-800 rounded-xl p-4 mb-4 shadow-lg border-2 border-gray-700">
         <div className="flex items-center justify-center min-h-[48px]">
           {characters.map((char, index) => (
@@ -106,7 +109,7 @@ export function AnimatedCounter({ targetValue, suffix = '', prefix = '', duratio
                 <div className="w-1 h-1 bg-yellow-400 rounded-full"></div>
               </div>
             ) : (
-              <SpinningFlap 
+              <FlipDigit 
                 key={index} 
                 char={char} 
                 isAnimating={isAnimating}
