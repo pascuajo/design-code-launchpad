@@ -104,6 +104,40 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false }: FlipCar
 export function MetricCounter() {
   const [hasStarted, setHasStarted] = useState(false);
   const counterRef = useRef<HTMLDivElement>(null);
+  
+  // Drag positions for each metric column
+  const [positions, setPositions] = useState([
+    { x: 0, y: 0 }, // Products Launched
+    { x: 0, y: 0 }, // Value Created
+    { x: 0, y: 0 }, // Staff Managed
+    { x: 0, y: 0 }, // Customers Served
+  ]);
+  
+  const [dragIndex, setDragIndex] = useState<number | null>(null);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+
+  const handleMouseDown = (index: number, e: React.MouseEvent) => {
+    setDragIndex(index);
+    setDragStart({
+      x: e.clientX - positions[index].x,
+      y: e.clientY - positions[index].y,
+    });
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (dragIndex !== null) {
+      const newPositions = [...positions];
+      newPositions[dragIndex] = {
+        x: e.clientX - dragStart.x,
+        y: e.clientY - dragStart.y,
+      };
+      setPositions(newPositions);
+    }
+  };
+
+  const handleMouseUp = () => {
+    setDragIndex(null);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -125,7 +159,12 @@ export function MetricCounter() {
   }, []);
 
   return (
-    <section ref={counterRef} className="w-full bg-gray-800 py-20 px-4 relative overflow-hidden">
+    <section 
+      ref={counterRef} 
+      className="w-full bg-gray-800 py-20 px-4 relative overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
       {/* Train station board grid background - aligned with cards */}
       <div 
         className="absolute inset-0 opacity-20"
@@ -147,9 +186,17 @@ export function MetricCounter() {
           <div className="grid grid-cols-4 gap-4 max-w-5xl mx-auto" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
             
             {/* Products Launched - Column 1 */}
-            <div className="flex flex-col items-end space-y-1"> {/* Right aligned */}
+            <div 
+              className="flex flex-col items-end space-y-1 cursor-move" 
+              style={{ 
+                transform: `translate(${positions[0].x}px, ${positions[0].y}px)`,
+                border: '2px dashed rgba(255,255,255,0.3)',
+                padding: '4px'
+              }}
+              onMouseDown={(e) => handleMouseDown(0, e)}
+            >
               {/* Metric: 50+ */}
-              <div className="flex items-center space-x-0.5"> {/* Tighter spacing to match grid */}
+              <div className="flex items-center space-x-0.5">
                 {hasStarted && (
                   <>
                     <FlipCard targetChar="5" duration={2500} delay={0} />
@@ -158,7 +205,7 @@ export function MetricCounter() {
                   </>
                 )}
               </div>
-              {/* Title: PRODUCTS LAUNCHED - Right aligned to match last card */}
+              {/* Title: PRODUCTS LAUNCHED */}
               <div className="flex flex-col items-end space-y-0.5">
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'PRODUCTS'.split('').map((char, i) => (
@@ -174,7 +221,15 @@ export function MetricCounter() {
             </div>
 
             {/* Value Created - Column 2 */}
-            <div className="flex flex-col items-end space-y-1">
+            <div 
+              className="flex flex-col items-end space-y-1 cursor-move"
+              style={{ 
+                transform: `translate(${positions[1].x}px, ${positions[1].y}px)`,
+                border: '2px dashed rgba(255,255,255,0.3)',
+                padding: '4px'
+              }}
+              onMouseDown={(e) => handleMouseDown(1, e)}
+            >
               {/* Metric: $3Bn+ */}
               <div className="flex items-center space-x-0.5">
                 {hasStarted && (
@@ -203,7 +258,15 @@ export function MetricCounter() {
             </div>
 
             {/* Staff Managed - Column 3 */}
-            <div className="flex flex-col items-end space-y-1">
+            <div 
+              className="flex flex-col items-end space-y-1 cursor-move"
+              style={{ 
+                transform: `translate(${positions[2].x}px, ${positions[2].y}px)`,
+                border: '2px dashed rgba(255,255,255,0.3)',
+                padding: '4px'
+              }}
+              onMouseDown={(e) => handleMouseDown(2, e)}
+            >
               {/* Metric: 1000+ */}
               <div className="flex items-center space-x-0.5">
                 {hasStarted && (
@@ -232,7 +295,15 @@ export function MetricCounter() {
             </div>
 
             {/* Customers Served - Column 4 */}
-            <div className="flex flex-col items-end space-y-1">
+            <div 
+              className="flex flex-col items-end space-y-1 cursor-move"
+              style={{ 
+                transform: `translate(${positions[3].x}px, ${positions[3].y}px)`,
+                border: '2px dashed rgba(255,255,255,0.3)',
+                padding: '4px'
+              }}
+              onMouseDown={(e) => handleMouseDown(3, e)}
+            >
               {/* Metric: 1Mn+ */}
               <div className="flex items-center space-x-0.5">
                 {hasStarted && (
@@ -261,6 +332,14 @@ export function MetricCounter() {
 
           </div>
         </AnimateOnScroll>
+      </div>
+      
+      {/* Position Display for debugging */}
+      <div className="absolute top-4 left-4 text-white text-xs bg-black/50 p-2 rounded">
+        <div>Positions:</div>
+        {positions.map((pos, i) => (
+          <div key={i}>Column {i + 1}: x:{pos.x}, y:{pos.y}</div>
+        ))}
       </div>
     </section>
   );
