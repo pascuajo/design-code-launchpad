@@ -1,5 +1,5 @@
 import { AnimateOnScroll } from './AnimateOnScroll';
-import { Building2, Home, Shield, UserCheck, Globe, Brain, Database } from 'lucide-react';
+import { Building2, Home, Shield, Globe, Brain, Database, Check } from 'lucide-react';
 
 interface DomainInfo {
   title: string;
@@ -148,42 +148,87 @@ export function AboutSection() {
           </div>
         </div>
 
-        {/* Domain Section - Stretching across both columns */}
+        {/* Domain Section */}
         <div className="w-full mb-16">
           <AnimateOnScroll>
             <h3 className="text-2xl font-bold mb-8 text-center">Tech & Product Domains</h3>
-            <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
-              {domains.map((domain) => {
-                const colors = getColorClasses(domain.color);
-                return (
-                  <div 
-                    key={domain.title}
-                    className={`relative group flex flex-col items-center p-4 rounded-xl ${colors.bg} ${colors.hover} transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg`}
-                  >
-                    {domain.icon}
-                    <span className={`text-xs font-medium ${colors.text} text-center mt-2`}>
-                      {domain.title}
-                    </span>
-                    
-                    {/* Hover Tooltip */}
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-                      <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-80">
-                        <h4 className="font-bold text-gray-800 mb-3">{domain.title}</h4>
-                        <div className="text-sm text-gray-700 leading-relaxed whitespace-nowrap">
-                          {domain.description.split(' • ').map((point, i) => (
-                            <div key={i} className="mb-1">
-                              <span className="text-blue-500 mr-2">•</span>
-                              <span>{point.trim()}</span>
+            <div className="flex gap-8">
+              {/* Main Tech & Product Domains */}
+              <div className="flex-1">
+                <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
+                  {domains.filter(domain => !['Industries', 'Career'].includes(domain.title)).map((domain) => {
+                    const colors = getColorClasses(domain.color);
+                    return (
+                      <div 
+                        key={domain.title}
+                        className={`relative group flex flex-col items-center p-4 rounded-xl ${colors.bg} ${colors.hover} transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg`}
+                      >
+                        {domain.icon}
+                        <span className={`text-xs font-medium ${colors.text} text-center mt-2`}>
+                          {domain.title}
+                        </span>
+                        
+                        {/* Hover Tooltip */}
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                          <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-80">
+                            <h4 className="font-bold text-gray-800 mb-3">{domain.title}</h4>
+                            <div className="text-sm text-gray-700 leading-relaxed">
+                              {domain.description.split(' • ').map((point, i) => (
+                                <div key={i} className="mb-1 flex items-start">
+                                  <Check className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                                  <span>{point.trim()}</span>
+                                </div>
+                              ))}
                             </div>
-                          ))}
+                            {/* Arrow pointing down */}
+                            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+                          </div>
                         </div>
-                        {/* Arrow pointing down */}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
                       </div>
-                    </div>
-                  </div>
-                );
-              })}
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="w-px bg-gray-300"></div>
+
+              {/* Industries & Career */}
+              <div className="w-48">
+                <div className="space-y-4">
+                  {domains.filter(domain => ['Industries', 'Career'].includes(domain.title)).map((domain) => {
+                    const colors = getColorClasses(domain.color);
+                    return (
+                      <div 
+                        key={domain.title}
+                        className={`relative group flex flex-col items-center p-4 rounded-xl ${colors.bg} ${colors.hover} transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg`}
+                      >
+                        {domain.icon}
+                        <span className={`text-xs font-medium ${colors.text} text-center mt-2`}>
+                          {domain.title}
+                        </span>
+                        
+                        {/* Hover Tooltip */}
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                          <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-80">
+                            <h4 className="font-bold text-gray-800 mb-3">{domain.title}</h4>
+                            <div className="text-sm text-gray-700 leading-relaxed">
+                              {domain.description.split(' • ').map((point, i) => (
+                                <div key={i} className="mb-1 flex items-start">
+                                  <Check className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                                  <span>{point.trim()}</span>
+                                </div>
+                              ))}
+                            </div>
+                            {/* Arrow pointing down */}
+                            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </AnimateOnScroll>
         </div>
