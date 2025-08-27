@@ -64,3 +64,13 @@
   border-radius: 3px;
   opacity: 0.8;
 }
+
+/* Logo scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

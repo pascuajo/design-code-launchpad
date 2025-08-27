@@ -49,11 +49,22 @@ export function LogoSection() {
 
   return (
     <section className="w-full bg-gray-900 py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-full mx-auto overflow-hidden">
         <AnimateOnScroll>
-          <div className="flex flex-row justify-center items-center gap-4 md:gap-8 lg:gap-12 flex-wrap">
+          <div className="flex animate-scroll">
+            {/* First set of logos */}
             {logos.map(logo => (
-              <div key={logo.id} className="flex-shrink-0">
+              <div key={logo.id} className="flex-shrink-0 mx-8">
+                <img 
+                  src={logo.imageUrl} 
+                  alt={`${logo.name} logo`} 
+                  className={`${logo.className} w-auto object-contain`} 
+                />
+              </div>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {logos.map(logo => (
+              <div key={`${logo.id}-duplicate`} className="flex-shrink-0 mx-8">
                 <img 
                   src={logo.imageUrl} 
                   alt={`${logo.name} logo`} 

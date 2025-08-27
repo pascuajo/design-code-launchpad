@@ -22,6 +22,9 @@ export default {
         },
         'dark-section': 'hsl(var(--dark-section))',
       },
+      animation: {
+        scroll: 'scroll 30s linear infinite',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
