@@ -109,7 +109,7 @@ export function TubeMapTransition() {
         
         {/* Metrics - 50% smaller */}
         <AnimateOnScroll>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto scale-50">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto scale-75">
             <AnimatedCounter 
               targetValue={50} 
               suffix="+" 
