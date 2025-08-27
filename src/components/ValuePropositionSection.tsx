@@ -29,8 +29,8 @@ export function ValuePropositionSection() {
               <span className="handdrawn-highlight">Purpose-Driven</span> Products People Actually Want
             </h3>
             <p className="text-gray-600 text-lg">
-              Helping teams develop products that solve real problems while
-              delivering meaningful impact and business results.
+              Helping teams design products that solve real problems while
+              delivering meaningful outcomes.
             </p>
           </div>
 
@@ -39,8 +39,8 @@ export function ValuePropositionSection() {
               <span className="handdrawn-highlight">Building Teams</span> That Deliver Exceptional Results
             </h3>
             <p className="text-gray-600 text-lg">
-              Cultivating high-performing teams with the right culture,
-              processes and leadership to consistently execute.
+              Curating high-performing teams with the right culture,
+              processes, and skills to consistently execute.
             </p>
           </div>
         </AnimateChildren>
