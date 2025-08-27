@@ -9,35 +9,26 @@ interface AnimatedCounterProps {
   bgColor?: string;
 }
 
-interface SplitFlapDigitProps {
-  digit: string;
+interface SpinningFlapProps {
+  char: string;
   isAnimating: boolean;
 }
 
-function SplitFlapDigit({ digit, isAnimating }: SplitFlapDigitProps) {
+function SpinningFlap({ char, isAnimating }: SpinningFlapProps) {
   return (
-    <div className="relative w-8 h-12 bg-gray-900 rounded-sm mx-0.5 overflow-hidden border border-gray-700">
-      {/* Top half */}
-      <div className="absolute top-0 left-0 w-full h-1/2 bg-gray-800 border-b border-gray-600">
-        <div className="flex items-center justify-center h-full text-white font-mono font-bold text-lg">
-          {digit}
+    <div className="relative w-8 h-12 mx-0.5">
+      <div 
+        className={`w-full h-full bg-gray-900 rounded-sm border border-gray-700 flex items-center justify-center transform transition-transform duration-200 ${
+          isAnimating ? 'animate-spin' : ''
+        }`}
+        style={{
+          animation: isAnimating ? 'spin 0.3s ease-in-out' : 'none'
+        }}
+      >
+        <div className="text-white font-mono font-bold text-lg">
+          {char}
         </div>
       </div>
-      
-      {/* Bottom half */}
-      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gray-900">
-        <div className="flex items-center justify-center h-full text-white font-mono font-bold text-lg">
-          {digit}
-        </div>
-      </div>
-      
-      {/* Flip animation overlay */}
-      {isAnimating && (
-        <div className="absolute inset-0 bg-yellow-400 opacity-20 animate-pulse"></div>
-      )}
-      
-      {/* Center line */}
-      <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gray-600 transform -translate-y-0.5"></div>
     </div>
   );
 }
@@ -106,7 +97,7 @@ export function AnimatedCounter({ targetValue, suffix = '', prefix = '', duratio
 
   return (
     <div ref={counterRef} className={`${bgColor} rounded-2xl p-8 h-full flex flex-col justify-center items-center shadow-sm border border-gray-100`}>
-      {/* Split-flap display */}
+      {/* Spinning flap display */}
       <div className="bg-gray-800 rounded-xl p-4 mb-4 shadow-lg border-2 border-gray-700">
         <div className="flex items-center justify-center min-h-[48px]">
           {characters.map((char, index) => (
@@ -115,9 +106,9 @@ export function AnimatedCounter({ targetValue, suffix = '', prefix = '', duratio
                 <div className="w-1 h-1 bg-yellow-400 rounded-full"></div>
               </div>
             ) : (
-              <SplitFlapDigit 
+              <SpinningFlap 
                 key={index} 
-                digit={char} 
+                char={char} 
                 isAnimating={isAnimating}
               />
             )
