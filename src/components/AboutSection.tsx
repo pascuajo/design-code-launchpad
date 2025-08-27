@@ -49,7 +49,7 @@ export function AboutSection() {
     },
     {
       title: "AI & Automation",
-      description: "Agentic AI Platforms • Machine Learning Solutions • Orchestration Platforms • Intelligent Workflow Automation",
+      description: "Agentic AI Platforms • Machine Learning Solutions • Orchestration Platforms • Intelligent Workflow Systems",
       icon: <Brain className="w-8 h-8 text-gray-600" />,
       color: "yellow"
     },
