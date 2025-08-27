@@ -88,7 +88,7 @@ export function BlogPage() {
         <div className="max-w-6xl mx-auto">
           <AnimateOnScroll>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-              Our <span className="bg-yellow-300 px-1">Blog</span>
+              Our <span className="handdrawn-highlight">Blog</span>
             </h1>
             <p className="text-gray-600 text-xl max-w-3xl mx-auto text-center mb-8">
               Insights, strategies, and practical advice to help you build what

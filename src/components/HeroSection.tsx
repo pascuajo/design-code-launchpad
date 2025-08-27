@@ -21,7 +21,7 @@ export function HeroSection() {
           <AnimateOnScroll delay={0.2} direction="left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Building What{' '}
-              <span className="bg-yellow-300 px-1">Truly Matters,</span>
+              <span className="handdrawn-highlight">Truly Matters,</span>
               Faster.
             </h1>
           </AnimateOnScroll>

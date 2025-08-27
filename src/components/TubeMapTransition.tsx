@@ -101,7 +101,7 @@ export function TubeMapTransition() {
           }}
         >
           <h3 className="text-3xl md:text-4xl font-bold mb-3 text-gray-800 drop-shadow-[0_2px_4px_rgba(255,255,255,0.9)]">
-            From strategy to launch, <span className="bg-yellow-300 px-1">every stop covered</span>.
+            From strategy to launch, <span className="handdrawn-highlight">every stop covered</span>.
           </h3>
           <p className="text-lg md:text-xl text-gray-700 drop-shadow-[0_1px_3px_rgba(255,255,255,0.9)] max-w-md mx-auto leading-relaxed">
             Your trusted guide to achieving product and leadership success.

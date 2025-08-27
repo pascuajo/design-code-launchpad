@@ -15,7 +15,7 @@ export function ValuePropositionSection() {
           <div className="text-center">
             <h3 className="text-xl font-semibold mb-6">
               How I Can Help {' '}
-              <span className="bg-yellow-300 px-1">Decision-Makers</span> Get Results
+              <span className="handdrawn-highlight">Decision-Makers</span> Get Results
             </h3>
             <p className="text-gray-600 text-lg">
               Strategic guidance for executives and leaders facing complex
@@ -26,7 +26,7 @@ export function ValuePropositionSection() {
           <div className="text-center">
             <h3 className="text-xl font-semibold mb-6">
               Creating {' '}
-              <span className="bg-yellow-300 px-1"> Purpose-Driven</span> Products People Actually Want
+              <span className="handdrawn-highlight">Purpose-Driven</span> Products People Actually Want
             </h3>
             <p className="text-gray-600 text-lg">
               Helping teams develop products that solve real problems while
@@ -36,7 +36,7 @@ export function ValuePropositionSection() {
 
           <div className="text-center">
             <h3 className="text-xl font-semibold mb-6">
-              <span className="bg-yellow-300 px-1"> Building Teams </span> That Deliver Exceptional Results
+              <span className="handdrawn-highlight">Building Teams</span> That Deliver Exceptional Results
             </h3>
             <p className="text-gray-600 text-lg">
               Cultivating high-performing teams with the right culture,

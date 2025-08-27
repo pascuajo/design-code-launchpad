@@ -129,7 +129,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
         <div className="flex items-center justify-between p-6 border-b">
           <div>
             <h2 className="text-2xl md:text-3xl font-bold text-black">
-              <span className="bg-yellow-300 px-2">Get in Touch</span>
+              <span className="handdrawn-highlight">Get in Touch</span>
             </h2>
             <p className="text-gray-600 mt-2">
               Thanks for your interest in Clearmont. Fill out the form and I'll get back to you as soon as possible.

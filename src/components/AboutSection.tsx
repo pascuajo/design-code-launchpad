@@ -91,7 +91,7 @@ export function AboutSection() {
                 {/* About Me header overlay on image */}
                 <div className="absolute top-6 left-6">
                   <h2 className="text-3xl md:text-4xl font-bold">
-                    <span className="bg-yellow-300 px-1">About Me</span>
+                    <span className="handdrawn-highlight">About Me</span>
                   </h2>
                 </div>
               </div>

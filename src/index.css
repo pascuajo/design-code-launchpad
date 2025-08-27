@@ -43,3 +43,22 @@
 .prose em {
   color: hsl(var(--foreground)) !important;
 }
+
+/* Hand-drawn highlight effect */
+.handdrawn-highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.handdrawn-highlight::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  right: -2px;
+  height: 0.5em;
+  background: #fde047; /* yellow-300 */
+  transform: rotate(-1deg) translateY(-25%);
+  z-index: -1;
+  border-radius: 2px;
+}
