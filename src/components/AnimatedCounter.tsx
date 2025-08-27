@@ -3,11 +3,13 @@ import { useEffect, useRef, useState } from 'react';
 interface AnimatedCounterProps {
   targetValue: number;
   suffix?: string;
+  prefix?: string;
   duration?: number;
   label: string;
+  bgColor?: string;
 }
 
-export function AnimatedCounter({ targetValue, suffix = '', duration = 2000, label }: AnimatedCounterProps) {
+export function AnimatedCounter({ targetValue, suffix = '', prefix = '', duration = 2500, label, bgColor = 'bg-blue-50' }: AnimatedCounterProps) {
   const [currentValue, setCurrentValue] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
   const animationRef = useRef<number>();
@@ -32,6 +34,8 @@ export function AnimatedCounter({ targetValue, suffix = '', duration = 2000, lab
 
       if (progress < 1) {
         animationRef.current = requestAnimationFrame(animate);
+      } else {
+        setCurrentValue(targetValue); // Ensure exact final value
       }
     };
 
@@ -61,11 +65,13 @@ export function AnimatedCounter({ targetValue, suffix = '', duration = 2000, lab
   }, []);
 
   return (
-    <div ref={counterRef} className="text-center">
-      <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-        {currentValue.toLocaleString()}{suffix}
+    <div ref={counterRef} className={`${bgColor} rounded-2xl p-8 h-full flex flex-col justify-center items-center shadow-sm border border-gray-100`}>
+      <div className="bg-white rounded-xl p-6 mb-4 shadow-sm w-full text-center">
+        <div className="text-3xl md:text-4xl font-bold text-gray-900">
+          {prefix}{currentValue.toLocaleString()}{suffix}
+        </div>
       </div>
-      <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+      <div className="text-sm font-semibold text-gray-700 uppercase tracking-wider text-center">
         {label}
       </div>
     </div>

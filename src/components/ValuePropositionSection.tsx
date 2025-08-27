@@ -48,11 +48,32 @@ export function ValuePropositionSection() {
         
         {/* Impact Metrics */}
         <AnimateOnScroll className="mt-32">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            <AnimatedCounter targetValue={25} suffix="+" label="Products Launched" />
-            <AnimatedCounter targetValue={3} suffix="B+" label="Value Created" />
-            <AnimatedCounter targetValue={1000} suffix="+" label="Staff Managed" />
-            <AnimatedCounter targetValue={1000000} suffix="+" label="Customers Served" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <AnimatedCounter 
+              targetValue={50} 
+              suffix="+" 
+              label="Products Launched" 
+              bgColor="bg-purple-50"
+            />
+            <AnimatedCounter 
+              targetValue={3} 
+              prefix="$" 
+              suffix="B+" 
+              label="Value Created" 
+              bgColor="bg-green-50"
+            />
+            <AnimatedCounter 
+              targetValue={1000} 
+              suffix="+" 
+              label="Staff Managed" 
+              bgColor="bg-blue-50"
+            />
+            <AnimatedCounter 
+              targetValue={1000} 
+              suffix="K+" 
+              label="Customers Served" 
+              bgColor="bg-orange-50"
+            />
           </div>
         </AnimateOnScroll>
       </div>
