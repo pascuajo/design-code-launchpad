@@ -1,4 +1,5 @@
 import { AnimateOnScroll, AnimateChildren } from './AnimateOnScroll';
+import { AnimatedCounter } from './AnimatedCounter';
 
 export function ValuePropositionSection() {
   return (
@@ -44,6 +45,16 @@ export function ValuePropositionSection() {
             </p>
           </div>
         </AnimateChildren>
+        
+        {/* Impact Metrics */}
+        <AnimateOnScroll className="mt-32">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <AnimatedCounter targetValue={25} suffix="+" label="Products Launched" />
+            <AnimatedCounter targetValue={3} suffix="B+" label="Value Created" />
+            <AnimatedCounter targetValue={1000} suffix="+" label="Staff Managed" />
+            <AnimatedCounter targetValue={1000000} suffix="+" label="Customers Served" />
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
