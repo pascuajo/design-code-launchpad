@@ -132,11 +132,7 @@ export function AnimatedCounter({ targetValue, suffix = '', prefix = '', duratio
       <div className="bg-gray-800 rounded-xl p-1 mb-4 shadow-lg border-2 border-gray-700">
         <div className="flex items-center justify-center min-h-[48px]">
           {characters.map((char, index) => (
-            char === ',' ? (
-              <div key={index} className="w-2 flex items-end justify-center pb-2">
-                <div className="w-1 h-1 bg-yellow-400 rounded-full"></div>
-              </div>
-            ) : hasStarted ? (
+            char === ',' ? null : hasStarted ? (
               <FlipDigit 
                 key={index} 
                 targetChar={char} 
