@@ -73,17 +73,17 @@ export function ImageLibrary({
               {/* Content */}
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  {image.title}
+                  <span className="handdrawn-highlight">{image.title}</span>
                 </h3>
                 <p className="text-gray-600 text-sm mb-4">
                   {image.description}
                 </p>
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2">
-                  {image.tags.map(tag => <span key={tag} className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
-                      <Tag className="w-3 h-3" />
-                      {tag}
-                    </span>)}
+                   {image.tags.map(tag => <span key={tag} className="inline-flex items-center gap-1 px-2 py-1 bg-green-800 text-white rounded-full text-xs font-medium">
+                       <Tag className="w-3 h-3" />
+                       {tag}
+                     </span>)}
                 </div>
               </div>
             </div>)}
