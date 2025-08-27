@@ -81,7 +81,7 @@ export function AboutSection() {
       description: "Financial Services • Commercial Real Estate • Investment Banking • Enterprise SaaS B2B • Youth Sports • Marketplaces",
       icon: <Building2 className="w-8 h-8 text-gray-600" />,
       color: "gray"
-    }
+    },
     {
       title: "Career",
       description: "Founder & CEO @ Homepaired • Head of Product & Design @ Amherst • Executive Director, Product Management @ UBS • Executive Director, Digital Transformation @ UBS",
