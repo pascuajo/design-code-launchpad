@@ -12,7 +12,7 @@ export function AboutSection() {
   const domains: DomainInfo[] = [
     {
       title: "FinTech",
-      description: "Financial Close Automation  • Treasury Management Platforms • Financial Statement Automation • Digital Banking Infrastructure",
+      description: "Financial Close Automation • Treasury Management Platforms • Financial Statement Automation • Digital Banking Infrastructure",
       icon: <Building2 className="w-8 h-8 text-blue-600" />,
       color: "blue"
     },
@@ -30,7 +30,7 @@ export function AboutSection() {
     },
     {
       title: "LegalTech",
-      description: "Contract management automation • Legal document intelligence • Procurement workflow engines • Vendor relationship management",
+      description: "Contract Management Automation • Legal Document Intelligence • Procurement Workflow Engines • Vendor Relationship Management",
       icon: <Shield className="w-8 h-8 text-indigo-600" />,
       color: "indigo"
     },
@@ -66,7 +66,7 @@ export function AboutSection() {
     },
     {
       title: "SaaS B2C",
-      description: "Consumer Mobile Applications • Self-service onboarding flows • Personalization engines • Customer engagement platforms • Conversion optimization tools",
+      description: "Consumer Mobile Applications • Self-Service Onboarding Flows • Personalization Engines • Customer Engagement Platforms • Conversion Optimization Tools",
       icon: <UserCheck className="w-8 h-8 text-pink-600" />,
       color: "pink"
     },
@@ -75,6 +75,12 @@ export function AboutSection() {
       description: "Microservices Architecture • API Management Systems • Data integration Platforms • Orchestration Platforms • CRM Platforms",
       icon: <Building2 className="w-8 h-8 text-red-600" />,
       color: "red"
+    },
+    {
+      title: "Industries",
+      description: "Financial Services • Commercial Real Estate • Investment Banking • Enterprise SaaS B2B • Youth Sports • Marketplaces",
+      icon: <Building2 className="w-8 h-8 text-gray-600" />,
+      color: "gray"
     }
   ];
 
