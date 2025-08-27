@@ -56,9 +56,9 @@ export function ValuePropositionSection() {
               bgColor="bg-purple-50"
             />
             <AnimatedCounter 
-              targetValue={3000} 
+              targetValue={3} 
               prefix="$" 
-              suffix="M+" 
+              suffix="Bn+" 
               label="Value Created" 
               bgColor="bg-green-50"
             />
@@ -69,8 +69,8 @@ export function ValuePropositionSection() {
               bgColor="bg-blue-50"
             />
             <AnimatedCounter 
-              targetValue={1000} 
-              suffix="K+" 
+              targetValue={1} 
+              suffix="Mn+" 
               label="Customers Served" 
               bgColor="bg-orange-50"
             />

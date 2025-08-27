@@ -40,11 +40,11 @@ function FlipDigit({ targetChar, duration, delay = 0 }: FlipDigitProps) {
           }
         }, duration / (target || 1) / 3);
       } else {
-        // Handle symbols and letters - random characters then target
-        const symbols = ['!', '@', '#', '$', '%', '&', '*', '+', '-', '=', '?'];
-        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-        const randomChars = targetChar === '$' ? symbols : 
-                           targetChar.match(/[A-Z]/i) ? letters : 
+        // Handle symbols and letters - use custom character sets
+        const symbols = ['$', '+', '-'];
+        const letters = ['B', 'M', 'K', 'n'];
+        const randomChars = ['$', '+', '-'].includes(targetChar) ? symbols : 
+                           ['B', 'M', 'K', 'n'].includes(targetChar) ? letters : 
                            ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
         
         // Random duration between 1-5 seconds
