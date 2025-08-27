@@ -7,9 +7,11 @@ interface FlipCardProps {
   delay?: number;
   isLetter?: boolean;
   isMetricLetter?: boolean;
+  bgColor?: string;
+  textColor?: string;
 }
 
-function FlipCard({ targetChar, duration, delay = 0, isLetter = false, isMetricLetter = false }: FlipCardProps) {
+function FlipCard({ targetChar, duration, delay = 0, isLetter = false, isMetricLetter = false, bgColor = 'bg-white', textColor }: FlipCardProps) {
   const [currentChar, setCurrentChar] = useState(isLetter ? 'A' : '0');
   const [isFlipping, setIsFlipping] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout>();
@@ -87,14 +89,14 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false, isMetricL
   return (
     <div className="relative w-6 h-10 perspective-1000"> {/* 20% smaller: was w-8 h-12, now w-6 h-10 */}
       <div 
-        className={`w-full h-full bg-white rounded-sm border-2 border-gray-600 flex items-center justify-center transform-gpu transition-transform duration-75 ${
+        className={`w-full h-full ${bgColor} rounded-sm border-2 border-gray-600 flex items-center justify-center transform-gpu transition-transform duration-75 ${
           isFlipping ? 'animate-[flipDigit_0.15s_ease-in-out_infinite]' : ''
         }`}
         style={{
           transformStyle: 'preserve-3d'
         }}
       >
-        <div className={`font-din-condensed font-bold ${isMetricLetter || !isLetter ? 'text-gray-900 text-3xl' : 'text-red-500 text-lg'}`}> {/* Large black for numbers and metric letters (B,M,n), red small for title letters */}
+        <div className={`font-din-condensed font-bold ${textColor || (isMetricLetter || !isLetter ? 'text-gray-900 text-3xl' : 'text-red-500 text-lg')}`}> {/* Custom text color or default styling */}
           {currentChar}
         </div>
       </div>
@@ -204,9 +206,9 @@ export function MetricCounter() {
               <div className="flex items-center space-x-0.5">
                 {hasStarted && (
                   <>
-                    <FlipCard targetChar="5" duration={2500} delay={0} />
-                    <FlipCard targetChar="0" duration={2500} delay={100} />
-                    <FlipCard targetChar="+" duration={2500} delay={200} />
+                    <FlipCard targetChar="5" duration={2500} delay={0} bgColor="bg-gray-600" textColor="text-white text-3xl" />
+                    <FlipCard targetChar="0" duration={2500} delay={100} bgColor="bg-gray-600" textColor="text-white text-3xl" />
+                    <FlipCard targetChar="+" duration={2500} delay={200} bgColor="bg-gray-600" textColor="text-white text-3xl" />
                   </>
                 )}
               </div>
@@ -214,12 +216,12 @@ export function MetricCounter() {
               <div className="flex flex-col items-end space-y-0.5">
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'PRODUCTS'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={300 + i * 50} isLetter />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={300 + i * 50} isLetter bgColor="bg-gray-600" textColor="text-white text-lg" />
                   ))}
                 </div>
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'LAUNCHED'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={600 + i * 50} isLetter />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={600 + i * 50} isLetter bgColor="bg-gray-600" textColor="text-white text-lg" />
                   ))}
                 </div>
               </div>
