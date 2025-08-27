@@ -109,8 +109,8 @@ export function AboutSection() {
                   
                   <p className="text-gray-700 text-lg leading-relaxed">
                     My approach combines deep business acumen with a human-centered
-                    design mindset, allowing me to create solutions that work for
-                    both the business and the people involved.
+                    design mindset, I have launched solutions that have generated significant value for
+                    both the bottom line and customers.
                   </p>
                   
                   <p className="text-gray-700 text-lg leading-relaxed">
