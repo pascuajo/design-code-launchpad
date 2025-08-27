@@ -93,7 +93,7 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false }: FlipCar
           transformStyle: 'preserve-3d'
         }}
       >
-        <div className={`font-din-condensed font-bold ${isLetter ? 'text-red-500 text-lg' : 'text-gray-900 text-3xl'}`}> {/* Doubled metric text, red for titles */}
+        <div className={`font-din-condensed font-bold ${isLetter && !['B', 'M', 'n'].includes(targetChar) ? 'text-red-500 text-lg' : 'text-gray-900 text-3xl'}`}> {/* Large black for numbers and metric letters (B,M,n), red small for title letters */}
           {currentChar}
         </div>
       </div>
