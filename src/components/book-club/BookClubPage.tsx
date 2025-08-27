@@ -171,7 +171,7 @@ export function BookClubPage() {
         <div className="max-w-6xl mx-auto">
           <AnimateOnScroll>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-              Book <span className="handdrawn-highlight">Club</span>
+              <span className="handdrawn-highlight">Book Club</span>
             </h1>
             <p className="text-gray-600 text-xl max-w-3xl mx-auto text-center mb-12">
               My curated collection of books that have shaped my thinking on strategy, 
