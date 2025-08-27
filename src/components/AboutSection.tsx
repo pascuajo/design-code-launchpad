@@ -109,7 +109,7 @@ export function AboutSection() {
                   
                   <p className="text-gray-700 text-lg leading-relaxed">
                     My approach combines deep business acumen with a human-centered
-                    design mindset, I have launched solutions that have generated significant value for
+                    design mindset, launching solutions that have generated significant value for
                     both the bottom line and customers.
                   </p>
                   
@@ -121,7 +121,7 @@ export function AboutSection() {
                   </p>
                   
                   <p className="text-gray-700 text-lg leading-relaxed">
-                    Right now, I'm focused on combining my business experience with advanced AI strategies to help businesses move fast, innovate efficiently, and stay ahead of the competition.
+                    Right now, I'm all in on Generative AI to transform operations, build new customer experiences, and stay ahead of the competition.
                   </p>
                 </div>
               </div>
