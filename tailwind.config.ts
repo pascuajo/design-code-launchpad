@@ -23,7 +23,7 @@ export default {
         'dark-section': 'hsl(var(--dark-section))',
       },
       animation: {
-        scroll: 'scroll 30s linear infinite',
+        scroll: 'scroll 40s linear infinite',
       },
     },
   },
