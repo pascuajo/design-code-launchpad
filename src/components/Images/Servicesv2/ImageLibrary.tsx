@@ -65,7 +65,7 @@ export function ImageLibrary({
               <div className="relative h-48 overflow-hidden">
                 <img src={image.url} alt={image.title} className="w-full h-full object-cover transition-transform hover:scale-110" />
                 <div className="absolute top-4 right-4">
-                  <div className={`px-3 py-1 rounded-full text-sm font-bold text-white ${image.category === 'Leadership' ? 'bg-purple-500' : image.category === 'Design' ? 'bg-orange-500' : image.category === 'Coaching' ? 'bg-lime-500' : image.category === 'Automation' ? 'bg-blue-500' : image.category === 'Mentoring' ? 'bg-green-500' : 'bg-gray-500'}`}>
+                  <div className="px-3 py-1 rounded-full text-sm font-bold text-white bg-green-800">
                     {image.category}
                   </div>
                 </div>
@@ -80,7 +80,7 @@ export function ImageLibrary({
                 </p>
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2">
-                   {image.tags.map(tag => <span key={tag} className="inline-flex items-center gap-1 px-2 py-1 bg-green-800 text-white rounded-full text-xs font-medium">
+                   {image.tags.map(tag => <span key={tag} className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
                        <Tag className="w-3 h-3" />
                        {tag}
                      </span>)}
