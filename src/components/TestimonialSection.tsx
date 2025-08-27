@@ -7,7 +7,7 @@ const testimonials = [
     image: "/BenProctor.jpeg",
     quote: "Joe is one of the few professionals I have worked with who is able to fundamentally rethink how we operate - a real asset to any team looking to digitize their function.",
     name: "Ben Procter",
-    title: "CFO, Cavendish Plc"
+    title: "CFO, Cavendish plc"
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const testimonials = [
   {
     id: 4,
     image: "/anthea_king.jpg",
-    quote: "Joe launched our startup 0 to 1 in 6 months and exceeded all projections...$1Mn in ARR in our first 12 months, 95% CSAT score, 25% conversion rate was all down to his vision and impeccable attention to the customer experience",
+    quote: "Joe launched our startup 0 to 1 in 6 months...$1Mn in ARR, 95% CSAT score, and 25% conversion in year 1 demonstrates his impeccable vision and PMF strategy",
     name: "Anthea King",
     title: "CMO, Homepaired"
   }
