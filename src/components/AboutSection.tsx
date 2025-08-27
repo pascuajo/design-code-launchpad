@@ -12,57 +12,69 @@ export function AboutSection() {
   const domains: DomainInfo[] = [
     {
       title: "FinTech",
-      description: "Automated back office Finance and FinOps, and led FinTech Innovation at Global Investment Banks",
+      description: "Payment automation & processing systems • Treasury management & FX hedging platforms • Credit scoring & risk assessment models • Regulatory reporting automation • Digital banking infrastructure",
       icon: <Building2 className="w-8 h-8 text-blue-600" />,
       color: "blue"
     },
     {
       title: "PropTech",
-      description: "Head of Product for a top 5 US CRE Investment Platform covering the full Real Estate vertical (acquisitions, construction, property management, leasing, and mortgage backed securities)",
+      description: "AI-powered property valuation engines • iBuyer marketplace platforms • Property management automation • Real estate acquisition workflows • Tenant & vendor payment systems",
       icon: <Home className="w-8 h-8 text-green-600" />,
       color: "green"
     },
     {
       title: "RegTech",
-      description: "Built the Risk Management systems for UBS",
+      description: "Compliance monitoring dashboards • Automated regulatory reporting • Risk management platforms • AML/KYC workflow engines • Audit trail & documentation systems",
       icon: <Shield className="w-8 h-8 text-purple-600" />,
       color: "purple"
     },
     {
       title: "LegalTech",
-      description: "Executive Product Strategy Consultant driving the AI Transformation of a top 5 Contract Lifecycle Management solution",
+      description: "Agentic AI workforce platforms • Contract management automation • Legal document intelligence • Procurement workflow engines • Vendor relationship management",
       icon: <Shield className="w-8 h-8 text-indigo-600" />,
       color: "indigo"
     },
     {
-      title: "Platform",
-      description: "Implemented CRMs and ERPs and firmwide transformation using Salesforce",
+      title: "ProcureTech",
+      description: "Strategic sourcing platforms • Procure-to-pay automation • Vendor management systems • Contract lifecycle management • Spend analytics & reporting",
       icon: <Building2 className="w-8 h-8 text-red-600" />,
       color: "red"
     },
     {
+      title: "Data & Reporting",
+      description: "Executive KPI dashboards • Real-time business intelligence • Financial close automation • Predictive analytics models • Data visualization platforms",
+      icon: <Database className="w-8 h-8 text-gray-600" />,
+      color: "gray"
+    },
+    {
+      title: "AI",
+      description: "Agentic workflow orchestration • Large language model integration • Computer vision applications • Predictive modeling engines • Intelligent process automation",
+      icon: <Brain className="w-8 h-8 text-yellow-600" />,
+      color: "yellow"
+    },
+    {
+      title: "SaaS B2B",
+      description: "Multi-tenant enterprise platforms • API-first architecture design • Workflow automation tools • Business intelligence dashboards • Integration & data pipelines",
+      icon: <Building2 className="w-8 h-8 text-blue-600" />,
+      color: "blue"
+    },
+    {
       title: "SaaS C2C",
-      description: "Launched the first marketplace for live-in childcare that generated $1M in ARR within the first 12 months",
+      description: "Peer-to-peer marketplaces • Identity verification systems • Payment & escrow platforms • Matching algorithm engines • Community management tools",
       icon: <Globe className="w-8 h-8 text-teal-600" />,
       color: "teal"
     },
     {
       title: "SaaS B2C",
-      description: "Launched a new home iBuyer business that generated $1B in new acquisitions",
+      description: "Consumer mobile applications • Self-service onboarding flows • Personalization engines • Customer engagement platforms • Conversion optimization tools",
       icon: <UserCheck className="w-8 h-8 text-pink-600" />,
       color: "pink"
     },
     {
-      title: "AI",
-      description: "Launched the first Agentic AI platform at Gatekeeper (LuminIQ)",
-      icon: <Brain className="w-8 h-8 text-yellow-600" />,
-      color: "yellow"
-    },
-    {
-      title: "Data",
-      description: "Designed and built the first strategic Reporting and Business Intelligence platform at UBS",
-      icon: <Database className="w-8 h-8 text-gray-600" />,
-      color: "gray"
+      title: "Enterprise Platform",
+      description: "Microservices architecture • API management systems • Data integration platforms • Business process engines • Scalable cloud infrastructure",
+      icon: <Building2 className="w-8 h-8 text-red-600" />,
+      color: "red"
     }
   ];
 
@@ -155,21 +167,16 @@ export function AboutSection() {
                     
                     {/* Hover Tooltip */}
                     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-                      <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 max-w-xs">
-                        <div className="flex items-center gap-2 mb-3">
-                          {domain.icon}
-                          <h4 className="font-bold text-gray-800">{domain.title}</h4>
-                        </div>
-                        <ul className="text-sm text-gray-700 space-y-1">
-                          {domain.description.split('. ').map((point, i) => (
-                            point.trim() && (
-                              <li key={i} className="flex items-start">
-                                <span className="text-blue-500 mr-2">•</span>
-                                <span>{point.trim()}</span>
-                              </li>
-                            )
+                      <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-80">
+                        <h4 className="font-bold text-gray-800 mb-3">{domain.title}</h4>
+                        <div className="text-sm text-gray-700 leading-relaxed whitespace-nowrap">
+                          {domain.description.split(' • ').map((point, i) => (
+                            <div key={i} className="mb-1">
+                              <span className="text-blue-500 mr-2">•</span>
+                              <span>{point.trim()}</span>
+                            </div>
                           ))}
-                        </ul>
+                        </div>
                         {/* Arrow pointing down */}
                         <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
                       </div>
