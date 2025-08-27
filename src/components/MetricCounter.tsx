@@ -134,7 +134,7 @@ export function MetricCounter() {
             linear-gradient(to right, #64748b 1px, transparent 1px),
             linear-gradient(to bottom, #64748b 1px, transparent 1px)
           `,
-          backgroundSize: '29px 42px', // 20% smaller: was 36px x 52px, now 29px x 42px
+          backgroundSize: '26px 42px', // Matches card + gap: 24px card width + 2px gap = 26px, 40px card height + 2px gap = 42px
         }}
       />
       
