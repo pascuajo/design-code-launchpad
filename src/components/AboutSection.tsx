@@ -12,67 +12,67 @@ export function AboutSection() {
   const domains: DomainInfo[] = [
     {
       title: "FinTech",
-      description: "Payment automation & processing systems • Treasury management & FX hedging platforms • Credit scoring & risk assessment models • Regulatory reporting automation • Digital banking infrastructure",
+      description: "Financial Close Automation  • Treasury Management Platforms • Financial Statement Automation • Digital Banking Infrastructure",
       icon: <Building2 className="w-8 h-8 text-blue-600" />,
       color: "blue"
     },
     {
       title: "PropTech",
-      description: "AI-powered property valuation engines • iBuyer marketplace platforms • Property management automation • Real estate acquisition workflows • Tenant & vendor payment systems",
+      description: "AI-powered Property Valuation Engines • iBuyer Marketplace Platforms • Property Management Automation • Real Estate Acquisition Workflows • Tenant & Vendor Portals",
       icon: <Home className="w-8 h-8 text-green-600" />,
       color: "green"
     },
     {
       title: "RegTech",
-      description: "Compliance monitoring dashboards • Automated regulatory reporting • Risk management platforms • AML/KYC workflow engines • Audit trail & documentation systems",
+      description: "Compliance Monitoring Dashboards • Regulatory Reporting Automation • Risk Management Platforms • AML/KYC Workflow Engines • Audit Trail & Documentation Systems",
       icon: <Shield className="w-8 h-8 text-purple-600" />,
       color: "purple"
     },
     {
       title: "LegalTech",
-      description: "Agentic AI workforce platforms • Contract management automation • Legal document intelligence • Procurement workflow engines • Vendor relationship management",
+      description: "Contract management automation • Legal document intelligence • Procurement workflow engines • Vendor relationship management",
       icon: <Shield className="w-8 h-8 text-indigo-600" />,
       color: "indigo"
     },
     {
       title: "ProcureTech",
-      description: "Strategic sourcing platforms • Procure-to-pay automation • Vendor management systems • Contract lifecycle management • Spend analytics & reporting",
+      description: "Strategic Sourcing Platforms • Procure-To-Pay Automation • Vendor Management Systems • Contract Management Systems • Spend Analytics & Reporting",
       icon: <Building2 className="w-8 h-8 text-red-600" />,
       color: "red"
     },
     {
-      title: "Data & Reporting",
-      description: "Executive KPI dashboards • Real-time business intelligence • Financial close automation • Predictive analytics models • Data visualization platforms",
+      title: "Data & Business Intelligence",
+      description: "Executive KPI Dashboards • Real-Time Business Intelligence • Predictive Analytics Models • Data Visualization Platforms",
       icon: <Database className="w-8 h-8 text-gray-600" />,
       color: "gray"
     },
     {
-      title: "AI",
-      description: "Agentic workflow orchestration • Large language model integration • Computer vision applications • Predictive modeling engines • Intelligent process automation",
+      title: "AI & Automation",
+      description: "Agentic Workflow Orchestration • Large Language Model Integration • Predictive modeling engines • Intelligent Process Automation",
       icon: <Brain className="w-8 h-8 text-yellow-600" />,
       color: "yellow"
     },
     {
       title: "SaaS B2B",
-      description: "Multi-tenant enterprise platforms • API-first architecture design • Workflow automation tools • Business intelligence dashboards • Integration & data pipelines",
+      description: "Multi-Tenant Enterprise Platforms • API-first architecture design • Workflow automation tools • Business intelligence dashboards • Integration & data pipelines",
       icon: <Building2 className="w-8 h-8 text-blue-600" />,
       color: "blue"
     },
     {
       title: "SaaS C2C",
-      description: "Peer-to-peer marketplaces • Identity verification systems • Payment & escrow platforms • Matching algorithm engines • Community management tools",
+      description: "Peer-To-Peer Marketplaces • Identity Verification Systems • Payment & Escrow Platforms • Matching Algorithm Engines • Community Management Tools",
       icon: <Globe className="w-8 h-8 text-teal-600" />,
       color: "teal"
     },
     {
       title: "SaaS B2C",
-      description: "Consumer mobile applications • Self-service onboarding flows • Personalization engines • Customer engagement platforms • Conversion optimization tools",
+      description: "Consumer Mobile Applications • Self-service onboarding flows • Personalization engines • Customer engagement platforms • Conversion optimization tools",
       icon: <UserCheck className="w-8 h-8 text-pink-600" />,
       color: "pink"
     },
     {
       title: "Enterprise Platform",
-      description: "Microservices architecture • API management systems • Data integration platforms • Business process engines • Scalable cloud infrastructure",
+      description: "Microservices Architecture • API Management Systems • Data integration Platforms • Orchestration Platforms • CRM Platforms",
       icon: <Building2 className="w-8 h-8 text-red-600" />,
       color: "red"
     }
