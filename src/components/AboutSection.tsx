@@ -1,6 +1,6 @@
 import React from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
-import { Building2, Home, Shield, Globe, Brain, Database, Check } from 'lucide-react';
+import { Building2, Home, Shield, Globe, Brain, Database, Check, DollarSign, Scale, Handshake, Monitor } from 'lucide-react';
 
 interface DomainInfo {
   title: string;
@@ -14,7 +14,7 @@ export function AboutSection() {
     {
       title: "FinTech",
       description: "Core Banking Platforms • Payment Processing Systems • Treasury Management Systems • Financial Reporting Platforms",
-      icon: <Dollar-sign className="w-8 h-8 text-blue-600" />,
+      icon: <DollarSign className="w-8 h-8 text-gray-600" />,
       color: "blue"
     },
     {
@@ -32,13 +32,13 @@ export function AboutSection() {
     {
       title: "LegalTech",
       description: "Contract Management Platforms • Document Intelligence Systems • Legal Workflow Engines • Compliance Management Systems",
-      icon: <Scale className="w-8 h-8 text-indigo-600" />,
+      icon: <Scale className="w-8 h-8 text-gray-600" />,
       color: "indigo"
     },
     {
       title: "ProcureTech",
       description: "Strategic Sourcing Platforms • Inventory Management Systems • Vendor & CRM Platforms • Spend Analytics Platforms",
-      icon: <Handshake className="w-8 h-8 text-red-600" />,
+      icon: <Handshake className="w-8 h-8 text-gray-600" />,
       color: "red"
     },
     {
@@ -50,13 +50,13 @@ export function AboutSection() {
     {
       title: "AI & Automation",
       description: "Agentic AI Platforms • Machine Learning Solutions • Orchestration Platforms • Intelligent Workflow Automation",
-      icon: <Brain className="w-8 h-8 text-yellow-600" />,
+      icon: <Brain className="w-8 h-8 text-gray-600" />,
       color: "yellow"
     },
     {
       title: "Enterprise SaaS",
       description: "B2B SaaS Platforms • Multi-Tenant Systems • Mobile Application Platforms • Digital Experience Systems",
-      icon: <Monitor-smartphone className="w-8 h-8 text-blue-600" />,
+      icon: <Monitor className="w-8 h-8 text-gray-600" />,
       color: "blue"
     },
     {
@@ -136,7 +136,7 @@ export function AboutSection() {
             <div className="flex gap-8">
               {/* Main Tech & Product Domains */}
               <div className="flex-1">
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-4 grid-rows-2 gap-4">
                   {domains.filter(domain => !['Industries', 'Career'].includes(domain.title)).map((domain) => {
                     return (
                       <div 
