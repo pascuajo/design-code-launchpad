@@ -1,5 +1,5 @@
 import { AnimateOnScroll } from './AnimateOnScroll';
-import { Linkedin, Building2, Home, Shield, UserCheck, Globe, Brain, Database } from 'lucide-react';
+import { Building2, Home, Shield, UserCheck, Globe, Brain, Database } from 'lucide-react';
 
 interface DomainInfo {
   title: string;
@@ -196,10 +196,6 @@ export function AboutSection() {
                   </div>
                 );
               })}
-            </div>
-          </AnimateOnScroll>
-        </div>
-
             </div>
           </AnimateOnScroll>
         </div>
