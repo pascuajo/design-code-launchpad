@@ -206,9 +206,9 @@ export function MetricCounter() {
               <div className="flex items-center space-x-0.5">
                 {hasStarted && (
                   <>
-                    <FlipCard targetChar="5" duration={2500} delay={0} bgColor="bg-gray-600" textColor="text-white text-3xl" />
-                    <FlipCard targetChar="0" duration={2500} delay={100} bgColor="bg-gray-600" textColor="text-white text-3xl" />
-                    <FlipCard targetChar="+" duration={2500} delay={200} bgColor="bg-gray-600" textColor="text-white text-3xl" />
+                    <FlipCard targetChar="5" duration={2500} delay={0} bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="0" duration={2500} delay={100} bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="+" duration={2500} delay={200} bgColor="bg-white" textColor="text-black text-3xl" />
                   </>
                 )}
               </div>
@@ -216,12 +216,12 @@ export function MetricCounter() {
               <div className="flex flex-col items-end space-y-0.5">
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'PRODUCTS'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={300 + i * 50} isLetter bgColor="bg-gray-600" textColor="text-white text-lg" />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={300 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
                   ))}
                 </div>
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'LAUNCHED'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={600 + i * 50} isLetter bgColor="bg-gray-600" textColor="text-white text-lg" />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={600 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
                   ))}
                 </div>
               </div>
@@ -243,11 +243,11 @@ export function MetricCounter() {
               <div className="flex items-center space-x-0.5">
                 {hasStarted && (
                   <>
-                    <FlipCard targetChar="$" duration={2500} delay={0} />
-                    <FlipCard targetChar="3" duration={2500} delay={100} />
-                    <FlipCard targetChar="B" duration={2500} delay={200} isLetter isMetricLetter />
-                    <FlipCard targetChar="n" duration={2500} delay={300} isLetter isMetricLetter />
-                    <FlipCard targetChar="+" duration={2500} delay={400} />
+                    <FlipCard targetChar="$" duration={2500} delay={0} bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="3" duration={2500} delay={100} bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="B" duration={2500} delay={200} isLetter isMetricLetter bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="n" duration={2500} delay={300} isLetter isMetricLetter bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="+" duration={2500} delay={400} bgColor="bg-white" textColor="text-black text-3xl" />
                   </>
                 )}
               </div>
@@ -255,12 +255,12 @@ export function MetricCounter() {
               <div className="flex flex-col items-end space-y-0.5">
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'VALUE'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={500 + i * 50} isLetter />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={500 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
                   ))}
                 </div>
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'CREATED'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={750 + i * 50} isLetter />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={750 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
                   ))}
                 </div>
               </div>
@@ -282,11 +282,11 @@ export function MetricCounter() {
               <div className="flex items-center space-x-0.5">
                 {hasStarted && (
                   <>
-                    <FlipCard targetChar="1" duration={2500} delay={0} />
-                    <FlipCard targetChar="0" duration={2500} delay={100} />
-                    <FlipCard targetChar="0" duration={2500} delay={200} />
-                    <FlipCard targetChar="0" duration={2500} delay={300} />
-                    <FlipCard targetChar="+" duration={2500} delay={400} />
+                    <FlipCard targetChar="1" duration={2500} delay={0} bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="0" duration={2500} delay={100} bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="0" duration={2500} delay={200} bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="0" duration={2500} delay={300} bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="+" duration={2500} delay={400} bgColor="bg-white" textColor="text-black text-3xl" />
                   </>
                 )}
               </div>
@@ -294,12 +294,12 @@ export function MetricCounter() {
               <div className="flex flex-col items-end space-y-0.5">
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'STAFF'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={500 + i * 50} isLetter />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={500 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
                   ))}
                 </div>
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'MANAGED'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={700 + i * 50} isLetter />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={700 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
                   ))}
                 </div>
               </div>
@@ -321,10 +321,10 @@ export function MetricCounter() {
               <div className="flex items-center space-x-0.5">
                 {hasStarted && (
                   <>
-                    <FlipCard targetChar="1" duration={2500} delay={0} />
-                    <FlipCard targetChar="M" duration={2500} delay={100} isLetter isMetricLetter />
-                    <FlipCard targetChar="n" duration={2500} delay={200} isLetter isMetricLetter />
-                    <FlipCard targetChar="+" duration={2500} delay={300} />
+                    <FlipCard targetChar="1" duration={2500} delay={0} bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="M" duration={2500} delay={100} isLetter isMetricLetter bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="n" duration={2500} delay={200} isLetter isMetricLetter bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="+" duration={2500} delay={300} bgColor="bg-white" textColor="text-black text-3xl" />
                   </>
                 )}
               </div>
@@ -332,12 +332,12 @@ export function MetricCounter() {
               <div className="flex flex-col items-end space-y-0.5">
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'CUSTOMERS'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={400 + i * 50} isLetter />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={400 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
                   ))}
                 </div>
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'SERVED'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={800 + i * 50} isLetter />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={800 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
                   ))}
                 </div>
               </div>
