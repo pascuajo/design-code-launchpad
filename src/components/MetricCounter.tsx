@@ -84,7 +84,7 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false }: FlipCar
   }, [targetChar, duration, delay, isLetter]);
 
   return (
-    <div className="relative w-8 h-12 perspective-1000">
+    <div className="relative w-6 h-10 perspective-1000"> {/* 20% smaller: was w-8 h-12, now w-6 h-10 */}
       <div 
         className={`w-full h-full bg-white rounded-sm border-2 border-gray-600 flex items-center justify-center transform-gpu transition-transform duration-75 ${
           isFlipping ? 'animate-[flipDigit_0.15s_ease-in-out_infinite]' : ''
@@ -93,7 +93,7 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false }: FlipCar
           transformStyle: 'preserve-3d'
         }}
       >
-        <div className="text-gray-900 font-din-condensed font-bold text-2xl">
+        <div className="text-gray-900 font-din-condensed font-bold text-lg"> {/* Smaller text: was text-2xl, now text-lg */}
           {currentChar}
         </div>
       </div>
@@ -126,7 +126,7 @@ export function MetricCounter() {
 
   return (
     <section ref={counterRef} className="w-full bg-gray-800 py-20 px-4 relative overflow-hidden">
-      {/* Train station board grid background */}
+      {/* Train station board grid background - 20% smaller */}
       <div 
         className="absolute inset-0 opacity-20"
         style={{
@@ -134,7 +134,7 @@ export function MetricCounter() {
             linear-gradient(to right, #64748b 1px, transparent 1px),
             linear-gradient(to bottom, #64748b 1px, transparent 1px)
           `,
-          backgroundSize: '36px 52px',
+          backgroundSize: '29px 42px', // 20% smaller: was 36px x 52px, now 29px x 42px
         }}
       />
       
@@ -143,12 +143,12 @@ export function MetricCounter() {
       
       <div className="max-w-6xl mx-auto relative z-10">
         <AnimateOnScroll>
-          <div className="grid grid-cols-4 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-4 gap-4 max-w-5xl mx-auto" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
             
             {/* Products Launched - Column 1 */}
-            <div className="flex flex-col items-center space-y-2">
+            <div className="flex flex-col items-end space-y-1"> {/* Right aligned */}
               {/* Metric: 50+ */}
-              <div className="flex items-center">
+              <div className="flex items-center space-x-0.5"> {/* Tighter spacing to match grid */}
                 {hasStarted && (
                   <>
                     <FlipCard targetChar="5" duration={2500} delay={0} />
@@ -157,14 +157,14 @@ export function MetricCounter() {
                   </>
                 )}
               </div>
-              {/* Title: PRODUCTS LAUNCHED */}
-              <div className="flex flex-col items-center space-y-1">
-                <div className="flex items-center space-x-1">
+              {/* Title: PRODUCTS LAUNCHED - Right aligned to match last card */}
+              <div className="flex flex-col items-end space-y-0.5">
+                <div className="flex items-center space-x-0.5">
                   {hasStarted && 'PRODUCTS'.split('').map((char, i) => (
                     <FlipCard key={i} targetChar={char} duration={2500} delay={300 + i * 50} isLetter />
                   ))}
                 </div>
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-0.5">
                   {hasStarted && 'LAUNCHED'.split('').map((char, i) => (
                     <FlipCard key={i} targetChar={char} duration={2500} delay={600 + i * 50} isLetter />
                   ))}
@@ -173,9 +173,9 @@ export function MetricCounter() {
             </div>
 
             {/* Value Created - Column 2 */}
-            <div className="flex flex-col items-center space-y-2">
+            <div className="flex flex-col items-end space-y-1">
               {/* Metric: $3Bn+ */}
-              <div className="flex items-center">
+              <div className="flex items-center space-x-0.5">
                 {hasStarted && (
                   <>
                     <FlipCard targetChar="$" duration={2500} delay={0} />
@@ -187,13 +187,13 @@ export function MetricCounter() {
                 )}
               </div>
               {/* Title: VALUE CREATED */}
-              <div className="flex flex-col items-center space-y-1">
-                <div className="flex items-center space-x-1">
+              <div className="flex flex-col items-end space-y-0.5">
+                <div className="flex items-center space-x-0.5">
                   {hasStarted && 'VALUE'.split('').map((char, i) => (
                     <FlipCard key={i} targetChar={char} duration={2500} delay={500 + i * 50} isLetter />
                   ))}
                 </div>
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-0.5">
                   {hasStarted && 'CREATED'.split('').map((char, i) => (
                     <FlipCard key={i} targetChar={char} duration={2500} delay={750 + i * 50} isLetter />
                   ))}
@@ -202,9 +202,9 @@ export function MetricCounter() {
             </div>
 
             {/* Staff Managed - Column 3 */}
-            <div className="flex flex-col items-center space-y-2">
+            <div className="flex flex-col items-end space-y-1">
               {/* Metric: 1000+ */}
-              <div className="flex items-center">
+              <div className="flex items-center space-x-0.5">
                 {hasStarted && (
                   <>
                     <FlipCard targetChar="1" duration={2500} delay={0} />
@@ -216,13 +216,13 @@ export function MetricCounter() {
                 )}
               </div>
               {/* Title: STAFF MANAGED */}
-              <div className="flex flex-col items-center space-y-1">
-                <div className="flex items-center space-x-1">
+              <div className="flex flex-col items-end space-y-0.5">
+                <div className="flex items-center space-x-0.5">
                   {hasStarted && 'STAFF'.split('').map((char, i) => (
                     <FlipCard key={i} targetChar={char} duration={2500} delay={500 + i * 50} isLetter />
                   ))}
                 </div>
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-0.5">
                   {hasStarted && 'MANAGED'.split('').map((char, i) => (
                     <FlipCard key={i} targetChar={char} duration={2500} delay={700 + i * 50} isLetter />
                   ))}
@@ -231,9 +231,9 @@ export function MetricCounter() {
             </div>
 
             {/* Customers Served - Column 4 */}
-            <div className="flex flex-col items-center space-y-2">
+            <div className="flex flex-col items-end space-y-1">
               {/* Metric: 1Mn+ */}
-              <div className="flex items-center">
+              <div className="flex items-center space-x-0.5">
                 {hasStarted && (
                   <>
                     <FlipCard targetChar="1" duration={2500} delay={0} />
@@ -244,13 +244,13 @@ export function MetricCounter() {
                 )}
               </div>
               {/* Title: CUSTOMERS SERVED */}
-              <div className="flex flex-col items-center space-y-1">
-                <div className="flex items-center space-x-1">
+              <div className="flex flex-col items-end space-y-0.5">
+                <div className="flex items-center space-x-0.5">
                   {hasStarted && 'CUSTOMERS'.split('').map((char, i) => (
                     <FlipCard key={i} targetChar={char} duration={2500} delay={400 + i * 50} isLetter />
                   ))}
                 </div>
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-0.5">
                   {hasStarted && 'SERVED'.split('').map((char, i) => (
                     <FlipCard key={i} targetChar={char} duration={2500} delay={800 + i * 50} isLetter />
                   ))}
