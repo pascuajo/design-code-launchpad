@@ -12,7 +12,7 @@ export function AboutSection() {
   const domains: DomainInfo[] = [
     {
       title: "FinTech",
-      description: "Financial Close Automation • Treasury Management Platforms • Financial Statement Automation • Digital Banking Infrastructure",
+      description: "Financial Close Automation • Payment & Escrow Platforms • Treasury Management Platforms • Financial Statement Automation • Digital Banking Infrastructure",
       icon: <Building2 className="w-8 h-8 text-blue-600" />,
       color: "blue"
     },
@@ -24,25 +24,25 @@ export function AboutSection() {
     },
     {
       title: "RegTech",
-      description: "Compliance Monitoring Dashboards • Regulatory Reporting Automation • Risk Management Platforms • AML/KYC Workflow Engines • Audit Trail & Documentation Systems",
+      description: "Regulatory Compliance Automation • Risk Management Platforms • AML/KYC Workflow Engines • Audit & Documentation Systems",
       icon: <Shield className="w-8 h-8 text-purple-600" />,
       color: "purple"
     },
     {
       title: "LegalTech",
-      description: "Contract Management Automation • Legal Document Intelligence • Procurement Workflow Engines • Vendor Relationship Management",
+      description: "Contract Management Automation • Identity Verification Systems • Legal Document Intelligence",
       icon: <Shield className="w-8 h-8 text-indigo-600" />,
       color: "indigo"
     },
     {
       title: "ProcureTech",
-      description: "Strategic Sourcing Platforms • Procure-To-Pay Automation • Vendor Management Systems • Contract Management Systems • Spend Analytics & Reporting",
+      description: "Strategic Sourcing Platforms • Procure-To-Pay Automation • Procurement Workflow Engines • Vendor Management Systems • Spend Analytics & Reporting",
       icon: <Building2 className="w-8 h-8 text-red-600" />,
       color: "red"
     },
     {
       title: "Data & Business Intelligence",
-      description: "Executive KPI Dashboards • Real-Time Business Intelligence • Predictive Analytics Models • Data Visualization Platforms",
+      description: "Executive KPI Dashboards • Integration & Data Pipelines • Real-Time Business Intelligence • Predictive Analytics Models • Data Visualization Platforms",
       icon: <Database className="w-8 h-8 text-gray-600" />,
       color: "gray"
     },
@@ -53,38 +53,26 @@ export function AboutSection() {
       color: "yellow"
     },
     {
-      title: "SaaS B2B",
-      description: "Multi-Tenant Enterprise Platforms • API-first architecture design • Workflow automation tools • Business intelligence dashboards • Integration & data pipelines",
+      title: "Enterprise SaaS",
+      description: "Multi-Tenant Platforms • Peer-To-Peer Marketplaces • Consumer Mobile Applications • Self-Service Onboarding Flows",
       icon: <Building2 className="w-8 h-8 text-blue-600" />,
       color: "blue"
     },
     {
-      title: "SaaS C2C",
-      description: "Peer-To-Peer Marketplaces • Identity Verification Systems • Payment & Escrow Platforms • Matching Algorithm Engines • Community Management Tools",
-      icon: <Globe className="w-8 h-8 text-teal-600" />,
-      color: "teal"
-    },
-    {
-      title: "SaaS B2C",
-      description: "Consumer Mobile Applications • Self-Service Onboarding Flows • Personalization Engines • Customer Engagement Platforms • Conversion Optimization Tools",
-      icon: <UserCheck className="w-8 h-8 text-pink-600" />,
-      color: "pink"
-    },
-    {
       title: "Enterprise Platform",
-      description: "Microservices Architecture • API Management Systems • Data integration Platforms • Orchestration Platforms • CRM Platforms",
+      description: "Microservices Architecture • API Management Systems • Data integration Platforms • Workflow Automation Platforms • ERP Platforms • CRM Platforms",
       icon: <Building2 className="w-8 h-8 text-red-600" />,
       color: "red"
     },
     {
       title: "Industries",
-      description: "Financial Services • Commercial Real Estate • Investment Banking • Enterprise SaaS B2B • Youth Sports • Marketplaces",
+      description: "Financial Services • Commercial Real Estate • Enterprise SaaS • Youth Sports • Marketplaces",
       icon: <Building2 className="w-8 h-8 text-gray-600" />,
       color: "gray"
     },
     {
       title: "Career",
-      description: "Founder & CEO @ Homepaired • Head of Product & Design @ Amherst • Executive Director, Product Management @ UBS • Executive Director, Digital Transformation @ UBS",
+      description: "Founder & CEO • Head of Product & Design • Executive Director, Product Management • Executive Director, Digital Transformation",
       icon: <Globe className="w-8 h-8 text-red-600" />,
       color: "red"
     },
