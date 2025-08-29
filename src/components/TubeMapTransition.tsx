@@ -28,22 +28,32 @@ export function TubeMapTransition() {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-[80vh] overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100"
+      className="relative h-[58.5vh] overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 tube-map tube-map-transition"
+      data-component="tubeMap"
     >
       {/* Main tube map with parallax and zoom effect */}
       <div 
         className="absolute inset-0 w-full h-full transition-transform duration-300 ease-out"
         style={{
           backgroundImage: 'url(/tubemap.png)',
-          backgroundSize: '120%',
-          backgroundPosition: 'center',
+          backgroundSize: '100%',
+          backgroundPosition: 'center 60%',
           backgroundRepeat: 'no-repeat',
-          transform: `scale(${1 + scrollY * 0.2}) translateY(${scrollY * -100}px)`,
+          transform: `scale(${1 + scrollY * 0.2}) translateY(${scrollY * -50}px)`,
         }}
       />
       
       {/* Overlay gradient for depth */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-purple-900/20" />
+      
+      {/* Clearmont mountain logo overlay - centered with 25% transparency */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 2 }}>
+        <img 
+          src="/Clearmont_mountain_only.png" 
+          alt="Clearmont" 
+          className="w-32 h-32 object-contain opacity-75"
+        />
+      </div>
       
       {/* Connection lines */}
       <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }}>
@@ -89,21 +99,6 @@ export function TubeMapTransition() {
             }}
           />
         ))}
-      </div>
-
-      {/* Header overlay */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div 
-          className="text-center z-10"
-          style={{
-            transform: `translateY(${scrollY * 20}px)`,
-            opacity: 0.9 + scrollY * 0.1,
-          }}
-        >
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-800 drop-shadow-[0_2px_4px_rgba(255,255,255,0.9)]">
-            From strategy to launch, <span className="handdrawn-highlight">every stop covered</span>.
-          </h3>
-        </div>
       </div>
     </section>
   );

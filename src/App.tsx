@@ -7,7 +7,7 @@ import { TestimonialSection } from './components/TestimonialSection';
 import { TubeMapTransition } from './components/TubeMapTransition';
 import { AboutSection } from './components/AboutSection';
 import { MetricCounter } from './components/MetricCounter';
-import { ContactSection } from './components/ContactSection';
+
 import { Footer } from './components/Footer';
 
 export function App() {
@@ -20,10 +20,9 @@ export function App() {
         <ValuePropositionSection />
         <ImageLibrary />
         <TestimonialSection />
-        <TubeMapTransition />
         <MetricCounter />
+        <TubeMapTransition />
         <AboutSection />
-        <ContactSection />
         <Footer />
       </div>
     </div>

@@ -24,6 +24,7 @@ export default {
       },
       fontFamily: {
         'din-condensed': ['DIN Condensed', 'Arial Narrow', 'sans-serif'],
+        'inter': ['Inter', 'system-ui', 'sans-serif'],
       },
       perspective: {
         '1000': '1000px',

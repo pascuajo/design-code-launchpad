@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useFonts } from '../hooks/useFonts';
 
 const testimonials = [
   {
@@ -12,14 +13,14 @@ const testimonials = [
   {
     id: 2,
     image: "/patrickoconnor.jpg",
-    quote: "Exceptional product strategist who transformed our AI vision into reality. Pivotal in developing our agentic AI platform, his ability to translate complex AI concepts into market-winning products is unmatched",
+    quote: "Exceptional product strategist who transformed our AI vision into reality developing our agentic AI platform, his ability to translate complex AI concepts into market-winning products is unmatched",
     name: "Patrick O'Connor",
     title: "CEO, Gatekeeper"
   },
   {
     id: 4,
     image: "/anthea_king.jpg",
-    quote: "Joe launched our startup 0 to 1 in 6 months...$1Mn in ARR, 95% CSAT score, and 25% conversion in year 1 demonstrates his impeccable vision and PMF strategy",
+    quote: "Joe launched our startup 0 to 1 in 6 months...$1Mn in ARR, 95% CSAT score, and 25% conversion in year one demonstrates his impeccable vision and intuition for Product-Market fit",
     name: "Anthea King",
     title: "CMO, Homepaired"
   }
@@ -27,6 +28,9 @@ const testimonials = [
 
 export function TestimonialSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const h2Font = useFonts('testimonials', 'h2');
+  const pFont = useFonts('testimonials', 'p');
+  const buttonFont = useFonts('testimonials', 'button');
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -40,7 +44,7 @@ export function TestimonialSection() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="w-full bg-white py-16 px-4">
+    <section className="w-full bg-white py-16 px-4 testimonial-section" data-component="testimonials">
       <div className="max-w-4xl mx-auto">
         <AnimatePresence mode="wait">
           <motion.div
@@ -62,11 +66,11 @@ export function TestimonialSection() {
             </div>
 
             <div className="md:w-3/4">
-              <p className="italic text-gray-600 mb-6 text-xl">
+              <p className="italic text-gray-600 mb-6 text-xl testimonials" style={pFont.getFontStyle()}>
                 "{currentTestimonial.quote}"
               </p>
-              <p className="font-semibold text-lg">{currentTestimonial.name}</p>
-              <p className="text-gray-500">{currentTestimonial.title}</p>
+              <p className="font-semibold text-lg testimonials" style={pFont.getFontStyle()}>{currentTestimonial.name}</p>
+              <p className="text-gray-500 testimonials" style={pFont.getFontStyle()}>{currentTestimonial.title}</p>
             </div>
           </motion.div>
         </AnimatePresence>
@@ -81,11 +85,11 @@ export function TestimonialSection() {
                 index === currentIndex ? 'bg-gray-600' : 'bg-gray-300'
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
+              style={buttonFont.getFontStyle()}
             />
           ))}
         </div>
       </div>
-
     </section>
   );
 }

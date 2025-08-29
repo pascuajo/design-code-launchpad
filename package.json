@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:dev": "vite build --mode development",
-    "preview": "vite preview"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "check-fonts": "node scripts/check-fonts.js",
+    "pre-commit": "npm run check-fonts"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

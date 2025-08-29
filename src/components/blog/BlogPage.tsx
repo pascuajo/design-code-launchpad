@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { AnimateOnScroll, AnimateChildren } from '../AnimateOnScroll';
 import { BlogCard } from './BlogCard';
 import { supabase } from '../../integrations/supabase/client';
+import { useFonts } from '../../hooks/useFonts';
 
 interface BlogPost {
   id: string;
@@ -19,6 +20,9 @@ export function BlogPage() {
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const h1Font = useFonts('blog', 'h1');
+  const pFont = useFonts('blog', 'p');
+  const highlightedFont = useFonts('blog', 'highlighted');
 
   useEffect(() => {
     fetchPublishedPosts();
@@ -83,14 +87,14 @@ export function BlogPage() {
     );
   }
 
-  return <div className="w-full">
+  return <div className="w-full blog-page" data-component="blog">
       <section className="w-full bg-white py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <AnimateOnScroll>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-              <span className="handdrawn-highlight">Our Blog</span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center blog" style={h1Font.getFontStyle()}>
+              <span className="handdrawn-highlight" style={highlightedFont.getFontStyle()}>Our Blog</span>
             </h1>
-            <p className="text-gray-600 text-xl max-w-3xl mx-auto text-center mb-8">
+            <p className="text-gray-600 text-xl max-w-3xl mx-auto text-center mb-8 blog" style={pFont.getFontStyle()}>
               Insights, strategies, and practical advice to help you build what
               truly matters.
             </p>

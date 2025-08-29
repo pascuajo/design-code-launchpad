@@ -4,6 +4,39 @@
 @import 'tailwindcss/utilities';
 /* DO NOT DELETE THESE TAILWIND IMPORTS, OTHERWISE THE STYLING WILL NOT RENDER AT ALL */
 
+/* Global font family */
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Font variables for dynamic font changes */
+:root {
+  /* Heading fonts */
+  --font-heading-h1: 'Inter', system-ui, sans-serif;
+  --font-heading-h2: 'Inter', system-ui, sans-serif;
+  --font-heading-h3: 'Inter', system-ui, sans-serif;
+  --font-heading-h4: 'Inter', system-ui, sans-serif;
+  
+  /* Body fonts */
+  --font-body-p: 'Inter', system-ui, sans-serif;
+  --font-body-span: 'Inter', system-ui, sans-serif;
+  --font-body-li: 'Inter', system-ui, sans-serif;
+  
+  /* Component-specific fonts */
+  --font-hero-h1: 'Inter', system-ui, sans-serif;
+  --font-hero-p: 'Inter', system-ui, sans-serif;
+  --font-metrics-span: 'DIN Condensed', 'Arial Narrow', sans-serif;
+}
+
+/* Apply font variables to elements */
+h1 { font-family: var(--font-heading-h1); }
+h2 { font-family: var(--font-heading-h2); }
+h3 { font-family: var(--font-heading-h3); }
+h4 { font-family: var(--font-heading-h4); }
+p { font-family: var(--font-body-p); }
+span { font-family: var(--font-body-span); }
+li { font-family: var(--font-body-li); }
+
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;
@@ -44,11 +77,18 @@
   color: hsl(var(--foreground)) !important;
 }
 
-/* Hand-drawn highlight effect */
+/* Hand-drawn highlight effect - works with any font */
 .handdrawn-highlight {
   position: relative;
   display: inline-block;
   z-index: 1;
+  /* Font inheritance - will use whatever font is set by the font system */
+  font-family: inherit !important;
+  /* Ensure the highlight doesn't interfere with font styling */
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
 }
 
 .handdrawn-highlight::before {
@@ -63,6 +103,29 @@
   z-index: -1;
   border-radius: 3px;
   opacity: 0.8;
+}
+
+/* Section motif styling */
+.value-prop-section .bg-gradient-to-b {
+  background: linear-gradient(to bottom, #111827 0%, #111827 70%, transparent 100%);
+}
+
+/* Highlight text animation */
+.highlight-text {
+  transition: all 0.5s ease-in-out;
+}
+
+
+
+@keyframes highlightAppear {
+  from {
+    opacity: 0;
+    transform: rotate(-0.8deg) scale(0.8);
+  }
+  to {
+    opacity: 0.8;
+    transform: rotate(-0.8deg) scale(1);
+  }
 }
 
 /* Flip digit animation */

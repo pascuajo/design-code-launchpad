@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronDown } from 'lucide-react';
+
 import { ContactModal } from './ContactModal';
+import { useFonts } from '../hooks/useFonts';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const location = useLocation();
+  const pFont = useFonts('header', 'p');
+  const liFont = useFonts('header', 'li');
+  const buttonFont = useFonts('header', 'button');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +27,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`w-full fixed top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-white py-5'}`}>
+    <header className={`w-full fixed top-0 z-50 transition-all duration-300 header ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-white py-5'}`} data-component="header">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center">
           <Link to="/">
@@ -38,49 +42,24 @@ export function Header() {
         <div className="flex items-center space-x-8">
           <nav className="hidden md:block">
             <ul className="flex space-x-8">
-              <li>
+              <li className="header" style={liFont.getFontStyle()}>
                 <a href="/#value-proposition" className="hover:text-yellow-500 transition-colors">
                   How I Can Help
                 </a>
               </li>
-              <li>
+              <li className="header" style={liFont.getFontStyle()}>
                 <a href="/#about" className="hover:text-yellow-500 transition-colors">
                   About Me
                 </a>
               </li>
-               <li className="relative">
-                <button 
-                  className={`flex items-center hover:text-yellow-500 transition-colors ${location.pathname.includes('/blog') || location.pathname.includes('/book-club') ? 'text-yellow-500' : ''}`}
-                  onClick={() => setIsResourcesOpen(!isResourcesOpen)}
-                >
-                  Resources
-                  <ChevronDown size={16} className="ml-1" />
-                </button>
-                {isResourcesOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
-                    <Link 
-                      to="/blog" 
-                      className="block px-4 py-2 hover:bg-gray-50 transition-colors"
-                      onClick={() => setIsResourcesOpen(false)}
-                    >
-                      Blog
-                    </Link>
-                    <Link 
-                      to="/book-club" 
-                      className="block px-4 py-2 hover:bg-gray-50 transition-colors"
-                      onClick={() => setIsResourcesOpen(false)}
-                    >
-                      Book Club
-                    </Link>
-                  </div>
-                )}
-               </li>
+
             </ul>
           </nav>
 
           <button 
             onClick={() => setIsContactModalOpen(true)}
             className="hidden md:block bg-yellow-300 hover:bg-yellow-600 text-black font-medium py-2 px-5 rounded-full transition duration-300"
+            style={buttonFont.getFontStyle()}
           >
             Contact
           </button>

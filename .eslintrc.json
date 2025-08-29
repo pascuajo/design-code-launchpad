@@ -1,0 +1,44 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "@typescript-eslint/recommended"
+  ],
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "no-restricted-properties": [
+      "error",
+      {
+        "object": "style",
+        "property": "fontFamily",
+        "message": "Use the font system instead of hardcoding fontFamily. Import useFonts hook and use style={fontHook.getFontStyle()}"
+      }
+    ],
+    "no-restricted-classes": [
+      "error",
+      {
+        "patterns": [
+          "font-sans",
+          "font-serif",
+          "font-mono",
+          "font-\\w+"
+        ],
+        "message": "Use the font system instead of Tailwind font classes. Import useFonts hook and use style={fontHook.getFontStyle()}"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["src/components/**/*.tsx", "src/components/**/*.ts"],
+      "rules": {
+        "no-restricted-properties": [
+          "error",
+          {
+            "object": "style",
+            "property": "fontFamily",
+            "message": "Use the font system instead of hardcoding fontFamily. Import useFonts hook and use style={fontHook.getFontStyle()}"
+          }
+        ]
+      }
+    }
+  ]
+}

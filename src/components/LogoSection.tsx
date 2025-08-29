@@ -48,7 +48,7 @@ export function LogoSection() {
   ];
 
   return (
-    <section className="w-full bg-gray-900 py-16 px-4">
+    <section className="w-full bg-gray-900 py-16 px-4 logo-section" data-component="logo">
       <div className="max-w-full mx-auto overflow-hidden">
         <AnimateOnScroll>
           <div className="flex animate-scroll whitespace-nowrap">

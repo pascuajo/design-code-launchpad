@@ -1,5 +1,6 @@
 import { AnimateOnScroll } from './AnimateOnScroll';
 import { useEffect, useRef, useState } from 'react';
+import { useFonts } from '../hooks/useFonts';
 
 interface FlipCardProps {
   targetChar: string;
@@ -15,6 +16,7 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false, isMetricL
   const [currentChar, setCurrentChar] = useState(isLetter ? 'A' : '0');
   const [isFlipping, setIsFlipping] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout>();
+  const spanFont = useFonts('metrics', 'span');
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -89,14 +91,14 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false, isMetricL
   return (
     <div className="relative w-6 h-10 perspective-1000"> {/* 20% smaller: was w-8 h-12, now w-6 h-10 */}
       <div 
-        className={`w-full h-full ${bgColor} rounded-sm border-2 border-gray-600 flex items-center justify-center transform-gpu transition-transform duration-75 ${
-          isFlipping ? 'animate-[flipDigit_0.15s_ease-in-out_infinite]' : ''
+        className={`w-full h-full ${bgColor} rounded-sm ${bgColor === 'bg-gray-900' ? 'border border-white' : 'border-2 border-gray-600'} flex items-center justify-center transform-gpu transition-transform duration-75 ${
+          isFlipping ? 'animate-[flipDigit_0.15s_ease-out_infinite]' : ''
         }`}
         style={{
           transformStyle: 'preserve-3d'
         }}
       >
-        <div className={`font-din-condensed font-bold ${textColor || (isMetricLetter || !isLetter ? 'text-gray-900 text-3xl' : 'text-red-500 text-lg')}`}> {/* Custom text color or default styling */}
+        <div className={`font-din-condensed font-bold flip-digit ${textColor || (isMetricLetter || !isLetter ? 'text-gray-900 text-3xl' : 'text-red-500 text-lg')}`} style={spanFont.getFontStyle()}> {/* Custom text color or default styling */}
           {currentChar}
         </div>
       </div>
@@ -105,17 +107,24 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false, isMetricL
 }
 
 export function MetricCounter() {
+  const counterRef = useRef<HTMLElement>(null);
   const [hasStarted, setHasStarted] = useState(false);
-  const counterRef = useRef<HTMLDivElement>(null);
-  
+  const [positions, setPositions] = useState([
+    { x: 0, y: 0 }, // Column 1: Products Launched
+    { x: 0, y: 0 }, // Column 2: Value Created  
+    { x: 0, y: 0 }, // Column 3: Staff Managed
+    { x: 0, y: 0 }  // Column 4: Customers Served
+  ]);
+  const h2Font = useFonts('metrics', 'h2');
+
   // DRAG FUNCTIONALITY - DISABLED BUT PRESERVED FOR FUTURE USE
   // Drag positions for each metric column
-  const [positions] = useState([
-    { x: 5, y: 2 }, // Products Launched - LOCKED POSITION (nudged right 5px, down 2px)
-    { x: 5, y: 2 }, // Value Created - LOCKED POSITION (nudged right 5px, down 2px)
-    { x: 5, y: 2 }, // Staff Managed - LOCKED POSITION (nudged right 5px, down 2px)
-    { x: 5, y: 2 }, // Customers Served - LOCKED POSITION (nudged right 5px, down 2px)
-  ]);
+  // const [positions] = useState([
+  //   { x: 5, y: 2 }, // Products Launched - LOCKED POSITION (nudged right 5px, down 2px)
+  //   { x: 5, y: 2 }, // Value Created - LOCKED POSITION (nudged right 5px, down 2px)
+  //   { x: 5, y: 2 }, // Staff Managed - LOCKED POSITION (nudged right 5px, down 2px)
+  //   { x: 5, y: 2 }, // Customers Served - LOCKED POSITION (nudged right 5px, down 2px)
+  // ]);
   
   // const [dragIndex, setDragIndex] = useState<number | null>(null);
   // const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
@@ -165,10 +174,8 @@ export function MetricCounter() {
   return (
     <section 
       ref={counterRef} 
-      className="w-full bg-gray-800 py-20 px-4 relative overflow-hidden"
-      // DRAG EVENT HANDLERS - DISABLED
-      // onMouseMove={handleMouseMove}
-      // onMouseUp={handleMouseUp}
+      className="w-full bg-gray-900 py-8 px-4 relative overflow-hidden metric-counter metrics"
+      data-component="metrics"
     >
       {/* Train station board grid background - aligned with cards */}
       <div 
@@ -184,9 +191,16 @@ export function MetricCounter() {
       />
       
       {/* Subtle overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-800/50 via-transparent to-gray-800/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 via-transparent to-gray-900/50" />
       
       <div className="max-w-6xl mx-auto relative z-10">
+        {/* Header overlay */}
+        <div className="text-center mb-8">
+          <h3 className="text-3xl md:text-4xl font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] metrics" style={h2Font.getFontStyle()}>
+            From strategy to launch, <span className="handdrawn-highlight">every stop covered</span>.
+          </h3>
+        </div>
+        
         <AnimateOnScroll>
           <div className="grid grid-cols-4 gap-4 max-w-5xl mx-auto" style={{ gridTemplateColumns: 'repeat(4, 1fr)', transform: 'translate(5px, 2px)' }}>
             
@@ -195,12 +209,7 @@ export function MetricCounter() {
               className="flex flex-col items-end space-y-1" 
               style={{ 
                 transform: `translate(${positions[0].x}px, ${positions[0].y}px)`
-                // DRAG STYLING - DISABLED
-                // border: '2px dashed rgba(255,255,255,0.3)',
-                // padding: '4px'
               }}
-              // DRAG HANDLER - DISABLED
-              // onMouseDown={(e) => handleMouseDown(0, e)}
             >
               {/* Metric: 50+ */}
               <div className="flex items-center space-x-0.5">
@@ -216,12 +225,12 @@ export function MetricCounter() {
               <div className="flex flex-col items-end space-y-0.5">
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'PRODUCTS'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={300 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={300 + i * 50} isLetter bgColor="bg-gray-900" textColor="text-white text-lg" />
                   ))}
                 </div>
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'LAUNCHED'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={600 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={600 + i * 50} isLetter bgColor="bg-gray-900" textColor="text-white text-lg" />
                   ))}
                 </div>
               </div>
@@ -232,12 +241,7 @@ export function MetricCounter() {
               className="flex flex-col items-end space-y-1"
               style={{ 
                 transform: `translate(${positions[1].x}px, ${positions[1].y}px)`
-                // DRAG STYLING - DISABLED
-                // border: '2px dashed rgba(255,255,255,0.3)',
-                // padding: '4px'
               }}
-              // DRAG HANDLER - DISABLED
-              // onMouseDown={(e) => handleMouseDown(1, e)}
             >
               {/* Metric: $3Bn+ */}
               <div className="flex items-center space-x-0.5">
@@ -255,12 +259,12 @@ export function MetricCounter() {
               <div className="flex flex-col items-end space-y-0.5">
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'VALUE'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={500 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={500 + i * 50} isLetter bgColor="bg-gray-900" textColor="text-white text-lg" />
                   ))}
                 </div>
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'CREATED'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={750 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={750 + i * 50} isLetter bgColor="bg-gray-900" textColor="text-white text-lg" />
                   ))}
                 </div>
               </div>
@@ -271,12 +275,7 @@ export function MetricCounter() {
               className="flex flex-col items-end space-y-1"
               style={{ 
                 transform: `translate(${positions[2].x}px, ${positions[2].y}px)`
-                // DRAG STYLING - DISABLED
-                // border: '2px dashed rgba(255,255,255,0.3)',
-                // padding: '4px'
               }}
-              // DRAG HANDLER - DISABLED
-              // onMouseDown={(e) => handleMouseDown(2, e)}
             >
               {/* Metric: 1000+ */}
               <div className="flex items-center space-x-0.5">
@@ -294,12 +293,12 @@ export function MetricCounter() {
               <div className="flex flex-col items-end space-y-0.5">
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'STAFF'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={500 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={500 + i * 50} isLetter bgColor="bg-gray-900" textColor="text-white text-lg" />
                   ))}
                 </div>
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'MANAGED'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={700 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={700 + i * 50} isLetter bgColor="bg-gray-900" textColor="text-white text-lg" />
                   ))}
                 </div>
               </div>
@@ -310,12 +309,7 @@ export function MetricCounter() {
               className="flex flex-col items-end space-y-1"
               style={{ 
                 transform: `translate(${positions[3].x}px, ${positions[3].y}px)`
-                // DRAG STYLING - DISABLED
-                // border: '2px dashed rgba(255,255,255,0.3)',
-                // padding: '4px'
               }}
-              // DRAG HANDLER - DISABLED
-              // onMouseDown={(e) => handleMouseDown(3, e)}
             >
               {/* Metric: 1Mn+ */}
               <div className="flex items-center space-x-0.5">
@@ -332,12 +326,12 @@ export function MetricCounter() {
               <div className="flex flex-col items-end space-y-0.5">
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'CUSTOMERS'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={400 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={400 + i * 50} isLetter bgColor="bg-gray-900" textColor="text-white text-lg" />
                   ))}
                 </div>
                 <div className="flex items-center space-x-0.5">
                   {hasStarted && 'SERVED'.split('').map((char, i) => (
-                    <FlipCard key={i} targetChar={char} duration={2500} delay={800 + i * 50} isLetter bgColor="bg-gray-800" textColor="text-white text-lg" />
+                    <FlipCard key={i} targetChar={char} duration={2500} delay={800 + i * 50} isLetter bgColor="bg-gray-900" textColor="text-white text-lg" />
                   ))}
                 </div>
               </div>
@@ -346,15 +340,6 @@ export function MetricCounter() {
           </div>
         </AnimateOnScroll>
       </div>
-      
-      {/* POSITION DISPLAY - DISABLED 
-      <div className="absolute top-4 left-4 text-white text-xs bg-black/50 p-2 rounded">
-        <div>Positions:</div>
-        {positions.map((pos, i) => (
-          <div key={i}>Column {i + 1}: x:{pos.x}, y:{pos.y}</div>
-        ))}
-      </div>
-      */}
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
-import { Building2, Home, Shield, Globe, Brain, Database, Check, DollarSign, Scale, Handshake, Monitor } from 'lucide-react';
+import { useFonts } from '../hooks/useFonts';
+import { DollarSign, Home, Shield, Scale, Handshake, Database, Brain, Monitor, Building2, Globe, Check } from 'lucide-react';
 
 interface DomainInfo {
   title: string;
@@ -10,6 +11,11 @@ interface DomainInfo {
 }
 
 export function AboutSection() {
+  const h2Font = useFonts('about', 'h2');
+  const h3Font = useFonts('about', 'h3');
+  const pFont = useFonts('about', 'p');
+  const highlightedFont = useFonts('about', 'highlighted');
+  
   const domains: DomainInfo[] = [
     {
       title: "FinTech",
@@ -63,7 +69,7 @@ export function AboutSection() {
       title: "Industries",
       description: "Global Financial Services • Commercial Real Estate • Enterprise SaaS • Startups & Pre-Seed",
       icon: <Building2 className="w-8 h-8 text-gray-600" />,
-      color: "gray"
+      color: "red"
     },
     {
       title: "Career",
@@ -73,13 +79,53 @@ export function AboutSection() {
     },
   ];
 
-
   return (
-    <section className="w-full bg-gray-100 py-28 px-4" id="about">
-      <div className="max-w-6xl mx-auto">
+    <section className="w-full bg-gray-100 py-28 px-4 about-section relative overflow-hidden" id="about" data-component="about">
+      {/* Mountain Background Image */}
+      <div 
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          backgroundImage: 'url(/Clearmont_mountain_only.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+          transform: 'scale(1.2) translateX(0%) translateY(0%)'
+        }}
+      />
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Section Motif - Vertical line with logo and intro */}
+        <div className="mb-32 pt-8">
+          <div className="relative">
+            {/* Vertical Line - positioned to perfectly intersect the gap with fade effects on both ends */}
+            <div className="absolute left-[31.5%] top-[-80px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
+            
+            {/* Content Container - elements positioned with line dissecting the gap */}
+            <div className="flex items-center justify-center">
+              {/* Mountain Logo - positioned very close to left of center line */}
+              <div className="w-16 h-16 flex-shrink-0 mr-2">
+                <img 
+                  src="/Clearmont_mountain_only.png" 
+                  alt="Clearmont" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              
+              {/* Section Intro - positioned very close to right of center line */}
+              <div className="flex-shrink-0 ml-2">
+                                  <p className="text-lg font-semibold text-gray-600 uppercase tracking-wide about" style={pFont.getFontStyle()}>
+                    <span className="handdrawn-highlight">15 YEARS OF UNRIVALLED PRODUCT INNOVATION...</span>
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
         <div className="flex flex-col lg:flex-row gap-12 mb-16">
           {/* Left side - Large Profile Picture with About Me header overlay */}
-          <div className="lg:w-1/2 relative">
+          <div className="lg:w-2/5 relative">
             <AnimateOnScroll direction="left">
               <div className="w-full h-[600px] rounded-2xl overflow-hidden shadow-2xl relative">
                 <img 
@@ -90,8 +136,8 @@ export function AboutSection() {
                 
                 {/* About Me header overlay on image */}
                 <div className="absolute top-6 left-6">
-                  <h2 className="text-3xl md:text-4xl font-bold">
-                    <span className="handdrawn-highlight">About Me</span>
+                  <h2 className="text-3xl md:text-4xl font-bold about" style={h2Font.getFontStyle()}>
+                    <span className="handdrawn-highlight" style={highlightedFont.getFontStyle()}>About me..</span>
                   </h2>
                 </div>
               </div>
@@ -99,28 +145,28 @@ export function AboutSection() {
           </div>
 
           {/* Right side - Full About Me summary */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-3/5">
             <AnimateOnScroll direction="right">
-              <div className="bg-white rounded-2xl p-8 shadow-lg h-full">
+              <div className="bg-white rounded-2xl p-8 shadow-lg h-[600px] flex flex-col justify-center">
                 <div className="space-y-6">
-                  <p className="text-gray-700 text-lg leading-relaxed">
-                    With over 15 years experience leading strategic product and digital transformation across various industries and platforms - I've seen first-hand what it takes to transform operations, develop innovative products, and build high-performing teams.
+                  <p className="text-gray-700 text-lg leading-relaxed" style={pFont.getFontStyle()}>
+                    Hi, I'm Joe. With over 15 years' experience leading strategic product and digital transformation across various industries and platforms - I've seen first-hand what it takes to transform operations, develop innovative products, and build high-performing teams.
                   </p>
                   
-                  <p className="text-gray-700 text-lg leading-relaxed">
+                  <p className="text-gray-700 text-lg leading-relaxed" style={pFont.getFontStyle()}>
                     My approach combines deep business acumen with a human-centered
                     design mindset, launching solutions that have generated significant value for
                     both the bottom line and customers.
                   </p>
                   
-                  <p className="text-gray-700 text-lg leading-relaxed">
+                  <p className="text-gray-700 text-lg leading-relaxed" style={pFont.getFontStyle()}>
                     I believe that the most successful organizations are those that
                     align their business goals with a meaningful purpose, creating
                     value for all stakeholders while making a positive impact on the
                     world.
                   </p>
                   
-                  <p className="text-gray-700 text-lg leading-relaxed">
+                  <p className="text-gray-700 text-lg leading-relaxed" style={pFont.getFontStyle()}>
                     Right now, I'm all in on Generative AI to transform operations, build new customer experiences, and stay ahead of the competition.
                   </p>
                 </div>
@@ -129,12 +175,36 @@ export function AboutSection() {
           </div>
         </div>
 
+        {/* Third Section Motif - leading into domain tiles */}
+        <div className="mb-40 pt-16">
+          <div className="relative">
+            {/* Vertical Line - positioned to perfectly intersect the gap with fade effects on both ends */}
+            <div className="absolute left-[26%] top-[-80px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
+            
+            {/* Content Container - elements positioned with line dissecting the gap */}
+            <div className="flex items-center justify-center">
+              {/* Mountain Logo - positioned very close to left of center line */}
+              <div className="w-16 h-16 flex-shrink-0 mr-2">
+                <img 
+                  src="/Clearmont_mountain_only.png" 
+                  alt="Clearmont" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              
+              {/* Section Intro - positioned very close to right of center line */}
+              <div className="flex-shrink-0 ml-2">
+                                  <p className="text-lg font-semibold text-gray-600 uppercase tracking-wide about" style={pFont.getFontStyle()}>
+                    <span className="handdrawn-highlight">UNIQUE SUCCESS CROSS-PLATFORM, INDUSTRY AND DOMAIN...</span>
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Domain Section */}
-        <div className="w-full mb-16">
+        <div className="w-full mb-2">
           <AnimateOnScroll>
-            <h3 className="text-2xl font-bold mb-8 text-center">
-              <span className="handdrawn-highlight">15 Years Of Unrivalled Product Innovation</span>
-            </h3>
             <div className="flex gap-8">
               {/* Main Tech & Product Domains */}
               <div className="flex-1">
@@ -153,14 +223,14 @@ export function AboutSection() {
                         </span>
                         
                         {/* Hover Tooltip */}
-                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-                          <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-80">
-                            <h4 className="font-bold text-gray-800 mb-3">{domain.title}</h4>
-                            <div className="text-sm text-gray-700 leading-relaxed">
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-[99999]">
+                          <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-80 relative z-[99999]">
+                            <h4 className="text-gray-800 mb-3 about" style={h3Font.getFontStyle()}>{domain.title}</h4>
+                            <div className="text-gray-700 leading-relaxed about" style={pFont.getFontStyle()}>
                               {domain.description.split(' • ').map((point, i) => (
                                 <div key={i} className="mb-1 flex items-start">
                                   <Check className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                                  <span>{point.trim()}</span>
+                                  <span className="about" style={pFont.getFontStyle()}>{point.trim()}</span>
                                 </div>
                               ))}
                             </div>
@@ -184,7 +254,7 @@ export function AboutSection() {
                     return (
                       <div 
                         key={domain.title}
-                        className="relative group flex flex-col items-center p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg h-24"
+                        className="relative group flex flex-col items-center p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg"
                       >
                         <div className="w-8 h-8 text-gray-600">
                           {React.cloneElement(domain.icon as React.ReactElement, { className: "w-8 h-8 text-gray-600" })}
@@ -194,14 +264,14 @@ export function AboutSection() {
                         </span>
                         
                         {/* Hover Tooltip */}
-                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
-                          <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-80">
-                            <h4 className="font-bold text-gray-800 mb-3">{domain.title}</h4>
-                            <div className="text-sm text-gray-700 leading-relaxed">
+                        <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-[99999]">
+                          <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-80 relative z-[99999]">
+                            <h4 className="text-gray-800 mb-3 about" style={h3Font.getFontStyle()}>{domain.title}</h4>
+                            <div className="text-gray-700 leading-relaxed about" style={h3Font.getFontStyle()}>
                               {domain.description.split(' • ').map((point, i) => (
                                 <div key={i} className="mb-1 flex items-start">
                                   <Check className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                                  <span>{point.trim()}</span>
+                                  <span className="about" style={pFont.getFontStyle()}>{point.trim()}</span>
                                 </div>
                               ))}
                             </div>

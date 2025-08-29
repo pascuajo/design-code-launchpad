@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { X } from 'lucide-react'
 import emailjs from '@emailjs/browser'
+import { useFonts } from '../hooks/useFonts'
 
 type FormData = {
   name: string
@@ -27,12 +28,22 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [showConfirmation, setShowConfirmation] = useState(false)
+
+  const h2Font = useFonts('contactModal', 'h2');
+  const h3Font = useFonts('contactModal', 'h3');
+  const pFont = useFonts('contactModal', 'p');
+  const labelFont = useFonts('contactModal', 'label');
+  const buttonFont = useFonts('contactModal', 'button');
+  const formFieldFont = useFonts('contactModal', 'formField');
+  const highlightedFont = useFonts('contactModal', 'highlighted');
   
   const services = [
-    'Product Strategy',
-    'New Product Development',
+    'Fractional Leadership',
+    'Product Design & Prototyping',
+    'Product Excellence',
     'Digital Transformation',
-    'Leadership and Coaching',
+    'Product Strategy',
+    'Professional Mentoring',
   ]
 
   const handleChange = (
@@ -123,15 +134,15 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 contact-modal" data-component="contactModal">
       <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-black">
-              <span className="handdrawn-highlight">Get in Touch</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-black contact-modal" style={h2Font.getFontStyle()}>
+              <span className="handdrawn-highlight" style={highlightedFont.getFontStyle()}>Get in Touch</span>
             </h2>
-            <p className="text-gray-600 mt-2">
+            <p className="text-gray-600 mt-2 contact-modal" style={pFont.getFontStyle()}>
               Thanks for your interest in Clearmont. Fill out the form and I'll get back to you as soon as possible.
             </p>
           </div>
@@ -148,17 +159,17 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           {showConfirmation ? (
             <div className="text-center py-8">
               <div className="mb-4 p-6 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                <h3 className="text-xl font-semibold mb-2">Thank you!</h3>
-                <p>Your message has been sent successfully. I'll get back to you as soon as possible.</p>
+                <h3 className="text-xl font-semibold mb-2 contact-modal" style={h3Font.getFontStyle()}>Thank you!</h3>
+                <p className="contact-modal" style={pFont.getFontStyle()}>Your message has been sent successfully. I'll get back to you as soon as possible.</p>
               </div>
-              <p className="text-gray-600">This window will close automatically...</p>
+              <p className="text-gray-600 contact-modal" style={pFont.getFontStyle()}>This window will close automatically...</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name and Phone Row */}
               <div className="flex gap-4">
                 <div className="flex-1">
-                  <label htmlFor="name" className="block text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-gray-700 mb-2 contact-modal" style={labelFont.getFontStyle()}>
                     Full Name *
                   </label>
                   <input
@@ -169,14 +180,15 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
                     placeholder="Your full name"
+                    style={formFieldFont.getFontStyle()}
                   />
                   {errors.name && (
-                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                    <p className="text-red-500 text-sm mt-1 contact-modal" style={pFont.getFontStyle()}>{errors.name}</p>
                   )}
                 </div>
 
                 <div className="flex-1">
-                  <label htmlFor="phone" className="block text-gray-700 mb-2">
+                  <label htmlFor="phone" className="block text-gray-700 mb-2 contact-modal" style={labelFont.getFontStyle()}>
                     Phone Number *
                   </label>
                   <input
@@ -187,9 +199,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
                     placeholder="Your phone number"
+                    style={formFieldFont.getFontStyle()}
                   />
                   {errors.phone && (
-                    <p className="text-red-500 text-sm mt-1">
+                    <p className="text-red-500 text-sm mt-1 contact-modal" style={pFont.getFontStyle()}>
                       {errors.phone}
                     </p>
                   )}
@@ -199,7 +212,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               {/* Email and Service Row */}
               <div className="flex gap-4">
                 <div className="flex-1">
-                  <label htmlFor="email" className="block text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-gray-700 mb-2 contact-modal" style={labelFont.getFontStyle()}>
                     Email Address *
                   </label>
                   <input
@@ -210,16 +223,17 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
                     placeholder="Your email address"
+                    style={formFieldFont.getFontStyle()}
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">
+                    <p className="text-red-500 text-sm mt-1 contact-modal" style={pFont.getFontStyle()}>
                       {errors.email}
                     </p>
                   )}
                 </div>
 
                 <div className="flex-1">
-                  <label htmlFor="service" className="block text-gray-700 mb-2">
+                  <label htmlFor="service" className="block text-gray-700 mb-2 contact-modal" style={labelFont.getFontStyle()}>
                     Service You're Interested In *
                   </label>
                   <select
@@ -228,6 +242,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     value={formData.service}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 rounded-lg border ${errors.service ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-white text-black`}
+                    style={formFieldFont.getFontStyle()}
                   >
                     <option value="">Select a service</option>
                     {services.map((service) => (
@@ -237,7 +252,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     ))}
                   </select>
                   {errors.service && (
-                    <p className="text-red-500 text-sm mt-1">
+                    <p className="text-red-500 text-sm mt-1 contact-modal" style={pFont.getFontStyle()}>
                       {errors.service}
                     </p>
                   )}
@@ -247,7 +262,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               {/* Message and Submit Row */}
               <div className="flex gap-4 items-end">
                 <div className="flex-1" style={{ width: '75%' }}>
-                  <label htmlFor="message" className="block text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-gray-700 mb-2 contact-modal" style={labelFont.getFontStyle()}>
                     Your Message *
                   </label>
                   <textarea
@@ -258,9 +273,10 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     rows={4}
                     className={`w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
                     placeholder="How can I help you?"
+                    style={formFieldFont.getFontStyle()}
                   ></textarea>
                   {errors.message && (
-                    <p className="text-red-500 text-sm mt-1">
+                    <p className="text-red-500 text-sm mt-1 contact-modal" style={pFont.getFontStyle()}>
                       {errors.message}
                     </p>
                   )}
@@ -271,6 +287,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     type="submit"
                     disabled={isSubmitting}
                     className="bg-yellow-300 hover:bg-yellow-600 text-accent-foreground font-medium py-4 px-10 rounded-full transition duration-300 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={buttonFont.getFontStyle()}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
@@ -279,7 +296,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
               
               {submitStatus === 'error' && (
                 <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
-                  Sorry, there was an error sending your message. Please try again.
+                  <p className="contact-modal" style={pFont.getFontStyle()}>Sorry, there was an error sending your message. Please try again.</p>
                 </div>
               )}
             </form>

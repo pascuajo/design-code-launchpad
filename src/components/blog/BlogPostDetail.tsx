@@ -4,12 +4,18 @@ import { supabase } from '../../integrations/supabase/client';
 import { BlogPost } from '../admin/BlogAdmin';
 import { Calendar, User, ArrowLeft } from 'lucide-react';
 import MDEditor from '@uiw/react-md-editor';
+import { useFonts } from '../../hooks/useFonts';
 
 export function BlogPostDetail() {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  
+  const h1Font = useFonts('blog', 'h1');
+  const h2Font = useFonts('blog', 'h2');
+  const pFont = useFonts('blog', 'p');
+  const spanFont = useFonts('blog', 'span');
 
   useEffect(() => {
     if (slug) {
@@ -69,8 +75,8 @@ export function BlogPostDetail() {
       <div className="min-h-screen bg-background">
         <div className="max-w-4xl mx-auto px-4 py-8">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-foreground mb-4">Post Not Found</h1>
-            <p className="text-muted-foreground mb-6">
+            <h1 className="text-2xl font-bold text-foreground mb-4 blog" style={h1Font.getFontStyle()}>Post Not Found</h1>
+            <p className="text-muted-foreground mb-6 blog" style={pFont.getFontStyle()}>
               The blog post you're looking for doesn't exist.
             </p>
             <Link
@@ -96,7 +102,7 @@ export function BlogPostDetail() {
       {post.image_url && <meta property="og:image" content={post.image_url} />}
       <meta property="og:type" content="article" />
 
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-background blog-post-detail" data-component="blog">
         <article className="max-w-4xl mx-auto px-4 py-8">
           <div className="mb-6">
             <Link
@@ -119,16 +125,16 @@ export function BlogPostDetail() {
               </div>
             )}
 
-            <h1 className="text-4xl font-bold text-foreground mb-4">{post.title}</h1>
+            <h1 className="text-4xl font-bold text-foreground mb-4 blog" style={h1Font.getFontStyle()}>{post.title}</h1>
 
             <div className="flex items-center gap-4 text-muted-foreground mb-4">
               <div className="flex items-center gap-1">
                 <Calendar size={16} />
-                <span>{formatDate(post.created_at)}</span>
+                <span className="blog" style={spanFont.getFontStyle()}>{formatDate(post.created_at)}</span>
               </div>
               <div className="flex items-center gap-1">
                 <User size={16} />
-                <span>{post.author}</span>
+                <span className="blog" style={spanFont.getFontStyle()}>{post.author}</span>
               </div>
             </div>
 
@@ -137,7 +143,8 @@ export function BlogPostDetail() {
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
+                    className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full blog"
+                    style={spanFont.getFontStyle()}
                   >
                     {tag}
                   </span>
