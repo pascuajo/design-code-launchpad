@@ -193,6 +193,39 @@ li { font-family: var(--font-body-li); }
   font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
 }
 
+/* Additional specific element targeting */
+.header nav ul li a,
+.header nav button,
+.value-prop-section .bg-white li,
+.value-prop-section .bg-white .benefits li,
+.image-library .bg-white p,
+.image-library .bg-white .description,
+.about-section .bg-white li,
+.about-section .bg-white .benefits li,
+.about-section .bg-white .tooltip-content li,
+.about-section .bg-white .tooltip-content span,
+.footer nav ul li a,
+.blog-card .excerpt,
+.blog-card .description,
+.book-card .description,
+.testimonial-section .testimonial-content p,
+.contact-modal .form-content p,
+.contact-modal .form-content label,
+.auth-page .form-content p,
+.auth-page .form-content label {
+  font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
+}
+
+/* Target all list items and tooltips globally */
+li, ul li, ol li,
+.tooltip, .tooltip-content, .tooltip-content li, .tooltip-content span,
+.benefits li, .benefits span,
+.excerpt, .description,
+.nav-item, .nav-link,
+.menu-item, .menu-link {
+  font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
+}
+
 
 
 @keyframes highlightAppear {
