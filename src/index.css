@@ -249,15 +249,14 @@ li, ul li, ol li,
   font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
 }
 
-/* Metric counter numbers and text - DIN Condensed */
-.metrics-section .FlipCard,
+/* Metric counter numbers and text - DIN Condensed - ONLY for flip cards */
 .metrics-section .perspective-1000,
-.metrics-section .bg-white,
-.metrics-section .bg-gray-900,
-.metrics-section .text-3xl,
-.metrics-section .text-lg,
-.metrics-section .text-black,
-.metrics-section .text-white {
+.metrics-section .perspective-1000 .bg-white,
+.metrics-section .perspective-1000 .bg-gray-900,
+.metrics-section .perspective-1000 .text-3xl,
+.metrics-section .perspective-1000 .text-lg,
+.metrics-section .perspective-1000 .text-black,
+.metrics-section .perspective-1000 .text-white {
   font-family: 'DIN Condensed', 'Arial Narrow', 'Arial', sans-serif !important;
 }
 
