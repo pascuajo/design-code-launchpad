@@ -31,9 +31,10 @@ export function BlogCard({
             <span className="text-sm text-gray-500 blog" style={spanFont.getFontStyle()}>{post.date}</span>
             <span className="text-sm text-gray-500 blog" style={spanFont.getFontStyle()}>By {post.author}</span>
           </div>
-          <h3 className="text-xl font-bold mb-3 text-foreground overflow-hidden blog" style={h3Font.getFontStyle()}>{post.title}</h3>
-          <p className="text-muted-foreground mb-4 flex-grow overflow-hidden blog" style={pFont.getFontStyle()}>{post.excerpt}</p>
-          <div className="text-yellow-500 font-medium mt-auto">Read more →</div>
+          <h3 className="text-xl font-bold mb-3 text-foreground blog" style={h3Font.getFontStyle()}>{post.title}</h3>
+          <p className="text-muted-foreground mb-4 flex-grow blog" style={pFont.getFontStyle()}>
+            {post.excerpt.length > 120 ? `${post.excerpt.substring(0, 120)}...` : post.excerpt}
+          </p>
         </div>
       </Link>
     </div>;
