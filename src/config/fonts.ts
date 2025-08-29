@@ -238,32 +238,7 @@ function applyFontsToDOM(fonts: ComponentFonts) {
   console.log(`Fonts applied to ${appliedCount} elements`);
 }
 
-// Helper function to find the best font for a stubborn element
-function findBestFontForElement(element: HTMLElement, fonts: ComponentFonts): string | null {
-  // Try to find a component this element belongs to
-  const componentElement = element.closest('[data-component]');
-  if (componentElement) {
-    const componentId = componentElement.getAttribute('data-component');
-    if (componentId && fonts[componentId]) {
-      // Use the first available font for this component
-      const firstFont = Object.values(fonts[componentId])[0];
-      if (firstFont) {
-        return firstFont.fontFamily;
-      }
-    }
-  }
-  
-  // Default to the first available font from any component
-  const firstComponent = Object.values(fonts)[0];
-  if (firstComponent) {
-    const firstFont = Object.values(firstComponent)[0];
-    if (firstFont) {
-      return firstFont.fontFamily;
-    }
-  }
-  
-  return null;
-}
+
 
 // Helper function to determine if we should apply a font to an element
 function shouldApplyFontToElement(element: HTMLElement, componentId: string, elementType: string): boolean {

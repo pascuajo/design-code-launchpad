@@ -61,10 +61,9 @@ const imageData: ImageData[] = [{
 export function ImageLibrary({
   'data-id': dataId
 }: ImageLibraryProps) {
-  const h2Font = useFonts('imageLibrary', 'h2');
   const h3Font = useFonts('imageLibrary', 'h3');
   const pFont = useFonts('imageLibrary', 'p');
-  const pillFont = useFonts('imageLibrary', 'pill');
+  const pillFont = useFonts('imageLibrary', 'p');
   
   return <div className="w-full bg-gradient-to-br from-purple-50 to-orange-50 p-8 image-library" id="services" data-id={dataId} data-component="imageLibrary">
       <div className="max-w-7xl mx-auto">

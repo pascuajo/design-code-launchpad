@@ -5,7 +5,6 @@ import { useFonts } from '../hooks/useFonts';
 
 export function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const h2Font = useFonts('footer', 'h2');
   const pFont = useFonts('footer', 'p');
   const liFont = useFonts('footer', 'li');
   const buttonFont = useFonts('footer', 'button');

@@ -13,7 +13,6 @@ export function BlogPostDetail() {
   const [notFound, setNotFound] = useState(false);
   
   const h1Font = useFonts('blog', 'h1');
-  const h2Font = useFonts('blog', 'h2');
   const pFont = useFonts('blog', 'p');
   const spanFont = useFonts('blog', 'span');
 

@@ -3,8 +3,8 @@ import { useAuth } from '../../hooks/useAuth';
 import { supabase } from '../../integrations/supabase/client';
 import { BlogPostForm } from './BlogPostForm';
 import { BlogPostList } from './BlogPostList';
-import { FontManager } from './FontManager';
-import { Plus, LogOut, Type, FileText } from 'lucide-react';
+
+import { Plus, LogOut } from 'lucide-react';
 
 export interface BlogPost {
   id: string;
@@ -26,7 +26,7 @@ export function BlogAdmin() {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<'blog' | 'fonts'>('blog');
+
 
   useEffect(() => {
     fetchPosts();
@@ -103,77 +103,39 @@ export function BlogAdmin() {
         </div>
       </header>
 
-      {/* Tab Navigation */}
-      <div className="bg-card border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex space-x-8">
-            <button
-              onClick={() => setActiveTab('blog')}
-              className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
-                activeTab === 'blog'
-                  ? 'border-primary text-primary'
-                  : 'border-transparent text-muted-foreground hover:text-foreground hover:border-gray-300'
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <FileText size={16} />
-                Blog Management
-              </div>
-            </button>
-            <button
-              onClick={() => setActiveTab('fonts')}
-              className={`py-4 px-1 border-b-2 font-medium text-sm transition-colors ${
-                activeTab === 'fonts'
-                  ? 'border-primary text-primary'
-                  : 'border-transparent text-muted-foreground hover:text-foreground hover:border-gray-300'
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <Type size={16} />
-                Font Management
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
+
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {activeTab === 'blog' ? (
-          // Blog Management Tab
-          showForm ? (
-            <BlogPostForm
-              post={selectedPost}
-              onClose={handleCloseForm}
-            />
-          ) : (
-            <div>
-              <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-bold text-foreground">Blog Posts</h2>
-                <button
-                  onClick={handleNewPost}
-                  className="flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
-                >
-                  <Plus size={20} />
-                  New Post
-                </button>
-              </div>
-
-              {loading ? (
-                <div className="text-center py-8">
-                  <div className="text-muted-foreground">Loading posts...</div>
-                </div>
-              ) : (
-                <BlogPostList
-                  posts={posts}
-                  onEdit={handleEditPost}
-                  onDelete={handleDeletePost}
-                />
-              )}
-            </div>
-          )
+        {showForm ? (
+          <BlogPostForm
+            post={selectedPost}
+            onClose={handleCloseForm}
+          />
         ) : (
-          // Font Management Tab
-          <FontManager />
+          <div>
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="text-2xl font-bold text-foreground">Blog Posts</h2>
+              <button
+                onClick={handleNewPost}
+                className="flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
+              >
+                <Plus size={20} />
+                New Post
+              </button>
+            </div>
+
+            {loading ? (
+              <div className="text-center py-8">
+                <div className="text-muted-foreground">Loading posts...</div>
+              </div>
+            ) : (
+              <BlogPostList
+                posts={posts}
+                onEdit={handleEditPost}
+                onDelete={handleDeletePost}
+              />
+            )}
+          </div>
         )}
       </main>
     </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { ContactModal } from './ContactModal';
 import { useFonts } from '../hooks/useFonts';
@@ -8,8 +8,6 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  const location = useLocation();
-  const pFont = useFonts('header', 'p');
   const liFont = useFonts('header', 'li');
   const buttonFont = useFonts('header', 'button');
 

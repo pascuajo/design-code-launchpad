@@ -14,7 +14,6 @@
  * 5. Apply styles with style={fontHook.getFontStyle()}
  */
 
-import React from 'react';
 import { useState } from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
 import { ContactModal } from './ContactModal';

@@ -1,13 +1,10 @@
-import React from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
 import { useFonts } from '../hooks/useFonts';
 import { CheckCircle } from 'lucide-react';
 
 export function ValuePropositionSection() {
-  const h2Font = useFonts('valueProp', 'h2');
   const h3Font = useFonts('valueProp', 'h3');
   const pFont = useFonts('valueProp', 'p');
-  const highlightedFont = useFonts('valueProp', 'highlighted');
 
   const pillars = [
     {

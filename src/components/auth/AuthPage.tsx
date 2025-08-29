@@ -12,7 +12,6 @@ export function AuthPage() {
   const { signIn, signUp } = useAuth();
   const navigate = useNavigate();
   const h1Font = useFonts('auth', 'h1');
-  const pFont = useFonts('auth', 'p');
   const buttonFont = useFonts('auth', 'button');
   const labelFont = useFonts('auth', 'label');
 

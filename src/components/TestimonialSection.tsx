@@ -28,7 +28,6 @@ const testimonials = [
 
 export function TestimonialSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const h2Font = useFonts('testimonials', 'h2');
   const pFont = useFonts('testimonials', 'p');
   const buttonFont = useFonts('testimonials', 'button');
 

@@ -109,7 +109,7 @@ function FlipCard({ targetChar, duration, delay = 0, isLetter = false, isMetricL
 export function MetricCounter() {
   const counterRef = useRef<HTMLElement>(null);
   const [hasStarted, setHasStarted] = useState(false);
-  const [positions, setPositions] = useState([
+  const [positions] = useState([
     { x: 0, y: 0 }, // Column 1: Products Launched
     { x: 0, y: 0 }, // Column 2: Value Created  
     { x: 0, y: 0 }, // Column 3: Staff Managed

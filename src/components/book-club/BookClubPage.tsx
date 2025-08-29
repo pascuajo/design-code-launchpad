@@ -16,7 +16,6 @@ interface Book {
 export function BookClubPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
-  const [showModal, setShowModal] = useState(false);
   
   const h1Font = useFonts('bookClub', 'h1');
   const h2Font = useFonts('bookClub', 'h2');
