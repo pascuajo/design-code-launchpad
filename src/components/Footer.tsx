@@ -87,9 +87,9 @@ export function Footer() {
             <ul className="space-y-3 text-white">
               <li className="footer" style={liFont.getFontStyle()}>
                 <div className="flex items-center gap-3">
-                  <Link to="/#about" className="hover:text-yellow-500 transition-colors">
+                  <a href="#about" className="hover:text-yellow-500 transition-colors">
                     About Me
-                  </Link>
+                  </a>
                   <a 
                     href="https://www.linkedin.com/in/joe-pascual/" 
                     target="_blank" 

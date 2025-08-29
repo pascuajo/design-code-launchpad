@@ -46,7 +46,7 @@ export function ValuePropositionSection() {
   ];
 
   return (
-    <section className="w-full bg-gradient-to-br from-gray-50 to-blue-50 py-20 px-4 md:px-8 value-prop-section" data-component="valueProp">
+    <section className="w-full bg-gradient-to-br from-gray-50 to-blue-50 py-20 px-4 md:px-8 value-prop-section" id="value-proposition" data-component="valueProp">
       <div className="max-w-7xl mx-auto">
         {/* Section Motif - Vertical line with logo and intro */}
         <div className="mb-32">

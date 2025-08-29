@@ -41,7 +41,7 @@ export function Header() {
           <nav className="hidden md:block">
             <ul className="flex space-x-8">
               <li className="header" style={liFont.getFontStyle()}>
-                <a href="/#value-proposition" className="hover:text-yellow-500 transition-colors">
+                <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
                   How I Can Help
                 </a>
               </li>
