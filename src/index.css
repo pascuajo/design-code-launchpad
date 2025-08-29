@@ -226,6 +226,20 @@ li, ul li, ol li,
   font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
 }
 
+/* Specific targeting for remaining Inter font elements */
+.value-prop-section .bg-white .benefits li,
+.value-prop-section .bg-white .benefits li span,
+.value-prop-section .bg-white .benefits li strong,
+.about-section .tooltip-content,
+.about-section .tooltip-content p,
+.about-section .tooltip-content span,
+.about-section .tooltip-content strong,
+.about-section .tooltip-content li,
+.about-section [data-tooltip] .tooltip-content,
+.about-section [data-tooltip] .tooltip-content * {
+  font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
+}
+
 
 
 @keyframes highlightAppear {
