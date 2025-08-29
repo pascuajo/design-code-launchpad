@@ -174,7 +174,7 @@ export function MetricCounter() {
   return (
     <section 
       ref={counterRef} 
-      className="w-full bg-gray-900 py-8 px-4 relative overflow-hidden metric-counter metrics"
+      className="w-full bg-gray-900 py-8 px-4 relative overflow-hidden metric-counter metrics metrics-section"
       data-component="metrics"
     >
       {/* Train station board grid background - aligned with cards */}

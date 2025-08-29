@@ -239,6 +239,28 @@ li, ul li, ol li,
   font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
 }
 
+/* Metrics section specific font rules */
+.metrics-section h3,
+.metrics-section .text-3xl,
+.metrics-section .text-4xl,
+.metrics-section .font-bold,
+.metrics-section .drop-shadow,
+.metrics-section .metrics {
+  font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
+}
+
+/* Metric counter numbers and text - DIN Condensed */
+.metrics-section .FlipCard,
+.metrics-section .perspective-1000,
+.metrics-section .bg-white,
+.metrics-section .bg-gray-900,
+.metrics-section .text-3xl,
+.metrics-section .text-lg,
+.metrics-section .text-black,
+.metrics-section .text-white {
+  font-family: 'DIN Condensed', 'Arial Narrow', 'Arial', sans-serif !important;
+}
+
 
 
 @keyframes highlightAppear {

@@ -50,7 +50,8 @@ export const defaultFonts: ComponentFonts = {
     highlighted: { component: 'imageLibrary', elementType: 'highlighted', fontFamily: 'Source Code Pro', isActive: true }
   },
   metrics: {
-    h2: { component: 'metrics', elementType: 'h2', fontFamily: 'Inter', isActive: true }
+    h2: { component: 'metrics', elementType: 'h2', fontFamily: 'Source Code Pro', isActive: true },
+    span: { component: 'metrics', elementType: 'span', fontFamily: 'DIN Condensed', isActive: true }
   },
   tubeMap: {
     h3: { component: 'tubeMap', elementType: 'h3', fontFamily: 'Inter', isActive: true },
