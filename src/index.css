@@ -77,13 +77,13 @@ li { font-family: var(--font-body-li); }
   color: hsl(var(--foreground)) !important;
 }
 
-/* Hand-drawn highlight effect - works with any font */
+/* Hand-drawn highlight effect - uses Source Code Pro font */
 .handdrawn-highlight {
   position: relative;
   display: inline-block;
   z-index: 1;
-  /* Font inheritance - will use whatever font is set by the font system */
-  font-family: inherit !important;
+  /* Force Source Code Pro font for all highlight effects */
+  font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
   /* Ensure the highlight doesn't interfere with font styling */
   font-weight: inherit;
   font-size: inherit;
@@ -113,6 +113,84 @@ li { font-family: var(--font-body-li); }
 /* Highlight text animation */
 .highlight-text {
   transition: all 0.5s ease-in-out;
+}
+
+/* Footer header font override */
+.footer h2 .handdrawn-highlight {
+  font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
+}
+
+/* Global font overrides to match local version */
+.hero-section h1,
+.hero-section p,
+.hero-section button,
+.value-prop-section h2,
+.value-prop-section h3,
+.value-prop-section p,
+.about-section h2,
+.about-section h3,
+.about-section p,
+.footer h2,
+.footer p,
+.footer li,
+.footer button,
+.blog-card h3,
+.blog-card p,
+.blog-card span,
+.book-card h3,
+.book-card p,
+.testimonial-section h2,
+.testimonial-section p,
+.testimonial-section button,
+.contact-modal h2,
+.contact-modal h3,
+.contact-modal p,
+.contact-modal label,
+.contact-modal button,
+.auth-page h1,
+.auth-page p,
+.auth-page button,
+.auth-page label {
+  font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
+}
+
+/* Specific component font overrides */
+[data-component="hero"] h1,
+[data-component="hero"] p,
+[data-component="hero"] button,
+[data-component="valueProp"] h2,
+[data-component="valueProp"] h3,
+[data-component="valueProp"] p,
+[data-component="about"] h2,
+[data-component="about"] h3,
+[data-component="about"] p,
+[data-component="footer"] h2,
+[data-component="footer"] p,
+[data-component="footer"] li,
+[data-component="footer"] button,
+[data-component="blog"] h1,
+[data-component="blog"] h2,
+[data-component="blog"] h3,
+[data-component="blog"] p,
+[data-component="blog"] li,
+[data-component="blog"] span,
+[data-component="bookClub"] h1,
+[data-component="bookClub"] h2,
+[data-component="bookClub"] h3,
+[data-component="bookClub"] p,
+[data-component="testimonials"] h2,
+[data-component="testimonials"] p,
+[data-component="testimonials"] button,
+[data-component="contactModal"] h2,
+[data-component="contactModal"] h3,
+[data-component="contactModal"] p,
+[data-component="contactModal"] label,
+[data-component="contactModal"] button,
+[data-component="auth"] h1,
+[data-component="auth"] p,
+[data-component="auth"] button,
+[data-component="auth"] label {
+  font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
 }
 
 
