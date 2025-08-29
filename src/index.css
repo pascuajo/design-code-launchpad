@@ -227,16 +227,15 @@ li, ul li, ol li,
 }
 
 /* Specific targeting for remaining Inter font elements */
-.value-prop-section .bg-white .benefits li,
-.value-prop-section .bg-white .benefits li span,
-.value-prop-section .bg-white .benefits li strong,
-.about-section .tooltip-content,
-.about-section .tooltip-content p,
-.about-section .tooltip-content span,
-.about-section .tooltip-content strong,
-.about-section .tooltip-content li,
-.about-section [data-tooltip] .tooltip-content,
-.about-section [data-tooltip] .tooltip-content * {
+.value-prop-section .bg-white .value-prop,
+.value-prop-section .bg-white .value-prop span,
+.value-prop-section .bg-white .value-prop strong,
+.about-section .group .absolute,
+.about-section .group .absolute .bg-white,
+.about-section .group .absolute .bg-white *,
+.about-section .group .absolute .bg-white span,
+.about-section .group .absolute .bg-white h4,
+.about-section .group .absolute .bg-white div {
   font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
 }
 
