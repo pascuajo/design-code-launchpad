@@ -28,18 +28,18 @@ export function TubeMapTransition() {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-[90vh] overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 tube-map tube-map-transition"
+      className="relative h-[67.5vh] overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 tube-map tube-map-transition"
       data-component="tubeMap"
     >
-      {/* Mobile version - much more zoomed in and positioned higher */}
+      {/* Mobile version - EXTREMELY zoomed in and positioned much higher */}
       <div 
         className="md:hidden absolute inset-0 w-full h-full transition-transform duration-300 ease-out"
         style={{
           backgroundImage: 'url(/tubemap.png)',
-          backgroundSize: '250%', // Mobile: 250% (much more zoomed in)
-          backgroundPosition: 'center 20%', // Mobile: positioned higher to hide unwanted areas
+          backgroundSize: '400%', // Mobile: 400% (EXTREMELY zoomed in)
+          backgroundPosition: 'center 10%', // Mobile: positioned much higher to hide unwanted areas
           backgroundRepeat: 'no-repeat',
-          transform: `scale(${1 + scrollY * 0.2}) translateY(${scrollY * -50}px)`,
+          transform: `scale(${1 + scrollY * 0.1}) translateY(${scrollY * -25}px)`, // Reduced scroll effect for mobile
         }}
       />
       
