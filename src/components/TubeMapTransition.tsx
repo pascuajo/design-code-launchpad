@@ -36,7 +36,7 @@ export function TubeMapTransition() {
         className="md:hidden absolute inset-0 w-full h-full transition-transform duration-300 ease-out"
         style={{
           backgroundImage: 'url(/tubemap.png)',
-          backgroundSize: '400%', // Mobile: 400% (EXTREMELY zoomed in)
+          backgroundSize: '250%', // Mobile: 400% (EXTREMELY zoomed in)
           backgroundPosition: 'center 10%', // Mobile: positioned much higher to hide unwanted areas
           backgroundRepeat: 'no-repeat',
           transform: `scale(${1 + scrollY * 0.1}) translateY(${scrollY * -25}px)`, // Reduced scroll effect for mobile
