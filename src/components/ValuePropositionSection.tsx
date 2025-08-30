@@ -10,7 +10,7 @@ export function ValuePropositionSection() {
     {
       title: "Strategic Leadership",
       subtitle: "Executive-level product leadership and strategic guidance when you need decisive direction and proven expertise at the helm.",
-      image: "/strategy.jpg",
+      image: "/StrategicLeadershipMountain.png",
       benefits: [
         { bold: "Interim C-suite to VP leadership", rest: " for startups and scale-ups without long-term commitment" },
         { bold: "Strategic counsel", rest: " that cuts through complexity to define clear competitive advantage" },
@@ -22,7 +22,7 @@ export function ValuePropositionSection() {
     {
       title: "Design & Innovation",
       subtitle: "Transform concepts into market-ready solutions while modernizing the technology foundation that powers sustainable growth.",
-      image: "/app_design.jpg",
+      image: "/ProductInnovationMountain.png",
       benefits: [
         { bold: "Rapid concept validation", rest: " without disrupting current product roadmaps" },
         { bold: "ROI-focused prototyping", rest: " that proves business cases before major investment" },
@@ -34,7 +34,7 @@ export function ValuePropositionSection() {
     {
       title: "Operational Excellence",
       subtitle: "Elevate your entire product organization's capability through AI-powered operations and comprehensive talent development.",
-      image: "/digtal_transformation.jpg",
+      image: "/OperationalExcellenceMountain.png",
       benefits: [
         { bold: "AI-assisted productivity engines", rest: " that multiply team output and operational excellence" },
         { bold: "World-class team transformation", rest: " optimized for modern product development practices" },
