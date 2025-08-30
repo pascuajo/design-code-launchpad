@@ -29,7 +29,7 @@ export function HeroSection() {
   return (
     <section className="w-full bg-white py-16 px-4 md:px-8 hero-section" data-component="hero">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
-        <AnimateOnScroll direction="right" className="md:w-1/3 mb-12 md:mb-0">
+        <AnimateOnScroll direction="right" className="hidden md:block md:w-1/3 mb-12 md:mb-0">
           <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden mx-auto md:mx-0">
             <img 
               src="/ProfileRoto.png" 

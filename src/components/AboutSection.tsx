@@ -136,7 +136,8 @@ export function AboutSection() {
           {/* Left side - Large Profile Picture with About Me header overlay */}
           <div className="lg:w-2/5 relative">
             <AnimateOnScroll direction="left">
-              <div className="w-full h-[300px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl relative">
+              {/* Desktop Profile Image */}
+              <div className="hidden md:block w-full h-[600px] rounded-2xl overflow-hidden shadow-2xl relative">
                 <img 
                   src="/Profile.png" 
                   alt="Joe Pascual - Strategic Innovation Consultant" 
@@ -146,7 +147,24 @@ export function AboutSection() {
                 
                 {/* About Me header overlay on image */}
                 <div className="absolute top-6 left-6">
-                  <h2 className="text-3xl md:text-4xl font-bold about" style={h2Font.getFontStyle()}>
+                  <h2 className="text-4xl font-bold about" style={h2Font.getFontStyle()}>
+                    <span className="handdrawn-highlight" style={highlightedFont.getFontStyle()}>About me..</span>
+                  </h2>
+                </div>
+              </div>
+              
+              {/* Mobile Profile Image */}
+              <div className="md:hidden w-full h-[300px] rounded-2xl overflow-hidden shadow-2xl relative">
+                <img 
+                  src="/ProfileRoto.png" 
+                  alt="Joe Pascual - Strategic Innovation Consultant" 
+                  className="w-full h-full object-cover scale-90" 
+                  style={{ objectPosition: 'center 30%' }}
+                />
+                
+                {/* About Me header overlay on image */}
+                <div className="absolute top-6 left-6">
+                  <h2 className="text-3xl font-bold about" style={h2Font.getFontStyle()}>
                     <span className="handdrawn-highlight" style={highlightedFont.getFontStyle()}>About me..</span>
                   </h2>
                 </div>

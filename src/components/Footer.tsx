@@ -11,26 +11,6 @@ export function Footer() {
   const sourceCodeFont = useFonts('footer', 'span');
   const highlightedFont = useFonts('footer', 'highlighted');
   
-  // Function to handle service link clicks - desktop goes to section, mobile goes to specific card
-  const handleServiceClick = (serviceName: string) => {
-    const isMobile = window.innerWidth < 768; // md breakpoint
-    
-    if (isMobile) {
-      // Mobile: scroll to specific card
-      const cardId = serviceName.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '-');
-      const element = document.getElementById(cardId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // Desktop: scroll to section
-      const element = document.getElementById('value-proposition');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
-  
   return (
     <footer className="w-full bg-gray-900 text-white py-16 px-4 footer" data-component="footer">
       <div className="max-w-6xl mx-auto">
@@ -85,28 +65,19 @@ export function Footer() {
           <div className="flex flex-col justify-end">
             <ul className="space-y-3 text-white">
               <li className="footer" style={liFont.getFontStyle()}>
-                <button 
-                  onClick={() => handleServiceClick('Strategic Leadership')}
-                  className="text-left hover:text-yellow-500 transition-colors bg-transparent border-none p-0 cursor-pointer"
-                >
+                <span className="text-white">
                   Strategic Leadership
-                </button>
+                </span>
               </li>
               <li className="footer" style={liFont.getFontStyle()}>
-                <button 
-                  onClick={() => handleServiceClick('Design & Innovation')}
-                  className="text-left hover:text-yellow-500 transition-colors bg-transparent border-none p-0 cursor-pointer"
-                >
+                <span className="text-white">
                   Design & Innovation
-                </button>
+                </span>
               </li>
               <li className="footer" style={liFont.getFontStyle()}>
-                <button 
-                  onClick={() => handleServiceClick('Operational Excellence')}
-                  className="text-left hover:text-yellow-500 transition-colors bg-transparent border-none p-0 cursor-pointer"
-                >
+                <span className="text-white">
                   Operational Excellence
-                </button>
+                </span>
               </li>
             </ul>
           </div>

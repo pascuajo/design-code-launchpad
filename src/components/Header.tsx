@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 import { ContactModal } from './ContactModal';
 import { useFonts } from '../hooks/useFonts';
@@ -7,10 +7,33 @@ import { useFonts } from '../hooks/useFonts';
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  
   const liFont = useFonts('header', 'li');
   const buttonFont = useFonts('header', 'button');
+
+  // Function to handle navigation - if not on homepage, go there first, then scroll
+  const handleNavigation = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      // If not on homepage, navigate there first
+      navigate('/');
+      // Wait for navigation, then scroll to section
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // If already on homepage, just scroll to section
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,16 +65,21 @@ export function Header() {
           <nav className="hidden md:block">
             <ul className="flex space-x-8">
               <li className="header" style={liFont.getFontStyle()}>
-                <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
+                <button 
+                  onClick={() => handleNavigation('value-proposition')}
+                  className="hover:text-yellow-500 transition-colors bg-transparent border-none p-0 cursor-pointer"
+                >
                   How I Can Help
-                </a>
+                </button>
               </li>
               <li className="header" style={liFont.getFontStyle()}>
-                <a href="/#about" className="hover:text-yellow-500 transition-colors">
+                <button 
+                  onClick={() => handleNavigation('about')}
+                  className="hover:text-yellow-500 transition-colors bg-transparent border-none p-0 cursor-pointer"
+                >
                   About Me
-                </a>
+                </button>
               </li>
-
             </ul>
           </nav>
 
@@ -98,22 +126,26 @@ export function Header() {
           <nav className="px-4 py-4">
             <ul className="space-y-4">
               <li className="header" style={liFont.getFontStyle()}>
-                <a 
-                  href="#value-proposition" 
-                  className="block hover:text-yellow-500 transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <button 
+                  onClick={() => {
+                    handleNavigation('value-proposition');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block hover:text-yellow-500 transition-colors py-2 bg-transparent border-none p-0 cursor-pointer w-full text-left"
                 >
                   How I Can Help
-                </a>
+                </button>
               </li>
               <li className="header" style={liFont.getFontStyle()}>
-                <a 
-                  href="/#about" 
-                  className="block hover:text-yellow-500 transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <button 
+                  onClick={() => {
+                    handleNavigation('about');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block hover:text-yellow-500 transition-colors py-2 bg-transparent border-none p-0 cursor-pointer w-full text-left"
                 >
                   About Me
-                </a>
+                </button>
               </li>
               <li className="pt-2">
                 <button 
