@@ -8,6 +8,10 @@ yarn-error.log*
 dist/
 build/
 
+# Prevent compiled JavaScript files from being committed
+src/**/*.js
+src/**/*.js.map
+
 # Environment variables
 .env
 .env.local

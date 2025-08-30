@@ -28,16 +28,16 @@ export function TubeMapTransition() {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-[80vh] overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 tube-map tube-map-transition"
+      className="relative h-[90vh] overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 tube-map tube-map-transition"
       data-component="tubeMap"
     >
-      {/* Main tube map with parallax and zoom effect */}
+      {/* Mobile version - much more zoomed in and positioned higher */}
       <div 
-        className="absolute inset-0 w-full h-full transition-transform duration-300 ease-out"
+        className="md:hidden absolute inset-0 w-full h-full transition-transform duration-300 ease-out"
         style={{
           backgroundImage: 'url(/tubemap.png)',
-          backgroundSize: '180%', // Mobile: 180% (more zoomed in)
-          backgroundPosition: 'center 30%',
+          backgroundSize: '250%', // Mobile: 250% (much more zoomed in)
+          backgroundPosition: 'center 20%', // Mobile: positioned higher to hide unwanted areas
           backgroundRepeat: 'no-repeat',
           transform: `scale(${1 + scrollY * 0.2}) translateY(${scrollY * -50}px)`,
         }}
