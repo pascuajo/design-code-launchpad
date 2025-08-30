@@ -89,22 +89,6 @@ export function TubeMapTransition() {
           }}
         />
       </svg>
-
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-yellow-300/40 rounded-full animate-pulse"
-            style={{
-              top: `${20 + (i * 10)}%`,
-              left: `${15 + (i * 8)}%`,
-              animationDelay: `${i * 0.2}s`,
-              transform: `translate(${scrollY * (20 - i * 2)}px, ${scrollY * (15 - i * 3)}px)`,
-            }}
-          />
-        ))}
-      </div>
     </section>
   );
 }

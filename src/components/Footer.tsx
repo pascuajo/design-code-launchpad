@@ -65,17 +65,17 @@ export function Footer() {
           <div className="flex flex-col justify-end">
             <ul className="space-y-3 text-white">
               <li className="footer" style={liFont.getFontStyle()}>
-                <Link to="/#value-proposition" className="hover:text-yellow-500 transition-colors">
+                <Link to="/#strategic-leadership" className="hover:text-yellow-500 transition-colors">
                   Strategic Leadership
                 </Link>
               </li>
               <li className="footer" style={liFont.getFontStyle()}>
-                <Link to="/#value-proposition" className="hover:text-yellow-500 transition-colors">
+                <Link to="/#design-innovation" className="hover:text-yellow-500 transition-colors">
                   Design & Innovation
                 </Link>
               </li>
               <li className="footer" style={liFont.getFontStyle()}>
-                <Link to="/#value-proposition" className="hover:text-yellow-500 transition-colors">
+                <Link to="/#operational-excellence" className="hover:text-yellow-500 transition-colors">
                   Operational Excellence
                 </Link>
               </li>
@@ -104,12 +104,12 @@ export function Footer() {
                 </div>
               </li>
               <li className="footer" style={liFont.getFontStyle()}>
-                <Link to="/blog" className="hover:text-yellow-500 transition-colors">
+                <Link to="/blog" className="hover:text-yellow-500 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                   Blog
                 </Link>
               </li>
               <li className="footer" style={liFont.getFontStyle()}>
-                <Link to="/book-club" className="hover:text-yellow-500 transition-colors">
+                <Link to="/book-club" className="hover:text-yellow-500 transition-colors" onClick={() => window.scrollTo(0, 0)}>
                   Book Club
                 </Link>
               </li>

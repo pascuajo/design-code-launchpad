@@ -121,7 +121,10 @@ export function ValuePropositionSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {pillars.map((pillar, index) => (
             <AnimateOnScroll key={pillar.title} delay={index * 0.2}>
-              <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-900 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col min-h-[600px]">
+              <div 
+                id={pillar.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '-')}
+                className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-900 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col min-h-[600px]"
+              >
                 {/* Placeholder Image */}
                 <div className="mb-6">
                   <img 
