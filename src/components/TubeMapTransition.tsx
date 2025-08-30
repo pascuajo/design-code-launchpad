@@ -28,7 +28,7 @@ export function TubeMapTransition() {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-[58.5vh] overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 tube-map tube-map-transition"
+      className="relative h-[80vh] overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 tube-map tube-map-transition"
       data-component="tubeMap"
     >
       {/* Main tube map with parallax and zoom effect */}
@@ -36,8 +36,20 @@ export function TubeMapTransition() {
         className="absolute inset-0 w-full h-full transition-transform duration-300 ease-out"
         style={{
           backgroundImage: 'url(/tubemap.png)',
-          backgroundSize: '100%',
-          backgroundPosition: 'center 60%',
+          backgroundSize: '180%', // Mobile: 180% (more zoomed in)
+          backgroundPosition: 'center 30%',
+          backgroundRepeat: 'no-repeat',
+          transform: `scale(${1 + scrollY * 0.2}) translateY(${scrollY * -50}px)`,
+        }}
+      />
+      
+      {/* Desktop version - smaller zoom */}
+      <div 
+        className="hidden md:block absolute inset-0 w-full h-full transition-transform duration-300 ease-out"
+        style={{
+          backgroundImage: 'url(/tubemap.png)',
+          backgroundSize: '100%', // Desktop: 100% (original size)
+          backgroundPosition: 'center 50%',
           backgroundRepeat: 'no-repeat',
           transform: `scale(${1 + scrollY * 0.2}) translateY(${scrollY * -50}px)`,
         }}
@@ -46,14 +58,7 @@ export function TubeMapTransition() {
       {/* Overlay gradient for depth */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-purple-900/20" />
       
-      {/* Clearmont mountain logo overlay - centered with 25% transparency */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 2 }}>
-        <img 
-          src="/Clearmont_mountain_only.png" 
-          alt="Clearmont" 
-          className="w-32 h-32 object-contain opacity-75"
-        />
-      </div>
+
       
       {/* Connection lines */}
       <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }}>

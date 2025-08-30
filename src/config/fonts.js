@@ -24,10 +24,7 @@ export const defaultFonts = {
         p: { component: 'valueProp', elementType: 'p', fontFamily: 'Inter', isActive: true },
         highlighted: { component: 'valueProp', elementType: 'highlighted', fontFamily: 'Source Code Pro', isActive: true }
     },
-    valueStick: {
-        p: { component: 'valueStick', elementType: 'p', fontFamily: 'Inter', isActive: true },
-        highlighted: { component: 'valueStick', elementType: 'highlighted', fontFamily: 'Source Code Pro', isActive: true }
-    },
+    
     imageLibrary: {
         h2: { component: 'imageLibrary', elementType: 'h2', fontFamily: 'Inter', isActive: true },
         h3: { component: 'imageLibrary', elementType: 'h3', fontFamily: 'Inter', isActive: true },
@@ -240,7 +237,7 @@ function getComponentClasses(componentId) {
         header: ['header'],
         logo: ['logo-section'],
         valueProp: ['value-prop', 'value-prop-section'],
-        valueStick: ['value-stick'],
+    
         imageLibrary: ['image-library'],
         testimonials: ['testimonials', 'testimonial-section'],
         metrics: ['metrics', 'metric-counter'],

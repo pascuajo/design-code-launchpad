@@ -48,8 +48,9 @@ export function LogoSection() {
   ];
 
   return (
-    <section className="w-full bg-gray-900 py-16 px-4 logo-section" data-component="logo">
-      <div className="max-w-full mx-auto overflow-hidden">
+    <section className="w-full bg-gray-900 py-8 md:py-16 px-4 logo-section" data-component="logo">
+      {/* Desktop: Animated scrolling logos - EXACTLY as before */}
+      <div className="hidden md:block max-w-full mx-auto overflow-hidden">
         <AnimateOnScroll>
           <div className="flex animate-scroll whitespace-nowrap">
             {/* First set of logos */}
@@ -74,6 +75,50 @@ export function LogoSection() {
             ))}
           </div>
         </AnimateOnScroll>
+      </div>
+
+      {/* Mobile: Static grid layout - custom arrangement */}
+      <div className="md:hidden max-w-full mx-auto px-4">
+        <div className="flex flex-col items-center space-y-4">
+          {/* Row 1: UBS, Amherst */}
+          <div className="flex space-x-8">
+            {logos.filter(logo => ['UBS Bank', 'Amherst'].includes(logo.name)).map(logo => (
+              <div key={logo.id} className="flex justify-center items-center">
+                <img 
+                  src={logo.imageUrl} 
+                  alt={`${logo.name} logo`} 
+                  className="h-8 w-auto object-contain" 
+                />
+              </div>
+            ))}
+          </div>
+          
+          {/* Row 2: Vista, Gatekeeper, Bungalo */}
+          <div className="flex space-x-6">
+            {logos.filter(logo => ['Vista', 'Gatekeeper', 'Bungalo'].includes(logo.name)).map(logo => (
+              <div key={logo.id} className="flex justify-center items-center">
+                <img 
+                  src={logo.imageUrl} 
+                  alt={`${logo.name} logo`} 
+                  className={logo.name === 'Vista' ? 'h-10 w-auto object-contain' : 'h-8 w-auto object-contain'} 
+                />
+              </div>
+            ))}
+          </div>
+          
+          {/* Row 3: MSR, Homepaired */}
+          <div className="flex space-x-8">
+            {logos.filter(logo => ['MSR', 'Homepaired'].includes(logo.name)).map(logo => (
+              <div key={logo.id} className="flex justify-center items-center">
+                <img 
+                  src={logo.imageUrl} 
+                  alt={`${logo.name} logo`} 
+                  className="h-8 w-auto object-contain" 
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

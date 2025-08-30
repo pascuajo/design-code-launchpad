@@ -65,19 +65,19 @@ export function Footer() {
           <div className="flex flex-col justify-end">
             <ul className="space-y-3 text-white">
               <li className="footer" style={liFont.getFontStyle()}>
-                <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
+                <Link to="/#value-proposition" className="hover:text-yellow-500 transition-colors">
                   Strategic Leadership
-                </a>
+                </Link>
               </li>
               <li className="footer" style={liFont.getFontStyle()}>
-                <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
+                <Link to="/#value-proposition" className="hover:text-yellow-500 transition-colors">
                   Design & Innovation
-                </a>
+                </Link>
               </li>
               <li className="footer" style={liFont.getFontStyle()}>
-                <a href="#value-proposition" className="hover:text-yellow-500 transition-colors">
+                <Link to="/#value-proposition" className="hover:text-yellow-500 transition-colors">
                   Operational Excellence
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -87,9 +87,9 @@ export function Footer() {
             <ul className="space-y-3 text-white">
               <li className="footer" style={liFont.getFontStyle()}>
                 <div className="flex items-center gap-3">
-                  <a href="#about" className="hover:text-yellow-500 transition-colors">
+                  <Link to="/#about" className="hover:text-yellow-500 transition-colors">
                     About Me
-                  </a>
+                  </Link>
                   <a 
                     href="https://www.linkedin.com/in/joe-pascual/" 
                     target="_blank" 

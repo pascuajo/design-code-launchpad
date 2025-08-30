@@ -70,8 +70,11 @@ export function ImageLibrary({
         {/* Section Motif - Vertical line with logo and intro */}
         <div className="mb-40 pt-8">
           <div className="relative">
-            {/* Vertical Line - positioned to perfectly intersect the gap with fade effects on both ends */}
-            <div className="absolute left-[44.4%] top-[-80px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
+            {/* Desktop Vertical Line - positioned to perfectly intersect the gap with fade effects on both ends */}
+            <div className="hidden md:block absolute left-[44.4%] top-[-80px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
+            
+            {/* Mobile Vertical Line - positioned independently for mobile */}
+            <div className="md:hidden absolute left-[28.8%] top-[-60px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
             
             {/* Content Container - elements positioned with line dissecting the gap */}
             <div className="flex items-center justify-center">

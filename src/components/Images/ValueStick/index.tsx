@@ -1,1 +1,0 @@
-export { ValueStick } from './ValueStick';

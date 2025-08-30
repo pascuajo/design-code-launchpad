@@ -97,8 +97,11 @@ export function AboutSection() {
         {/* Section Motif - Vertical line with logo and intro */}
         <div className="mb-32 pt-8">
           <div className="relative">
-            {/* Vertical Line - positioned to perfectly intersect the gap with fade effects on both ends */}
-            <div className="absolute left-[31.5%] top-[-80px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
+            {/* Desktop Vertical Line - positioned to perfectly intersect the gap with fade effects on both ends */}
+            <div className="hidden md:block absolute left-[31.5%] top-[-80px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
+            
+            {/* Mobile Vertical Line - positioned independently for mobile */}
+            <div className="md:hidden absolute left-[37%] top-[-100px] w-px h-80 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
             
             {/* Content Container - elements positioned with line dissecting the gap */}
             <div className="flex items-center justify-center">
@@ -113,9 +116,15 @@ export function AboutSection() {
               
               {/* Section Intro - positioned very close to right of center line */}
               <div className="flex-shrink-0 ml-2">
-                                  <p className="text-lg font-semibold text-gray-600 uppercase tracking-wide about" style={pFont.getFontStyle()}>
-                    <span className="handdrawn-highlight">15 YEARS OF UNRIVALLED PRODUCT INNOVATION...</span>
-                  </p>
+                {/* Desktop version - single line */}
+                <p className="hidden md:block text-lg font-semibold text-gray-600 uppercase tracking-wide about" style={pFont.getFontStyle()}>
+                  <span className="handdrawn-highlight">15 YEARS OF UNRIVALLED PRODUCT INNOVATION...</span>
+                </p>
+                
+                {/* Mobile version - wrapped text for iPhone width */}
+                <p className="md:hidden text-base font-semibold text-gray-600 uppercase tracking-wide about leading-tight" style={pFont.getFontStyle()}>
+                  <span className="handdrawn-highlight">15 YEARS OF<br />UNRIVALLED PRODUCT<br />INNOVATION...</span>
+                </p>
               </div>
             </div>
           </div>
@@ -127,11 +136,12 @@ export function AboutSection() {
           {/* Left side - Large Profile Picture with About Me header overlay */}
           <div className="lg:w-2/5 relative">
             <AnimateOnScroll direction="left">
-              <div className="w-full h-[600px] rounded-2xl overflow-hidden shadow-2xl relative">
+              <div className="w-full h-[300px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl relative">
                 <img 
                   src="/Profile.png" 
                   alt="Joe Pascual - Strategic Innovation Consultant" 
-                  className="w-full h-full object-cover object-top scale-110" 
+                  className="w-full h-full object-cover scale-90" 
+                  style={{ objectPosition: 'center 30%' }}
                 />
                 
                 {/* About Me header overlay on image */}
@@ -147,26 +157,26 @@ export function AboutSection() {
           {/* Right side - Full About Me summary */}
           <div className="lg:w-3/5">
             <AnimateOnScroll direction="right">
-              <div className="bg-white rounded-2xl p-8 shadow-lg h-[600px] flex flex-col justify-center">
-                <div className="space-y-6">
-                  <p className="text-gray-700 text-lg leading-relaxed" style={pFont.getFontStyle()}>
+              <div className="bg-white rounded-2xl p-4 md:p-8 shadow-lg h-auto md:h-[600px] flex flex-col justify-center">
+                <div className="space-y-4 md:space-y-6">
+                  <p className="text-gray-700 text-base md:text-lg leading-relaxed" style={pFont.getFontStyle()}>
                     Hi, I'm Joe. With over 15 years' experience leading strategic product and digital transformation across various industries and platforms - I've seen first-hand what it takes to transform operations, develop innovative products, and build high-performing teams.
                   </p>
                   
-                  <p className="text-gray-700 text-lg leading-relaxed" style={pFont.getFontStyle()}>
+                  <p className="text-gray-700 text-base md:text-lg leading-relaxed" style={pFont.getFontStyle()}>
                     My approach combines deep business acumen with a human-centered
                     design mindset, launching solutions that have generated significant value for
                     both the bottom line and customers.
                   </p>
                   
-                  <p className="text-gray-700 text-lg leading-relaxed" style={pFont.getFontStyle()}>
+                  <p className="text-gray-700 text-base md:text-lg leading-relaxed" style={pFont.getFontStyle()}>
                     I believe that the most successful organizations are those that
                     align their business goals with a meaningful purpose, creating
                     value for all stakeholders while making a positive impact on the
                     world.
                   </p>
                   
-                  <p className="text-gray-700 text-lg leading-relaxed" style={pFont.getFontStyle()}>
+                  <p className="text-gray-700 text-base md:text-lg leading-relaxed" style={pFont.getFontStyle()}>
                     Right now, I'm all in on Generative AI to transform operations, build new customer experiences, and stay ahead of the competition.
                   </p>
                 </div>
@@ -178,8 +188,11 @@ export function AboutSection() {
         {/* Third Section Motif - leading into domain tiles */}
         <div className="mb-40 pt-16">
           <div className="relative">
-            {/* Vertical Line - positioned to perfectly intersect the gap with fade effects on both ends */}
-            <div className="absolute left-[26%] top-[-80px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
+            {/* Desktop Vertical Line - positioned to perfectly intersect the gap with fade effects on both ends */}
+            <div className="hidden md:block absolute left-[26%] top-[-80px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
+            
+            {/* Mobile Vertical Line - positioned independently for mobile */}
+            <div className="md:hidden absolute left-[33%] top-[-100px] w-px h-80 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
             
             {/* Content Container - elements positioned with line dissecting the gap */}
             <div className="flex items-center justify-center">
@@ -194,9 +207,15 @@ export function AboutSection() {
               
               {/* Section Intro - positioned very close to right of center line */}
               <div className="flex-shrink-0 ml-2">
-                                  <p className="text-lg font-semibold text-gray-600 uppercase tracking-wide about" style={pFont.getFontStyle()}>
-                    <span className="handdrawn-highlight">UNIQUE SUCCESS CROSS-PLATFORM, INDUSTRY AND DOMAIN...</span>
-                  </p>
+                {/* Desktop version - single line */}
+                <p className="hidden md:block text-lg font-semibold text-gray-600 uppercase tracking-wide about" style={pFont.getFontStyle()}>
+                  <span className="handdrawn-highlight">UNIQUE SUCCESS CROSS-PLATFORM, INDUSTRY AND DOMAIN...</span>
+                </p>
+                
+                {/* Mobile version - wrapped text for iPhone width */}
+                <p className="md:hidden text-base font-semibold text-gray-600 uppercase tracking-wide about leading-tight" style={pFont.getFontStyle()}>
+                  <span className="handdrawn-highlight">UNIQUE SUCCESS<br />CROSS-PLATFORM,<br />INDUSTRY AND DOMAIN...</span>
+                </p>
               </div>
             </div>
           </div>
@@ -205,7 +224,8 @@ export function AboutSection() {
         {/* Domain Section */}
         <div className="w-full mb-2">
           <AnimateOnScroll>
-            <div className="flex gap-8">
+            {/* Desktop Layout - Original 4x2 + 1x2 structure */}
+            <div className="hidden md:flex gap-8">
               {/* Main Tech & Product Domains */}
               <div className="flex-1">
                 <div className="grid grid-cols-4 grid-rows-2 gap-4">
@@ -224,13 +244,13 @@ export function AboutSection() {
                         
                         {/* Hover Tooltip */}
                         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-[99999]">
-                          <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-80 relative z-[99999]">
-                            <h4 className="text-gray-800 mb-3 about" style={h3Font.getFontStyle()}>{domain.title}</h4>
-                            <div className="text-gray-700 leading-relaxed about" style={pFont.getFontStyle()}>
+                          <div className="bg-white rounded-xl p-3 shadow-2xl border border-gray-200 w-72 relative z-[99999]">
+                            <h4 className="text-gray-800 mb-2 about text-sm font-semibold" style={h3Font.getFontStyle()}>{domain.title}</h4>
+                            <div className="text-gray-700 leading-tight about text-xs" style={pFont.getFontStyle()}>
                               {domain.description.split(' • ').map((point, i) => (
                                 <div key={i} className="mb-1 flex items-start">
-                                  <Check className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                                  <span className="about" style={pFont.getFontStyle()}>{point.trim()}</span>
+                                  <Check className="w-3 h-3 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                                  <span className="about break-words" style={pFont.getFontStyle()}>{point.trim()}</span>
                                 </div>
                               ))}
                             </div>
@@ -265,13 +285,13 @@ export function AboutSection() {
                         
                         {/* Hover Tooltip */}
                         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-[99999]">
-                          <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-80 relative z-[99999]">
-                            <h4 className="text-gray-800 mb-3 about" style={h3Font.getFontStyle()}>{domain.title}</h4>
-                            <div className="text-gray-700 leading-relaxed about" style={h3Font.getFontStyle()}>
+                          <div className="bg-white rounded-xl p-3 shadow-2xl border border-gray-200 w-72 relative z-[99999]">
+                            <h4 className="text-gray-800 mb-2 about text-sm font-semibold" style={h3Font.getFontStyle()}>{domain.title}</h4>
+                            <div className="text-gray-700 leading-tight about text-xs" style={pFont.getFontStyle()}>
                               {domain.description.split(' • ').map((point, i) => (
                                 <div key={i} className="mb-1 flex items-start">
-                                  <Check className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                                  <span className="about" style={pFont.getFontStyle()}>{point.trim()}</span>
+                                  <Check className="w-3 h-3 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                                  <span className="about break-words" style={pFont.getFontStyle()}>{point.trim()}</span>
                                 </div>
                               ))}
                             </div>
@@ -283,6 +303,47 @@ export function AboutSection() {
                     );
                   })}
                 </div>
+              </div>
+            </div>
+
+            {/* Mobile Layout - 2x5 grid with all domains */}
+            <div className="md:hidden">
+              <div className="grid grid-cols-2 gap-3">
+                {domains.map((domain) => {
+                  const isIndustryOrCareer = ['Industries', 'Career'].includes(domain.title);
+                  return (
+                    <div 
+                      key={domain.title}
+                      className={`relative group flex flex-col items-center p-3 rounded-xl transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg ${
+                        isIndustryOrCareer ? 'bg-blue-50 hover:bg-blue-100' : 'bg-green-50 hover:bg-green-100'
+                      }`}
+                    >
+                      <div className="w-6 h-6 text-gray-600">
+                        {React.cloneElement(domain.icon as React.ReactElement, { className: "w-6 h-6 text-gray-600" })}
+                      </div>
+                      <span className="text-xs font-bold text-gray-600 text-center mt-2 leading-tight">
+                        {domain.title}
+                      </span>
+                      
+                      {/* Hover Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-[99999]">
+                        <div className="bg-white rounded-xl p-3 shadow-2xl border border-gray-200 w-72 relative z-[99999]">
+                          <h4 className="text-gray-800 mb-2 about text-sm font-semibold" style={h3Font.getFontStyle()}>{domain.title}</h4>
+                          <div className="text-gray-700 leading-tight about text-xs" style={pFont.getFontStyle()}>
+                            {domain.description.split(' • ').map((point, i) => (
+                              <div key={i} className="mb-1 flex items-start">
+                                <Check className="w-3 h-3 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                                <span className="about break-words" style={pFont.getFontStyle()}>{point.trim()}</span>
+                              </div>
+                            ))}
+                          </div>
+                          {/* Arrow pointing down */}
+                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </AnimateOnScroll>

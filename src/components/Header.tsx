@@ -6,6 +6,7 @@ import { useFonts } from '../hooks/useFonts';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const liFont = useFonts('header', 'li');
@@ -37,7 +38,7 @@ export function Header() {
           </Link>
         </div>
 
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center justify-end space-x-4 sm:space-x-8">
           <nav className="hidden md:block">
             <ul className="flex space-x-8">
               <li className="header" style={liFont.getFontStyle()}>
@@ -62,19 +63,74 @@ export function Header() {
             Contact
           </button>
           
-          <button className="md:hidden text-gray-800">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="h-6 w-6" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden text-gray-800 p-2 flex-shrink-0"
+          >
+            {isMobileMenuOpen ? (
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-6 w-6" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-6 w-6" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
+          <nav className="px-4 py-4">
+            <ul className="space-y-4">
+              <li className="header" style={liFont.getFontStyle()}>
+                <a 
+                  href="#value-proposition" 
+                  className="block hover:text-yellow-500 transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  How I Can Help
+                </a>
+              </li>
+              <li className="header" style={liFont.getFontStyle()}>
+                <a 
+                  href="/#about" 
+                  className="block hover:text-yellow-500 transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  About Me
+                </a>
+              </li>
+              <li className="pt-2">
+                <button 
+                  onClick={() => {
+                    setIsContactModalOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full bg-yellow-300 hover:bg-yellow-600 text-black font-medium py-3 px-5 rounded-full transition duration-300"
+                  style={buttonFont.getFontStyle()}
+                >
+                  Contact
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      )}
 
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </header>

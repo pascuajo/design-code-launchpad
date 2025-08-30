@@ -9,6 +9,37 @@ body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Prevent horizontal scrolling on mobile - but allow logo section to work */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Allow logo section to overflow for animation */
+.logo-section {
+  overflow: visible !important;
+  max-width: none !important;
+}
+
+.logo-section .animate-scroll {
+  overflow: visible !important;
+  max-width: none !important;
+}
+
+.logo-section .flex {
+  overflow: visible !important;
+  max-width: none !important;
+}
+
+/* Ensure logo images are fully visible */
+.logo-section img {
+  max-width: none !important;
+  overflow: visible !important;
+}
+
+
+
 /* Font variables for dynamic font changes */
 :root {
   /* Heading fonts */

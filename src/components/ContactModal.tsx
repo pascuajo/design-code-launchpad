@@ -259,39 +259,38 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </div>
               </div>
 
-              {/* Message and Submit Row */}
-              <div className="flex gap-4 items-end">
-                <div className="flex-1" style={{ width: '75%' }}>
-                  <label htmlFor="message" className="block text-gray-700 mb-2 contact-modal" style={labelFont.getFontStyle()}>
-                    Your Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className={`w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
-                    placeholder="How can I help you?"
-                    style={formFieldFont.getFontStyle()}
-                  ></textarea>
-                  {errors.message && (
-                    <p className="text-red-500 text-sm mt-1 contact-modal" style={pFont.getFontStyle()}>
-                      {errors.message}
-                    </p>
-                  )}
-                </div>
+              {/* Message Field */}
+              <div>
+                <label htmlFor="message" className="block text-gray-700 mb-2 contact-modal" style={labelFont.getFontStyle()}>
+                  Your Message *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className={`w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-yellow-500 text-black`}
+                  placeholder="How can I help you?"
+                  style={formFieldFont.getFontStyle()}
+                ></textarea>
+                {errors.message && (
+                  <p className="text-red-500 text-sm mt-1 contact-modal" style={pFont.getFontStyle()}>
+                    {errors.message}
+                  </p>
+                )}
+              </div>
 
-                <div style={{ width: '25%' }}>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="bg-yellow-300 hover:bg-yellow-600 text-accent-foreground font-medium py-4 px-10 rounded-full transition duration-300 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
-                    style={buttonFont.getFontStyle()}
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </button>
-                </div>
+              {/* Submit Button - Full Width */}
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-yellow-300 hover:bg-yellow-600 text-accent-foreground font-medium py-3 px-8 rounded-lg transition duration-300 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={buttonFont.getFontStyle()}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
               </div>
               
               {submitStatus === 'error' && (

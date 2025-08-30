@@ -50,15 +50,45 @@ export function ValuePropositionSection() {
       <div className="max-w-7xl mx-auto">
         {/* Section Motif - Vertical line with logo and intro */}
         <div className="mb-32">
-          <AnimateOnScroll>
+          {/* Desktop Motif - EXACTLY as before */}
+          <div className="hidden md:block">
+            <AnimateOnScroll>
+              <div className="relative">
+                {/* Vertical Line - positioned to perfectly intersect the gap with fade effects on both ends */}
+                <div className="absolute left-[37.3%] top-[-80px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
+                
+                {/* Content Container - elements positioned with line dissecting the gap */}
+                <div className="flex items-center justify-center">
+                  {/* Mountain Logo - positioned very close to left of center line */}
+                  <div className="w-16 h-16 flex-shrink-0 mr-2">
+                    <img 
+                      src="/Clearmont_mountain_only.png" 
+                      alt="Clearmont" 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  
+                  {/* Section Intro - positioned very close to right of center line */}
+                  <div className="flex-shrink-0 ml-2">
+                    <p className="text-lg font-semibold text-gray-600 uppercase tracking-wide value-prop" style={pFont.getFontStyle()}>
+                      <span className="handdrawn-highlight">Where Strategy Meets Execution...</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          </div>
+
+          {/* Mobile Motif - Completely separate, mobile-optimized */}
+          <div className="md:hidden">
             <div className="relative">
-              {/* Vertical Line - positioned to perfectly intersect the gap with fade effects on both ends */}
-              <div className="absolute left-[37.3%] top-[-80px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
+              {/* Mobile Vertical Line - positioned to intersect gap between logo and words */}
+              <div className="absolute left-[32%] top-[-60px] w-px h-64 bg-gradient-to-b from-transparent via-gray-900 to-transparent"></div>
               
-              {/* Content Container - elements positioned with line dissecting the gap */}
-              <div className="flex items-center justify-center">
-                {/* Mountain Logo - positioned very close to left of center line */}
-                <div className="w-16 h-16 flex-shrink-0 mr-2">
+              {/* Mobile Content Container - logo and words on same row, centered on line */}
+              <div className="flex items-center justify-center pt-8 pb-4">
+                {/* Mountain Logo - positioned to left of line */}
+                <div className="w-12 h-12 mr-3">
                   <img 
                     src="/Clearmont_mountain_only.png" 
                     alt="Clearmont" 
@@ -66,15 +96,15 @@ export function ValuePropositionSection() {
                   />
                 </div>
                 
-                {/* Section Intro - positioned very close to right of center line */}
-                <div className="flex-shrink-0 ml-2">
-                  <p className="text-lg font-semibold text-gray-600 uppercase tracking-wide value-prop" style={pFont.getFontStyle()}>
-                    <span className="handdrawn-highlight">Where Strategy Meets Execution...</span>
+                {/* Section Intro - text positioned to right of line */}
+                <div className="ml-3">
+                  <p className="text-base font-semibold text-gray-600 uppercase tracking-wide leading-tight value-prop" style={pFont.getFontStyle()}>
+                    <span className="handdrawn-highlight">Where Strategy<br />Meets Execution...</span>
                   </p>
                 </div>
               </div>
             </div>
-          </AnimateOnScroll>
+          </div>
         </div>
 
         {/* Main Content */}
