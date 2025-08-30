@@ -147,9 +147,11 @@ export function AboutSection() {
                 
                 {/* About Me header overlay on image */}
                 <div className="absolute top-6 left-6">
-                  <h2 className="text-4xl font-bold about" style={h2Font.getFontStyle()}>
-                    <span className="handdrawn-highlight" style={highlightedFont.getFontStyle()}>About me..</span>
-                  </h2>
+                  <div className="bg-gradient-to-br from-white/90 via-white/80 to-transparent px-4 py-2 rounded-lg shadow-lg transform -rotate-12">
+                    <h2 className="text-4xl font-bold about" style={h2Font.getFontStyle()}>
+                      <span className="handdrawn-highlight" style={highlightedFont.getFontStyle()}>About me..</span>
+                    </h2>
+                  </div>
                 </div>
               </div>
               
@@ -164,9 +166,11 @@ export function AboutSection() {
                 
                 {/* About Me header overlay on image */}
                 <div className="absolute top-6 left-6">
-                  <h2 className="text-3xl font-bold about" style={h2Font.getFontStyle()}>
-                    <span className="handdrawn-highlight" style={highlightedFont.getFontStyle()}>About me..</span>
-                  </h2>
+                  <div className="bg-gradient-to-br from-white/90 via-white/80 to-transparent px-3 py-2 rounded-lg shadow-lg transform -rotate-12">
+                    <h2 className="text-3xl font-bold about" style={h2Font.getFontStyle()}>
+                      <span className="handdrawn-highlight" style={highlightedFont.getFontStyle()}>About me..</span>
+                    </h2>
+                  </div>
                 </div>
               </div>
             </AnimateOnScroll>
