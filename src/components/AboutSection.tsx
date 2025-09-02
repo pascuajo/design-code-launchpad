@@ -1,6 +1,5 @@
 import React from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
-import { OptimizedImage } from './OptimizedImage';
 import { useFonts } from '../hooks/useFonts';
 import { DollarSign, Home, Shield, Scale, Handshake, Database, Brain, Monitor, Building2, Globe, Check } from 'lucide-react';
 
@@ -139,7 +138,7 @@ export function AboutSection() {
             <AnimateOnScroll direction="left">
               {/* Desktop Profile Image */}
               <div className="hidden md:block w-full h-[600px] rounded-2xl overflow-hidden shadow-2xl relative">
-                <OptimizedImage 
+                <img 
                   src="/Profile.png" 
                   alt="Joe Pascual - Strategic Innovation Consultant with 15+ years experience in product management and digital transformation" 
                   className="w-full h-full object-cover scale-90" 
@@ -159,7 +158,7 @@ export function AboutSection() {
               
               {/* Mobile Profile Image */}
               <div className="md:hidden w-full h-[300px] rounded-2xl overflow-hidden shadow-2xl relative">
-                <OptimizedImage 
+                <img 
                   src="/ProfileRoto.png" 
                   alt="Joe Pascual - Strategic Innovation Consultant with 15+ years experience in product management and digital transformation" 
                   className="w-full h-full object-cover scale-90" 
