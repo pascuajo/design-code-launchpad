@@ -17,6 +17,7 @@
 import { useState } from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
 import { ContactModal } from './ContactModal';
+import { OptimizedImage } from './OptimizedImage';
 import { useFonts } from '../hooks/useFonts';
 
 export function HeroSection() {
@@ -31,10 +32,11 @@ export function HeroSection() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
         <AnimateOnScroll direction="right" className="hidden md:block md:w-1/3 mb-12 md:mb-0">
           <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden mx-auto md:mx-0">
-            <img 
+            <OptimizedImage 
               src="/ProfileRoto.png" 
-              alt="Consultant portrait" 
-              className="w-full h-full object-cover object-top scale-110" 
+              alt="Joe Pascual - Strategic Product Consultant and Digital Transformation Leader" 
+              className="w-full h-full object-cover object-top scale-110"
+              loading="eager"
             />
           </div>
         </AnimateOnScroll>
