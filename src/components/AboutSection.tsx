@@ -184,24 +184,15 @@ export function AboutSection() {
               <div className="bg-white rounded-2xl p-4 md:p-8 shadow-lg h-auto md:h-[600px] flex flex-col justify-center">
                 <div className="space-y-4 md:space-y-6">
                   <p className="text-gray-700 text-base md:text-lg leading-relaxed" style={pFont.getFontStyle()}>
-                    Hi, I'm Joe. With over 15 years' experience leading strategic product and digital transformation across various industries and platforms - I've seen first-hand what it takes to transform operations, develop innovative products, and build high-performing teams.
+                    Hi, I'm Joe. Over 15+ years, I've built products across investment banks, startups, and everything in between. I know what works, what doesn't, and how to navigate the messy reality of making things happen.
                   </p>
                   
                   <p className="text-gray-700 text-base md:text-lg leading-relaxed" style={pFont.getFontStyle()}>
-                    My approach combines deep business acumen with a human-centered
-                    design mindset, launching solutions that have generated significant value for
-                    both the bottom line and customers.
+                    I focus on three areas: Strategic Leadership (getting clarity on what actually matters), Design & Innovation (building and testing solutions quickly), and Operational Excellence (leveraging AI to help teams work smarter, not harder).
                   </p>
                   
                   <p className="text-gray-700 text-base md:text-lg leading-relaxed" style={pFont.getFontStyle()}>
-                    I believe that the most successful organizations are those that
-                    align their business goals with a meaningful purpose, creating
-                    value for all stakeholders while making a positive impact on the
-                    world.
-                  </p>
-                  
-                  <p className="text-gray-700 text-base md:text-lg leading-relaxed" style={pFont.getFontStyle()}>
-                    Right now, I'm all in on Generative AI to transform operations, build new customer experiences, and stay ahead of the competition.
+                    Whether you're stuck on strategy, need to move fast on a new idea, or want to level up how your team operates, I've been there. I bring practical experience across FinTech, PropTech, LegalTech, and Financial Services—and I adapt to whatever situation you're facing.
                   </p>
                 </div>
               </div>
