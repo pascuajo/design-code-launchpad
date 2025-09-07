@@ -52,7 +52,7 @@ export function HeroSection() {
                 />
               </div>
               <p className="text-lg font-semibold text-black uppercase tracking-wide hero" style={pFont.getFontStyle()}>
-                Build Better
+                Think Bigger
               </p>
             </div>
             
