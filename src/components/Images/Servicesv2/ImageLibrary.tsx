@@ -24,7 +24,7 @@ const imageData: ImageData[] = [{
 }, {
   id: 'app-design',
   url: "/app_design.jpg",
-  title: 'Product Design & Prototyping',
+  title: 'Product Design',
   description: 'Rapidly turn new concepts and ideas into testable solutions (without derailing your current team\'s roadmap)',
   tags: ['Rapid Prototyping', 'ROI Development', 'New Customer Experiences'],
   category: 'Design'
