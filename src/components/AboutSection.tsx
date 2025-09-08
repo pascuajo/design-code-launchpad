@@ -224,12 +224,12 @@ export function AboutSection() {
               <div className="flex-shrink-0 ml-2">
                 {/* Desktop version - single line */}
                 <p className="hidden md:block text-lg font-semibold text-gray-600 uppercase tracking-wide about" style={pFont.getFontStyle()}>
-                  <span className="handdrawn-highlight">UNIQUE SUCCESS CROSS-PLATFORM, INDUSTRY AND DOMAIN...</span>
+                  <span className="handdrawn-highlight">PROVEN SUCCESS ACROSS MULTIPLE PLATFORMS & INDUSTRIES...</span>
                 </p>
                 
                 {/* Mobile version - wrapped text for iPhone width */}
                 <p className="md:hidden text-base font-semibold text-gray-600 uppercase tracking-wide about leading-tight" style={pFont.getFontStyle()}>
-                  <span className="handdrawn-highlight">UNIQUE SUCCESS<br />CROSS-PLATFORM,<br />INDUSTRY AND DOMAIN...</span>
+                  <span className="handdrawn-highlight">PROVEN SUCCESS<br />ACROSS MULTIPLE PLATFORM,<br />INDUSTRY AND DOMAIN...</span>
                 </p>
               </div>
             </div>
@@ -261,12 +261,11 @@ export function AboutSection() {
                             
                             {/* Hover Tooltip */}
                             <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-[99999]">
-                              <div className="bg-white rounded-xl p-3 shadow-2xl border border-gray-200 w-72 relative z-[99999]">
-                                <h4 className="text-gray-800 mb-2 about text-sm font-semibold" style={h3Font.getFontStyle()}>{domain.title}</h4>
-                                <div className="text-gray-700 leading-tight about text-xs" style={pFont.getFontStyle()}>
+                              <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-72 relative z-[99999]">
+                                <div className="text-gray-700 leading-tight about text-sm" style={pFont.getFontStyle()}>
                                   {domain.description.split(' • ').map((point, i) => (
-                                    <div key={i} className="mb-1 flex items-start">
-                                      <Check className="w-3 h-3 text-amber-600 mr-2 mt-0.5 flex-shrink-0" />
+                                    <div key={i} className="mb-2 flex items-start">
+                                      <Check className="w-4 h-4 text-amber-600 mr-3 mt-0.5 flex-shrink-0" />
                                       <span className="about break-words" style={pFont.getFontStyle()}>{point.trim()}</span>
                                     </div>
                                   ))}
@@ -302,12 +301,11 @@ export function AboutSection() {
                             
                             {/* Hover Tooltip */}
                             <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-[99999]">
-                              <div className="bg-white rounded-xl p-3 shadow-2xl border border-gray-200 w-72 relative z-[99999]">
-                                <h4 className="text-gray-800 mb-2 about text-sm font-semibold" style={h3Font.getFontStyle()}>{domain.title}</h4>
-                                <div className="text-gray-700 leading-tight about text-xs" style={pFont.getFontStyle()}>
+                              <div className="bg-white rounded-xl p-4 shadow-2xl border border-gray-200 w-72 relative z-[99999]">
+                                <div className="text-gray-700 leading-tight about text-sm" style={pFont.getFontStyle()}>
                                   {domain.description.split(' • ').map((point, i) => (
-                                    <div key={i} className="mb-1 flex items-start">
-                                      <Check className="w-3 h-3 text-amber-600 mr-2 mt-0.5 flex-shrink-0" />
+                                    <div key={i} className="mb-2 flex items-start">
+                                      <Check className="w-4 h-4 text-amber-600 mr-3 mt-0.5 flex-shrink-0" />
                                       <span className="about break-words" style={pFont.getFontStyle()}>{point.trim()}</span>
                                     </div>
                                   ))}
