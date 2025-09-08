@@ -330,7 +330,6 @@ export function AboutSection() {
               <div className="bg-gradient-to-br from-stone-100 to-stone-200 p-4 rounded-2xl shadow-[inset_-2px_-2px_4px_rgba(0,0,0,0.2),inset_2px_2px_4px_rgba(255,255,255,0.6)]">
                 <div className="grid grid-cols-2 gap-3">
                 {domains.map((domain, index) => {
-                  const isIndustryOrCareer = ['Industries', 'Career'].includes(domain.title);
                   const isLeftColumn = index % 2 === 0; // Left column tiles (even indices)
                   return (
                     <div 
