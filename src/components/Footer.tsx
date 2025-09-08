@@ -65,17 +65,17 @@ export function Footer() {
           <div className="flex flex-col justify-end">
             <ul className="space-y-3 text-white">
               <li className="footer" style={liFont.getFontStyle()}>
-                <span className="text-white">
+                <span className="text-white font-mono">
                   Strategic Leadership
                 </span>
               </li>
               <li className="footer" style={liFont.getFontStyle()}>
-                <span className="text-white">
+                <span className="text-white font-mono">
                   Design & Innovation
                 </span>
               </li>
               <li className="footer" style={liFont.getFontStyle()}>
-                <span className="text-white">
+                <span className="text-white font-mono">
                   Operational Excellence
                 </span>
               </li>

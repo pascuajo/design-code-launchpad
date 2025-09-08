@@ -248,7 +248,7 @@ export function MetricCounter() {
                 {hasStarted && (
                   <>
                     <FlipCard targetChar="$" duration={2500} delay={0} bgColor="bg-white" textColor="text-black text-3xl" />
-                    <FlipCard targetChar="3" duration={2500} delay={100} bgColor="bg-white" textColor="text-black text-3xl" />
+                    <FlipCard targetChar="2" duration={2500} delay={100} bgColor="bg-white" textColor="text-black text-3xl" />
                     <FlipCard targetChar="B" duration={2500} delay={200} isLetter isMetricLetter bgColor="bg-white" textColor="text-black text-3xl" />
                     <FlipCard targetChar="n" duration={2500} delay={300} isLetter isMetricLetter bgColor="bg-white" textColor="text-black text-3xl" />
                     <FlipCard targetChar="+" duration={2500} delay={400} bgColor="bg-white" textColor="text-black text-3xl" />

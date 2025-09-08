@@ -76,3 +76,4 @@ export function getCurrentHomepageSEO(): SEOConfig {
 export function getServiceSEO(serviceKey: string): SEOConfig {
   return serviceSEOConfigs[serviceKey] || homepageVariations[0];
 }
+
