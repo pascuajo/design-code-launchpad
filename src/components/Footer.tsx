@@ -110,6 +110,19 @@ export function Footer() {
                       <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                     </svg>
                   </a>
+                  <a 
+                    href="https://blinq.me/tmTafHegIU6I?bs=db" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors flex-shrink-0"
+                  >
+                    <span className="sr-only">Blinq</span>
+                    <img 
+                      src="/blinklogo_white.png" 
+                      alt="Blinq" 
+                      className="w-5 h-5" 
+                    />
+                  </a>
                 </div>
               </li>
               <li className="footer" style={liFont.getFontStyle()}>
