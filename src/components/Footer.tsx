@@ -117,20 +117,16 @@ export function Footer() {
                     className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-yellow-500 transition-colors flex-shrink-0"
                   >
                     <span className="sr-only">Blinq</span>
+                    {/* Desktop: Show image */}
                     <img 
                       src="/blinklogo_white.png" 
                       alt="Blinq" 
-                      className="w-5 h-5" 
+                      className="w-5 h-5 hidden md:block" 
                       loading="eager"
-                      onLoad={() => console.log('Blinq logo loaded successfully')}
-                      onError={(e) => {
-                        console.error('Blinq logo failed to load:', e);
-                        e.currentTarget.style.display = 'none';
-                        e.currentTarget.nextElementSibling.style.display = 'block';
-                      }}
                     />
-                    <div className="w-5 h-5 flex items-center justify-center text-white text-xs font-bold" style={{display: 'none'}}>
-                      B
+                    {/* Mobile: Show large lowercase b */}
+                    <div className="md:hidden text-white text-xl font-normal" style={{fontFamily: 'Arial, sans-serif'}}>
+                      b
                     </div>
                   </a>
                 </div>
