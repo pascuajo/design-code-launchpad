@@ -121,7 +121,17 @@ export function Footer() {
                       src="/blinklogo_white.png" 
                       alt="Blinq" 
                       className="w-5 h-5" 
+                      loading="eager"
+                      onLoad={() => console.log('Blinq logo loaded successfully')}
+                      onError={(e) => {
+                        console.error('Blinq logo failed to load:', e);
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling.style.display = 'block';
+                      }}
                     />
+                    <div className="w-5 h-5 flex items-center justify-center text-white text-xs font-bold" style={{display: 'none'}}>
+                      B
+                    </div>
                   </a>
                 </div>
               </li>
