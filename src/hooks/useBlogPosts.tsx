@@ -49,7 +49,7 @@ export function useBlogPosts(limit?: number) {
         publishedAt: post.created_at,
         author: post.author,
         slug: post.slug,
-        category: post.category || undefined,
+        category: undefined, // Remove category since it doesn't exist in the database
         tags: post.tags || []
       })) || [];
       

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useBlogPosts, BlogPost } from '../hooks/useBlogPosts';
+import { useBlogPosts } from '../hooks/useBlogPosts';
 
 interface BlogCarouselProps {
   limit?: number;
@@ -74,8 +74,6 @@ export const BlogCarousel: React.FC<BlogCarouselProps> = ({ limit = 5 }) => {
 
   if (posts.length === 0) return null;
 
-  const currentPost = posts[currentIndex];
-
   return (
     <section className="bg-gray-900 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,7 +96,7 @@ export const BlogCarousel: React.FC<BlogCarouselProps> = ({ limit = 5 }) => {
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
-            {posts.map((post, index) => (
+            {posts.map((post) => (
               <div 
                 key={post.id}
                 className="w-full flex-shrink-0"
