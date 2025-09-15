@@ -7,6 +7,7 @@ import { TestimonialSection } from './components/TestimonialSection';
 import { TubeMapTransition } from './components/TubeMapTransition';
 import { AboutSection } from './components/AboutSection';
 import { MetricCounter } from './components/MetricCounter';
+import { BlogCarousel } from './components/BlogCarousel';
 import { SEO } from './components/SEO';
 
 import { Footer } from './components/Footer';
@@ -30,6 +31,7 @@ export function App() {
         <MetricCounter />
         <TubeMapTransition />
         <AboutSection />
+        <BlogCarousel limit={3} />
         <Footer />
       </div>
     </div>
