@@ -207,6 +207,22 @@ li { font-family: var(--font-body-li); }
   font-family: 'Source Code Pro', 'Courier New', 'Monaco', 'Consolas', 'Menlo', monospace !important;
 }
 
+/* Blog post links styling */
+.prose a,
+.blog-post-detail .prose a,
+.blog-post-detail .prose-lg a {
+  color: #3b82f6 !important; /* blue-500 */
+  text-decoration: underline !important;
+  cursor: pointer !important;
+}
+
+.prose a:hover,
+.blog-post-detail .prose a:hover,
+.blog-post-detail .prose-lg a:hover {
+  color: #1d4ed8 !important; /* blue-700 */
+  text-decoration: underline !important;
+}
+
 /* Specific component font overrides */
 [data-component="hero"] h1,
 [data-component="hero"] p,

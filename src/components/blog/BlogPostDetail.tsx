@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { supabase } from '../../integrations/supabase/client';
 import { BlogPost } from '../admin/BlogAdmin';
@@ -11,6 +11,7 @@ export function BlogPostDetail() {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const markdownRef = useRef<HTMLDivElement>(null);
   
   const h1Font = useFonts('blog', 'h1');
   const pFont = useFonts('blog', 'p');
@@ -58,6 +59,17 @@ export function BlogPostDetail() {
       day: 'numeric',
     });
   };
+
+  // Add target="_blank" to all external links after markdown is rendered
+  useEffect(() => {
+    if (markdownRef.current && post) {
+      const links = markdownRef.current.querySelectorAll('a[href^="http"]');
+      links.forEach((link) => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      });
+    }
+  }, [post]);
 
   if (loading) {
     return (
@@ -152,7 +164,7 @@ export function BlogPostDetail() {
             )}
           </header>
 
-          <div className="prose prose-lg max-w-none">
+          <div ref={markdownRef} className="prose prose-lg max-w-none">
             <MDEditor.Markdown 
               source={post.content}
               style={{ backgroundColor: 'transparent' }}
