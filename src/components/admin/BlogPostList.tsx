@@ -1,13 +1,14 @@
 import { BlogPost } from './BlogAdmin';
-import { Edit2, Trash2, Eye } from 'lucide-react';
+import { Edit2, Trash2, Eye, Link } from 'lucide-react';
 
 interface BlogPostListProps {
   posts: BlogPost[];
   onEdit: (post: BlogPost) => void;
   onDelete: (id: string) => void;
+  onCheckLinks: (post: BlogPost) => void;
 }
 
-export function BlogPostList({ posts, onEdit, onDelete }: BlogPostListProps) {
+export function BlogPostList({ posts, onEdit, onDelete, onCheckLinks }: BlogPostListProps) {
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -73,6 +74,13 @@ export function BlogPostList({ posts, onEdit, onDelete }: BlogPostListProps) {
                         <Eye size={16} />
                       </a>
                     )}
+                    <button
+                      onClick={() => onCheckLinks(post)}
+                      className="p-1 text-muted-foreground hover:text-blue-600"
+                      title="Check links"
+                    >
+                      <Link size={16} />
+                    </button>
                     <button
                       onClick={() => onEdit(post)}
                       className="p-1 text-muted-foreground hover:text-foreground"

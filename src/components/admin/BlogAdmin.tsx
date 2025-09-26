@@ -3,6 +3,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { supabase } from '../../integrations/supabase/client';
 import { BlogPostForm } from './BlogPostForm';
 import { BlogPostList } from './BlogPostList';
+import { LinkChecker } from './LinkChecker';
 
 import { Plus, LogOut } from 'lucide-react';
 
@@ -25,6 +26,8 @@ export function BlogAdmin() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [showForm, setShowForm] = useState(false);
+  const [showLinkChecker, setShowLinkChecker] = useState(false);
+  const [linkCheckerPost, setLinkCheckerPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
 
 
@@ -83,6 +86,41 @@ export function BlogAdmin() {
     }
   };
 
+  const handleCheckLinks = (post: BlogPost) => {
+    setLinkCheckerPost(post);
+    setShowLinkChecker(true);
+  };
+
+  const handleCloseLinkChecker = () => {
+    setShowLinkChecker(false);
+    setLinkCheckerPost(null);
+  };
+
+  const handleUpdateContent = async (newContent: string) => {
+    if (!linkCheckerPost) return;
+
+    try {
+      const { error } = await supabase
+        .from('blog_posts')
+        .update({ content: newContent })
+        .eq('id', linkCheckerPost.id);
+
+      if (error) throw error;
+      
+      // Update the local posts state
+      setPosts(posts.map(post => 
+        post.id === linkCheckerPost.id 
+          ? { ...post, content: newContent }
+          : post
+      ));
+      
+      // Update the link checker post
+      setLinkCheckerPost({ ...linkCheckerPost, content: newContent });
+    } catch (error) {
+      console.error('Error updating post content:', error);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <header className="bg-card border-b border-border">
@@ -133,11 +171,21 @@ export function BlogAdmin() {
                 posts={posts}
                 onEdit={handleEditPost}
                 onDelete={handleDeletePost}
+                onCheckLinks={handleCheckLinks}
               />
             )}
           </div>
         )}
       </main>
+
+      {/* Link Checker Modal */}
+      {showLinkChecker && linkCheckerPost && (
+        <LinkChecker
+          content={linkCheckerPost.content}
+          onClose={handleCloseLinkChecker}
+          onUpdateContent={handleUpdateContent}
+        />
+      )}
     </div>
   );
 }
